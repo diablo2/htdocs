@@ -1,0 +1,10 @@
+body {background-color: #2554C7;}
+
+/*===============================================
+=================     Home     ==================
+=================================================*/
+#PublicRelations {background-color: #000000; float: left;}
+#Activity {background-color: #FFFFFF; float: left;}
+.detailPR {width: 100%; }
+.detailActivity {width: 100%; float: left;}
+.detail {width: 20%;height: 40px; float: left; background-color: #FF0000;}
