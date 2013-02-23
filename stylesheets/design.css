@@ -1,10 +1,21 @@
+/******************************* Font *******************************/
+@font-face {font-family:'supermarketRegular';
+src:url('../f0nt/supermarket-webfont.eot');
+src:url('../f0nt/supermarket-webfont.eot?#iefix')format('embedded-opentype'),
+url('../f0nt/supermarket-webfont.woff')format('woff'),
+url('../f0nt/supermarket-webfont.ttf')format('truetype');
+font-weight:normal;font-style:normal;}
+
 body {background-color: #2554C7;}
 
 /*===============================================
 =================     Home     ==================
 =================================================*/
-#PublicRelations {background-color: #000000; float: left;}
-#Activity {background-color: #FFFFFF; float: left;}
-.detailPR {width: 100%; }
-.detailActivity {width: 100%; float: left;}
-.detail {width: 20%;height: 40px; float: left; background-color: #FF0000;}
+#PR div {font:bold 18px 'supermarketRegular';}
+
+/*===============================================
+=================     Login    ==================
+=================================================*/
+.form_login { height: 500px ;width: 100%; background-color: #000000; float: right; margin-top: 50px}
+.form_login label {font: normal 16px 'supermarketRegular'}
+.form_login h3 {font-family: 'supermarketRegular'}

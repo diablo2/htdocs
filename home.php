@@ -43,10 +43,14 @@
   
   
   <div class="row">    
-    
+        
+    <!-- Nav Sidebar -->
+    <!-- This is source ordered to be pulled to the left on larger screens -->
+    <?php include ('component/side-nav.php'); ?>
+
     <!-- Main Content Section -->
     <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
-    <div class="nine columns push-three">
+    <div class="nine columns ">
       <div id="featured">
           <img src="../images/slide/1.jpg" />
           <img src="../images/slide/2.jpg" />
@@ -54,49 +58,36 @@
       </div>
 
 <!-- Public Relations -->
-
-      <div id="PublicRelations">
-        <div class="detailPR" class="twelve columns">
-          <?php
-            for($i=1;$i<5;$i++)
-              echo '<div class="detail">fffff</div>';
-          ?>   
+    <div id="PR">
+      <div class="row">
+        <div class="three columns">
+          Public Relation
         </div>
-        <div class="detailActivity">
+        <div class="twelve columns">        
+           <ul class="block-grid five-up">
+            <li>#######</li>
+            <li>#######</li>
+            <li>#######</li>
+            <li>#######</li>
+            <li>#######</li>
+           </ul>
+           
+        </div>
+        <div class="three columns">
+          Activity
+        </div>
+        <div class="twelve columns">
+           <ul class="block-grid five-up">
+            <li>#######</li>
+            <li>#######</li>
+            <li>#######</li>
+            <li>#######</li>
+            <li>#######</li>
+           </ul>
         </div>
       </div>
-
-
-<!-- Activity -->     
-      <div id="Activity">
-
-          <?php
-            $g = "GGGGGGGGGGGG";
-              echo $g;
-          ?>
-      </div>
-
-
     </div>
-    
-    
-    <!-- Nav Sidebar -->
-    <!-- This is source ordered to be pulled to the left on larger screens -->
-    <div class="three columns pull-nine">
-        
-      <ul class="side-nav">
-        <li><a href="#">Section 1</a></li>
-        <li><a href="#">Section 2</a></li>
-        <li><a href="#">Section 3</a></li>
-        <li><a href="#">Section 4</a></li>
-        <li><a href="#">Section 5</a></li>
-        <li><a href="#">Section 6</a></li>
-      </ul>
-      
-      <p><img src="http://placehold.it/320x240&text=Ad" /></p>
-        
     </div>
-    
   </div>
     
   
