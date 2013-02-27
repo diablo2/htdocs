@@ -27,7 +27,7 @@
   
   <div class="row">
     <div class="three columns">
-      <h1><img src="http://placehold.it/400x100&text=Logo" /></h1>
+      <a href="login.php" class="secondary radius button">Login</a>
     </div>
     <div class="nine columns">
       <ul class="link-list right">

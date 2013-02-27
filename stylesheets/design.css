@@ -19,3 +19,32 @@ body {background-color: #2554C7;}
 .form_login { height: 500px ;width: 100%; background-color: #000000; float: right; margin-top: 50px}
 .form_login label {font: normal 16px 'supermarketRegular'}
 .form_login h3 {font-family: 'supermarketRegular'}
+
+.detail_login {font: normal 18px 'supermarketRegular'; margin-top: 200px}
+
+
+/*===============================================
+================     Signup    ==================
+=================================================*/
+.signup {background-color: #00FF00; height: 200px}
+.mounth {background-color: #fff; border: 1px solid #ccc;
+		-webkit-border-radius: 2px; border-radius: 2px; 
+		-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+		box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+		color: rgba(0,0,0,0.75);
+		display: block;
+		font-size: 14px;
+		margin: 0 0 12px 0 ;
+		padding: 6px;
+		height: 32px;
+		width: 100%;
+		-webkit-transition: all 0.15s linear;
+		}
+#content {margin-top: 30px ;}
+#content .row {padding-top: 20px;}
+
+
+/*===============================================
+==================  Background ==================
+=================================================*/
+.bg-gray {background-color: #292929;}
