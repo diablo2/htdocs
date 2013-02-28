@@ -1,9 +1,10 @@
 <?php
-$host="localhost"; 
-$user="root";
-$pass="";
-$dbname="aims";
-$conn=@mysql_connect($host,$user,$pass)or die("Cannot select DB");
-$db=mysql_select_db($dbname)or die("Cannot select DB");
-mysql_query("SET NAMES utf8");
+    $dbHost = 'localhost'; // usually localhost
+    $dbUsername = 'root';
+    $dbPassword = '';
+    $dbDatabase = 'aims';
+
+    $db = mysql_connect($dbHost, $dbUsername, $dbPassword) or die ("Unable to connect to Database Server.");
+    mysql_select_db ($dbDatabase, $db) or die ("Could not select database.");
+
 ?>

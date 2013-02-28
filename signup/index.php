@@ -20,7 +20,9 @@
   <link rel="stylesheet" href="../stylesheets/foundation.min.css">
   <link rel="stylesheet" href="../stylesheets/app.css">
   <link rel="stylesheet" href="../stylesheets/design.css">
+  <script type="text/javascript" src="../javascripts/jquery-1.2.6.min.js"></script>
   <script src="../javascripts/modernizr.foundation.js"></script>
+  <script type="text/javascript" src="../javascripts/checkusername.js"></script>
 
   <script>
     function form1(){
@@ -34,20 +36,14 @@
       document.getElementById("form2").hidden = false;
 
     }
-    
   </script>
 </head>
 <body>
 <!----------  Include php function ------------>
-  <?php
-    include('action/checksignup.php'); // function check username & password
-
-  ?>
 
   <div id="content">
     <div class="row">
       <div class="six columns">
-
       </div>
       <div class="six columns bg-gray">
         <form  method="post" action="post" id="signup">
@@ -58,13 +54,19 @@
             <div class="six columns">
               <input type="text" placeholder="last name" name="last_name">
             </div>
-            <div class="twelve columns">
-              <input type="text" placeholder="username" name="username" value="<?php=@$_REQUEST['username'] ?>">
-              <span id="validateUsername"><?php if ($error) {echo $error['msg']; } ?></span> <!------ String check error username ------>
-              <input type="text" placeholder="password" name="password">
-              <input type="text" placeholder="confirm password" name="conpassword">
+            <div class="ten columns">
+              <input type="text" name="username" placeholder="username"  id="username" />
             </div>
-
+            <div class="twelve columns" id="status">
+            </div>
+            <div class="twelve columns">
+              <input type="text" placeholder="password" name="password" id="password">
+              <input type="text" placeholder="confirm password" name="cpassword" id="cpassword">
+            </div>
+            <div class="twelve columns" id="status_pass">
+                </div>
+            <div class="twelve columns" id="status_cpass">
+            </div>
             <div class="four columns">
               <input type="text" placeholder="day" name="day">
             </div>
