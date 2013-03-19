@@ -5,7 +5,7 @@
   <META NAME="Keywords" CONTENT="form, username, checker">
   <META NAME="Description" CONTENT="An AJAX Username Verification Script">
 
-<script type="text/javascript" src="jquery-1.2.6.min.js"></script>
+
 
 <link rel="stylesheet" type="text/css" href="style.css" />
 

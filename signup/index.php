@@ -46,7 +46,7 @@
       <div class="six columns">
       </div>
       <div class="six columns bg-gray">
-        <form  method="post" action="post" id="signup">
+        <form  method="post" action="validate.php" id="signup">
           <div class="row" id="form1">
             <div class="six columns">
                <input type="text" placeholder="frist name" name="frist_name"> 
@@ -71,7 +71,7 @@
               <input type="text" placeholder="day" name="day">
             </div>
             <div class="four columns">
-              <select class="mounth">
+              <select class="mounth" name="mounth">
                 <?php 
                   // php for dropdown mounth 
                   for ($i = 1; $i <= 12; $i++) {
@@ -110,6 +110,7 @@
               <input type="text" placeholder="twitter" name="twitter">
             </div>
             <div>
+              <input type="hidden" value="TRUE" name="formsubmit">
               <input type="button" value="Back" class="button" onclick="form1()">
               <input type="submit" value="submit" class="success button">
             </div>
