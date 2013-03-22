@@ -1,5 +1,5 @@
 <?php
-  session_start()
+  session_start();
   
   // get redirect page if the last page need to redirect to it after login.
   
@@ -17,11 +17,14 @@
     }
     else
     {
-      if($host['scheme'] == '')
+
+    /* Code by P'Home
+      if($dbHost['scheme'] == "")
       {
-        $host['scheme'] = 'http://';  
-      }
-      $redirect = base64_encode($host['scheme'].$url['host'].$url['path']); // outbound link
+        $dbHost['scheme'] = 'http://';  
+      } */
+      $redirect = base64_encode("http://".$url['host'].$url['path']); // outbound link
+     
     }
     unset($url);
   }
@@ -97,6 +100,7 @@
                 <div class="four columns centered">
                   <input type="submit" class="small secondary button" value="Login">
                   <input type="reset" class="small secondary button" value="Cancel">
+                  <input type="hidden" name="redirect" value="<?php echo $redirect;?>">
                 </div>
               </div>
             </form>
@@ -104,10 +108,25 @@
               <div class="six columns offset-by-two">
                 Can't access your account
                 <br>
-                Create an account
+                <a href="../signup"> Create your account </a>
+              </div>
+            </div>
+              <div class="row">
+                <div class="twelve columns centered" id="result_login">
+                  <?php 
+                  if (isset($_GET['result'])){ // Login not success and return result logins
+                    if (base64_decode($_GET['result']) == 'activate'){ // This account is not activate
+                      echo '<div class="alert-box alert">You have not activate account !</div>';
+                    }
+                    if (base64_decode($_GET['result']) == 'notQuery'){ // This username or password wrong
+                      echo '<div class="alert-box alert" >Username or Password is incorrect !!</div>';
+                    }
+                  }
+                  ?>
+                </div>
               </div>
 
-            </div>
+            
         </div>
 
       </div>

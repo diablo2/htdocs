@@ -27,7 +27,7 @@
   
   <div class="row">
     <div class="three columns">
-      <a href="login.php" class="secondary radius button">Login</a>
+      <a href="../login" class="secondary radius button">Login</a>
     </div>
     <div class="nine columns">
       <ul class="link-list right">

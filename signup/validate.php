@@ -51,7 +51,7 @@
             $error[] = "Please Enter password";
           } else {
               if ($_POST["password"] == $_POST["cpassword"]) {
-                  $password = $_POST["password"];
+                  $password = md5($_POST["password"]);
 
               } else {
                 $error[] = "Password and Check-Password is not match";
@@ -72,7 +72,7 @@
           if (empty($error)) { // Data is OK <database not error>
             // check email have not in database 
             $query_email = "SELECT * FROM account WHERE email LIKE '$email'";
-            $result_email = mysql_query($query_email,$con);
+            $result_email = mysql_query($query_email);
             if (!$result_email) { // if the Query Failed
               echo 'Database Error Occured';
             }
@@ -84,7 +84,7 @@
 
               $query_insert_user = "INSERT INTO `account` (`username`, `password`, `email`, `accountStatus`, `createDate`, `activation`) VALUES ('$username','$password','$email', '0', NOW(),'$activation')";
 
-              $result_insert_user = mysql_query($query_insert_user,$con);
+              $result_insert_user = mysql_query($query_insert_user);
 
               if (!$result_insert_user){
                 echo "Query insert user fail";
@@ -99,7 +99,7 @@
 
                 // Finish
                 echo   '<div class="row">
-                          <div class="alert-box success ten columns centered" >
+                          <div class="alert-box success ten columns centered" > 
                             Thank you for registering! A confirmation email has been sent to ' . $email . ' Please click on the Activation Link to Activate your account
                           </div>
                         </div>';

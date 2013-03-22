@@ -1,0 +1,15 @@
+Story Update Program
+
+
+#################### 2013-03-20 ####################
+
+
+
+####################### ยังแก้ไม่เสร็จ #################
+Signup	: index.php
+
+####################### ยังไม่ได้ ทดสอบ ################
+Signup 	: validate.php		>>> locahost can't sent e-mail
+		: activation.php 	>>> localhost can't sent e-mail
+
+Login	: >> Have not check error

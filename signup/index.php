@@ -39,7 +39,6 @@
   </script>
 </head>
 <body>
-<!----------  Include php function ------------>
 
   <div id="content">
     <div class="row">
