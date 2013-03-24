@@ -9,6 +9,7 @@
 	define('WEBSITE_URL','http://localhost');
 
     $con = mysql_connect($dbHost, $dbUsername, $dbPassword) or die ("Unable to connect to Database Server.");
+    mysql_query("SET NAMES UTF8");
     mysql_select_db ($dbDatabase, $con) or die ("Could not select database.");
 
 ?>

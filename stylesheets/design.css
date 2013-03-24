@@ -1,4 +1,17 @@
-/******************************* Font *******************************/
+/* -------------------------------------------------- 
+   Table of Contents
+-----------------------------------------------------
+:: Font
+:: Home
+:: Login
+:: Signup
+:: Public Relation
+:: Background
+*/
+
+/* -----------------------------------------
+	Font
+----------------------------------------- */
 @font-face {font-family:'supermarketRegular';
 src:url('../f0nt/supermarket-webfont.eot');
 src:url('../f0nt/supermarket-webfont.eot?#iefix')format('embedded-opentype'),
@@ -7,15 +20,14 @@ url('../f0nt/supermarket-webfont.ttf')format('truetype');
 font-weight:normal;font-style:normal;}
 
 body {background-color: #2554C7;}
-
-/*===============================================
-=================     Home     ==================
-=================================================*/
+/* -----------------------------------------
+	Home 
+----------------------------------------- */
 #PR div {font:bold 18px 'supermarketRegular';}
 
-/*===============================================
-=================     Login    ==================
-=================================================*/
+/* -----------------------------------------
+	Login
+----------------------------------------- */
 .form_login { height: 500px ;width: 100%; background-color: #000000; float: right; margin-top: 50px}
 .form_login label {font: normal 16px 'supermarketRegular'}
 .form_login h3 {font-family: 'supermarketRegular'}
@@ -24,9 +36,10 @@ body {background-color: #2554C7;}
 
 #result_login {text-align: center;}
 
-/*===============================================
-================     Signup    ==================
-=================================================*/
+
+/* -----------------------------------------
+	Singup
+----------------------------------------- */
 .signup {background-color: #00FF00; height: 200px}
 .mounth {background-color: #fff; border: 1px solid #ccc;
 		-webkit-border-radius: 2px; border-radius: 2px; 
@@ -44,13 +57,32 @@ body {background-color: #2554C7;}
 #content {margin-top: 30px ;}
 #content .row {padding-top: 20px;}
 
+/* -----------------------------------------
+	Public Relation
+----------------------------------------- */
+.body_PR {font: normal 18px 'supermarketRegular'}
+.body_PR li:hover i {color: #0CAEE3; font-size: 20px;}
+.body_PR li i {font-size: 20px}
+.body_PR ul { list-style: none; overflow: hidden; vertical-align: center;}
+#PR_function a {color: #222;}
+#PR_footer {margin-top: 2em}
+#PR_footer img {height: 120px; width: 120px}
+#customDropdown {display:none}
+#PR_search_bt {height: 32px}
 
-/*===============================================
-==================  Background ==================
-=================================================*/
+/* -----------------------------------------
+	Public Relation Search
+----------------------------------------- */
+.PR_search {font: normal 18px 'supermarketRegular'}
+.PR_search li:hover i {color: #0CAEE3; font-size: 20px;}
+.PR_search li i {font-size: 20px}
+.PR_search ul { list-style: none; overflow: hidden; vertical-align: center;}
+
+
+/* -----------------------------------------
+	Background
+----------------------------------------- */
 .bg-gray {background-color: #FFFFFF;}
-
-
 .object_ok
 {
 border: 1px solid green; 
