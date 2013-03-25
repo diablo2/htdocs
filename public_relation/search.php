@@ -87,8 +87,8 @@
                     <input type="text" name="search" placeholder="Search News">
                   </div>
                   <div class="four columns">
-                    <select>
-                      <option>Department</option>
+                    <select name="department">
+                      <option value="">Department</option>
                       <?php
                         $sql_department = 'SELECT * FROM department';
                         $resule_depaerment = mysql_query($sql_department) or die(mysql_error());
@@ -100,7 +100,7 @@
                     </select>
                   </div>
                   <div class="two columns">
-                    <input type="text" name="year" placeholder="Year Ex. 1999">
+                    <input type="text" name="year" placeholder="Year Ex. 1999" >
                   </div>
                   <div class="two columns">
                     <input class="radius secondary button" id="PR_search_bt" type="submit" value="Search">
@@ -112,13 +112,35 @@
           <div class="row"> <!-- Contain Search-->
             <div class="twelve columns">
               <?php
-                if (isset($_GET['search'])){
+               /* if (isset($_GET['search']) && isset($_GET['year']) && $_GET['year'] != "" && $_GET['search'] != ""){
+
+                  $year = $_GET['year'];
                   $search = $_GET['search'];
-                  $sql_pr = 'SELECT * FROM public_relation WHERE topic LIKE "%'.$search.'%"';
-                  
+                  $sql_pr = 'SELECT * FROM public_relation WHERE topic LIKE "%'.$search.'%" AND YEAR(createDate) LIKE "'.$year.'"';
+
+                } elseif (isset($_GET['search']) && $_GET['search'] != ""){
+                  $search = $_GET['search'];
+                  $sql_pr = 'SELECT * FROM public_relation WHERE topic LIKE "%'.$search.'%"';                  
+                
+                } elseif (isset($_GET['year']) && $_GET['year'] != ""){
+                  $year = $_GET['year'];
+                  $sql_pr = 'SELECT * FROM public_relation WHERE YEAR(createdate) LIKE "'.$_GET['year'].'"';
                 } else { // have not key search content PR
                   $sql_pr = 'SELECT * FROM public_relation';
+                } */
+                if (empty($_GET)){
+                  $sql_pr = 'SELECT * FROM public_relation';
+                } else {
+                  $sql_pr = 'SELECT * FROM public_relation WHERE topic LIKE "%'.$_GET['search'].'%"';
+                  if ($_GET['year'] != ""){
+                    $sql_pr .= ' AND YEAR(createDate) LIKE "'.$_GET['year'].'"';
+                  }
+
+                  if ($_GET['department'] != ""){
+                    $sql_pr .= ' AND department LIKE "'. $_GET['department'].'"';
+                  }
                 }
+                
                   $result_pr = mysql_query($sql_pr) or die(mysql_error());
                   $i = 0;
                   while ($row_pr = mysql_fetch_array($result_pr)) {
@@ -135,9 +157,9 @@
                               '. date('Y-m-d', strtotime(str_replace('-', '/', $row_pr['createDate']))).'
                             </div>
                           </div>';
-                
+        
               }
-                
+             
               ?>
             </div>
           </div><!-- End contain Search -->
