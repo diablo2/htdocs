@@ -188,7 +188,7 @@
       </div>
     </div> 
   </footer>
-  
+ </div> <!-- End container --> 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -211,5 +211,5 @@
     <!-- Script Facebook -->
     <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Loader" type="text/javascript"></script>  
     <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>  
-</div> <!-- End container -->
+
 </body></html>
