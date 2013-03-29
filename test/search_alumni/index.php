@@ -1,3 +1,7 @@
+<?php
+  include('../setting/connect.php');
+?>
+
 <!DOCTYPE html>
 <html lang="th"><head>
     <meta charset="utf-8">
@@ -28,6 +32,8 @@
     </style>
     <link href="../css/bootstrap-responsive.css" rel="stylesheet">
     <link href="../css/design.css" rel="stylesheet">
+    <!-- bxSlider CSS file -->
+    <link href="../css/jquery.bxslider.css" rel="stylesheet" />
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -86,16 +92,38 @@
 
         </div>
         <div class="row-fluid">
-
-        </div>
+          <h2>New Alumni</h2>
+          <?php 
+            $sql_department = 'SELECT id,nameEn FROM department';
+            $result_department = mysql_query($sql_department) or die(mysql_error());
+            while ($row_department = mysql_fetch_array($result_department)){
+              $id = $row_department['id'];
+              echo '<div class="row-fluid">';
+              echo '<h4>'.$row_department['nameEn'].'</h4>';
+                echo '<div class="row-fluid">';
+                echo '</div>';
+              echo '</div>';
+            }
+          ?>
+          <div class="row-fluid">
+            <ul class="bxslider">
+              <li class="slide"><img src="../images/upload/testimg.png" /></li>
+              <li class="slide"><img src="../images/upload/testimg.png" /></li>
+              <li class="slide"><img src="../images/upload/testimg.png" /></li>
+              <li class="slide"><img src="../images/upload/testimg.png" /></li>
+                            <li class="slide"><img src="../images/upload/testimg.png" /></li>
+              <li class="slide"><img src="../images/upload/testimg.png" /></li>
+              <li class="slide"><img src="../images/upload/testimg.png" /></li>
+              <li class="slide"><img src="../images/upload/testimg.png" /></li>
+            </ul>
+          </div>
+        </div> 
       </div>
     </div><!-- End Nav + Content -->
 
 
 
   </div>
-
-
 
     <!-- Le javascript
     ================================================== -->
@@ -116,6 +144,19 @@
     <script src="../js/bootstrap-typeahead.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/bootstrap.js"></script>
+    <!-- bxSlider Javascript file -->
+    <script src="../js/jquery.bxslider.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.bxslider').bxSlider({
+    slideWidth: 300,
+    minSlides: 8,
+    maxSlides: 5,
+    moveSlides: 1,
+    slideMargin: 3
 
+        });
+      });
+    </script>
 </body>
 </html>
