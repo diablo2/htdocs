@@ -24,6 +24,10 @@
   <link rel="stylesheet" href="../stylesheets/general_foundicons.css">
   <link rel="stylesheet" href="../stylesheets/general_foundicons_ie7.css">
   <script src="../javascripts/modernizr.foundation.js"></script>
+  <!-- Script Facebook -->
+  <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Loader" type="text/javascript"></script>  
+  <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script> 
+  <!-- End Script Facebook --> 
 </head>
 <body class="body_PR">
   <!-- Header and Nav -->
@@ -94,10 +98,6 @@
       </div> <!-- End Header PR -->
       <div class="row"> <!-- Main Content PR-->
         <div class="twelve columns">
-
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Loader" type="text/javascript"></script>  
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>  
-<a name="fb_share" type="button_count" href="http://www.facebook.com/sharer.php?u=http://127.0.0.1/public_relation/index.php?key=NA==&t=test title">Share</a> 
           <?php  
           if (isset($_GET['key'])){
             $key = base64_decode($_GET['key']);
@@ -110,9 +110,12 @@
               if (mysql_num_rows($result_pr) > 0){ // check result query PR content
                 $row_pr = mysql_fetch_array($result_pr);
                 echo '<div class="row">
-                        <div class="twelve columns">'.
+                        <div class="ten columns">'.
                           $row_pr['topic']
                         .'</div>
+                        <div class="two columns">
+                          <a name="fb_share" type="button_count" href="http://www.facebook.com/Sharer.php?t=TEST">Share</a> 
+                        </div>
                       </div>';
 
                 echo '<div class="row" >
