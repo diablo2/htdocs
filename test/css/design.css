@@ -215,3 +215,12 @@ color: #333333;
 border: 1px solid #AC3962; 
 color: #333333; 
 }
+
+/* -----------------------------------------
+	Profile alumni
+----------------------------------------- */
+.test_profile{background-color:#099;}
+.profile_h0 {background-image:url(../images/system/backgrund-first.jpg); min-height:500px ; }
+.profile_h1 {background-image: url(../images/system/backgrund-first.jpg);}
+.profile_h2{background-color:#09F; margin-left: 0px}
+.profile_h3{background-color:#FFF; margin-left: 0px}
