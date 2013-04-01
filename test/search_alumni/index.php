@@ -89,34 +89,29 @@
               </form>
             </center>
           </div>
-
         </div>
         <div class="row-fluid">
           <h2>New Alumni</h2>
           <?php 
             $sql_department = 'SELECT id,nameEn FROM department';
             $result_department = mysql_query($sql_department) or die(mysql_error());
-            while ($row_department = mysql_fetch_array($result_department)){
+            while ($row_department = mysql_fetch_array($result_department)){  // While print department
               $id = $row_department['id'];
               echo '<div class="row-fluid">';
               echo '<h4>'.$row_department['nameEn'].'</h4>';
                 echo '<div class="row-fluid">';
+                echo '<ul class="bxslider">';
+                for ($i = 1 ; $i <= 10 ; $i++){ // while >> for print alumni (image and name)
+                  echo '<li class="slide">';
+                  echo '<a href="index.php">';
+                  echo '<img src="../images/upload/testimg.png" href="inex.php">'.$i; // image + name
+                  echo '</a></li>';
+                }
+                echo '</ul>';
                 echo '</div>';
               echo '</div>';
             }
           ?>
-          <div class="row-fluid">
-            <ul class="bxslider">
-              <li class="slide"><img src="../images/upload/testimg.png" /></li>
-              <li class="slide"><img src="../images/upload/testimg.png" /></li>
-              <li class="slide"><img src="../images/upload/testimg.png" /></li>
-              <li class="slide"><img src="../images/upload/testimg.png" /></li>
-                            <li class="slide"><img src="../images/upload/testimg.png" /></li>
-              <li class="slide"><img src="../images/upload/testimg.png" /></li>
-              <li class="slide"><img src="../images/upload/testimg.png" /></li>
-              <li class="slide"><img src="../images/upload/testimg.png" /></li>
-            </ul>
-          </div>
         </div> 
       </div>
     </div><!-- End Nav + Content -->
