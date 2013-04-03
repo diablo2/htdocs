@@ -1,8 +1,8 @@
 <?php exit; ?>
-1364370795
+1364991433
 SELECT s.style_id, c.theme_id, c.theme_data, c.theme_path, c.theme_name, c.theme_mtime, i.*, t.template_path FROM phpbb_styles s, phpbb_styles_template t, phpbb_styles_theme c, phpbb_styles_imageset i WHERE s.style_id = 1 AND t.template_id = s.template_id AND c.theme_id = s.theme_id AND i.imageset_id = s.imageset_id
-71239
-a:1:{i:0;a:11:{s:8:"style_id";s:1:"1";s:8:"theme_id";s:1:"1";s:10:"theme_data";s:70852:"/*  phpBB3 Style Sheet
+74473
+a:1:{i:0;a:11:{s:8:"style_id";s:1:"1";s:8:"theme_id";s:1:"1";s:10:"theme_data";s:74086:"/*  phpBB3 Style Sheet
     --------------------------------------------------------------
 	Style name:			prosilver (the default phpBB 3.0.x style)
 	Based on style:		
@@ -30,7 +30,7 @@ body {
 	/* Text-Sizing with ems: http://www.clagnut.com/blog/348/ */
 	font-family: Verdana, Helvetica, Arial, sans-serif;
 	color: #828282;
-	background-color: #FFCCCC;
+	background-color: #FFFFFF;
 	/*font-size: 62.5%;			 This sets the default font size to be equivalent to 10px */
 	font-size: 10px;
 	margin: 0;
@@ -1804,6 +1804,20 @@ ul.profile-icons li a:hover { background: none; }
 .jabber-icon, .jabber-icon a		{ background: none top left no-repeat; }
 .pm-icon, .pm-icon a				{ background: none top left no-repeat; }
 .quote-icon, .quote-icon a		{ background: none top left no-repeat; }
+/* Share On 2.1.0 */
+.facebook-icon, .facebook-icon a	{ background: none top left no-repeat; }
+.twitter-icon, .twitter-icon a		{ background: none top left no-repeat; }
+.tuenti-icon, .tuenti-icon a		{ background: none top left no-repeat; }
+.sonico-icon, .sonico-icon a		{ background: none top left no-repeat; }
+.friendfeed-icon, .friendfeed-icon a	{ background: none top left no-repeat; }
+.orkut-icon, .orkut-icon a		{ background: none top left no-repeat; }
+.digg-icon, .digg-icon a		{ background: none top left no-repeat; }
+.myspace-icon, .myspace-icon a		{ background: none top left no-repeat; }
+.delicious-icon, .delicious-icon a	{ background: none top left no-repeat; }
+.technorati-icon, .technorati-icon a	{ background: none top left no-repeat; }
+.tumblr-icon, .tumblr-icon a		{ background: none top left no-repeat; }
+.google-icon, .google-icon a		{ background: none top left no-repeat; }
+/* Share On 2.1.0 */
 
 /* Moderator icons */
 .report-icon, .report-icon a		{ background: none top left no-repeat; }
@@ -1822,6 +1836,20 @@ ul.profile-icons li.icq-icon	{ width: {IMG_ICON_CONTACT_ICQ_WIDTH}px; height: {I
 ul.profile-icons li.jabber-icon	{ width: {IMG_ICON_CONTACT_JABBER_WIDTH}px; height: {IMG_ICON_CONTACT_JABBER_HEIGHT}px; }
 ul.profile-icons li.pm-icon		{ width: {IMG_ICON_CONTACT_PM_WIDTH}px; height: {IMG_ICON_CONTACT_PM_HEIGHT}px; }
 ul.profile-icons li.quote-icon	{ width: {IMG_ICON_POST_QUOTE_WIDTH}px; height: {IMG_ICON_POST_QUOTE_HEIGHT}px; }
+/* Share On 2.1.0 */
+ul.profile-icons li.facebook-icon	{ width: 20px; height: 20px; }
+ul.profile-icons li.twitter-icon	{ width: 20px; height: 20px; }
+ul.profile-icons li.tuenti-icon		{ width: 20px; height: 20px; }
+ul.profile-icons li.sonico-icon		{ width: 20px; height: 20px; }
+ul.profile-icons li.friendfeed-icon	{ width: 20px; height: 20px; }
+ul.profile-icons li.orkut-icon		{ width: 20px; height: 20px; }
+ul.profile-icons li.digg-icon		{ width: 20px; height: 20px; }
+ul.profile-icons li.myspace-icon	{ width: 20px; height: 20px; }
+ul.profile-icons li.delicious-icon	{ width: 20px; height: 20px; }
+ul.profile-icons li.technorati-icon	{ width: 20px; height: 20px; }
+ul.profile-icons li.tumblr-icon		{ width: 20px; height: 20px; }
+ul.profile-icons li.google-icon		{ width: 20px; height: 20px; }
+/* Share On 2.1.0 */
 ul.profile-icons li.report-icon	{ width: {IMG_ICON_POST_REPORT_WIDTH}px; height: {IMG_ICON_POST_REPORT_HEIGHT}px; }
 ul.profile-icons li.edit-icon	{ width: {IMG_ICON_POST_EDIT_WIDTH}px; height: {IMG_ICON_POST_EDIT_HEIGHT}px; }
 ul.profile-icons li.delete-icon	{ width: {IMG_ICON_POST_DELETE_WIDTH}px; height: {IMG_ICON_POST_DELETE_HEIGHT}px; }
@@ -2793,12 +2821,12 @@ Colours and backgrounds for common.css
 -------------------------------------------------------------- */
 
 html, body {
-	color: #536482;
-	background-color: #FFFFFF;
+	color: #FFCC99;
+	background-color: #FFFF99;
 }
 
 h1 {
-	color: #FFFFFF;
+	color: ##FFCC99;
 }
 
 h2 {
@@ -3495,6 +3523,20 @@ a.fontsize {
 .jabber-icon, .jabber-icon a		{ background-image: url("{IMG_ICON_CONTACT_JABBER_SRC}"); }
 .pm-icon, .pm-icon a				{ background-image: url("{IMG_ICON_CONTACT_PM_SRC}"); }
 .quote-icon, .quote-icon a		{ background-image: url("{IMG_ICON_POST_QUOTE_SRC}"); }
+/* Share On 2.1.0 */
+.facebook-icon, .facebook-icon a	{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_facebook.png"); }
+.twitter-icon, .twitter-icon a		{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_twitter.png"); }
+.tuenti-icon, .tuenti-icon a		{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_tuenti.png"); }
+.sonico-icon, .sonico-icon a		{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_sonico.png"); }
+.friendfeed-icon, .friendfeed-icon a	{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_friendfeed.png"); }
+.orkut-icon, .orkut-icon a		{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_orkut.gif"); }
+.digg-icon, .digg-icon a		{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_digg.gif"); }
+.myspace-icon, .myspace-icon a		{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_myspace.png"); }
+.delicious-icon, .delicious-icon a	{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_delicious.gif"); }
+.technorati-icon, .technorati-icon a	{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_technorati.png"); }
+.tumblr-icon, .tumblr-icon a		{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_tumblr.png"); }
+.google-icon, .google-icon a		{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_google.gif"); }
+/* Share On 2.1.0 */
 
 /* Moderator icons */
 .report-icon, .report-icon a		{ background-image: url("{IMG_ICON_POST_REPORT_SRC}"); }
@@ -3809,4 +3851,5 @@ input.search {
 
 input.disabled {
 	color: #666666;
-}";s:10:"theme_path";s:9:"prosilver";s:10:"theme_name";s:9:"prosilver";s:11:"theme_mtime";s:10:"1364292032";s:11:"imageset_id";s:1:"1";s:13:"imageset_name";s:9:"prosilver";s:18:"imageset_copyright";s:18:"&copy; phpBB Group";s:13:"imageset_path";s:9:"prosilver";s:13:"template_path";s:9:"prosilver";}}
+}
+";s:10:"theme_path";s:9:"prosilver";s:10:"theme_name";s:9:"prosilver";s:11:"theme_mtime";s:10:"1364984983";s:11:"imageset_id";s:1:"1";s:13:"imageset_name";s:9:"prosilver";s:18:"imageset_copyright";s:18:"&copy; phpBB Group";s:13:"imageset_path";s:9:"prosilver";s:13:"template_path";s:9:"prosilver";}}

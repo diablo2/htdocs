@@ -891,4 +891,11 @@ $lang = array_merge($lang, array(
 
 ));
 
+
+// Top Posters
+$lang = array_merge($lang, array(
+	'TOP_POSTERS'				=> 'Top Posters',
+	'TOP_POSTERS_HOURS'			=> 'of last %d hrs:',
+	'TOP_POSTERS_HOUR'			=> 'of last hour:',
+));
 ?>

@@ -66,7 +66,9 @@
 		<dd><select name="tz" id="tz" tabindex="7" class="autowidth"><?php echo (isset($this->_rootref['S_TZ_OPTIONS'])) ? $this->_rootref['S_TZ_OPTIONS'] : ''; ?></select></dd>
 	</dl>
 
-	<?php if (sizeof($this->_tpldata['profile_fields'])) {  ?>
+
+
+	<?php $this->_tpl_include('prime_birthdate.html'); if (sizeof($this->_tpldata['profile_fields'])) {  ?>
 
 		<dl><dd><strong><?php echo ((isset($this->_rootref['L_ITEMS_REQUIRED'])) ? $this->_rootref['L_ITEMS_REQUIRED'] : ((isset($user->lang['ITEMS_REQUIRED'])) ? $user->lang['ITEMS_REQUIRED'] : '{ ITEMS_REQUIRED }')); ?></strong></dd></dl>
 
@@ -83,11 +85,11 @@
 	</fieldset>
 	<span class="corners-bottom"><span></span></span></div>
 </div>
-<?php if ($this->_rootref['CAPTCHA_TEMPLATE']) {  $this->_tpldata['DEFINE']['.']['CAPTCHA_TAB_INDEX'] = 8; if (isset($this->_rootref['CAPTCHA_TEMPLATE'])) { $this->_tpl_include($this->_rootref['CAPTCHA_TEMPLATE']); } } if ($this->_rootref['S_COPPA']) {  ?>
+<?php if ($this->_rootref['CAPTCHA_TEMPLATE']) {  $this->_tpldata['DEFINE']['.']['CAPTCHA_TAB_INDEX'] = 8; if (isset($this->_rootref['CAPTCHA_TEMPLATE'])) { $this->_tpl_include($this->_rootref['CAPTCHA_TEMPLATE']); } } if ($this->_rootref['S_COPPA'] || $this->_rootref['S_COPPA'] === 0) {  ?>
 
 
 
-<div class="panel">
+<div class="panel" id="coppa_area"<?php if (! $this->_rootref['S_COPPA']) {  ?> style="display:none"<?php } ?>>
 	<div class="inner"><span class="corners-top"><span></span></span>
 
 	<h4><?php echo ((isset($this->_rootref['L_COPPA_COMPLIANCE'])) ? $this->_rootref['L_COPPA_COMPLIANCE'] : ((isset($user->lang['COPPA_COMPLIANCE'])) ? $user->lang['COPPA_COMPLIANCE'] : '{ COPPA_COMPLIANCE }')); ?></h4>

@@ -1,0 +1,44 @@
+﻿<!-- INCLUDE overall_header.html -->
+
+<form action="{U_ACTION}" method="post">
+
+<table class="tablebg" width="100%" cellspacing="1">
+<tr>
+	<th colspan="2">{L_OPENID_ID_VERIFICATION_HEADER}</th>
+</tr>
+<tr>
+
+	<td class="row1">
+
+            <fieldset>
+                <dl>
+                    <dt>{L_ID_LABEL}</dt><dd><input type="text" name="id" value="{S_ID}" /></dd>
+			<br />
+                        <dt>{L_NICKNAME_LABEL}</dt><dd><input type="text" name="username" value="{S_NICKNAME}" /></dd>
+			<br />
+                        <dt>{L_EMAIL_LABEL}</dt><dd><input type="text" name="email" value="{S_EMAIL}" /><dd>
+			<br />
+                        <dt>{L_EMAIL_CONFIRM_LABEL}</dt><dd><input type="text" name="email_confirm" value="{S_EMAIL}" /></dd>
+			<br />
+                        <!-- IF S_COPPA -->
+                            <dt>{L_COPPA_LABEL}</dt><dd><input type="radio" name="coppa" value="1" {S_DOB_UNDER} />{L_YES}<input type="radio" name="coppa" value="0" {S_DOB_OVER} />{L_NO}</dd>
+                            
+                        <!-- ENDIF -->
+                </dl>
+            </fieldset>
+	</td>
+</tr>
+
+<tr>
+	<td class="cat" colspan="2" align="center">{S_HIDDEN_FIELDS}<input type="submit" name="submit" class="btnmain" value="{L_SUBMIT}" tabindex="5" /></td>
+</tr>
+
+</table>
+{S_FORM_TOKEN}
+
+</form>
+<br clear="all" />
+
+<div align="{S_CONTENT_FLOW_END}"><!-- INCLUDE jumpbox.html --></div>
+
+<!-- INCLUDE overall_footer.html -->

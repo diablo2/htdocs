@@ -2,7 +2,7 @@
 
 
 <p class="<?php echo (isset($this->_rootref['S_CONTENT_FLOW_END'])) ? $this->_rootref['S_CONTENT_FLOW_END'] : ''; if ($this->_rootref['S_USER_LOGGED_IN']) {  ?> rightside<?php } ?>"><?php if ($this->_rootref['S_USER_LOGGED_IN']) {  echo (isset($this->_rootref['LAST_VISIT_DATE'])) ? $this->_rootref['LAST_VISIT_DATE'] : ''; } else { echo (isset($this->_rootref['CURRENT_TIME'])) ? $this->_rootref['CURRENT_TIME'] : ''; } ?></p>
-<?php if ($this->_rootref['U_MCP']) {  ?><p><?php echo (isset($this->_rootref['CURRENT_TIME'])) ? $this->_rootref['CURRENT_TIME'] : ''; ?> <br />[&nbsp;<a href="<?php echo (isset($this->_rootref['U_MCP'])) ? $this->_rootref['U_MCP'] : ''; ?>"><?php echo ((isset($this->_rootref['L_MCP'])) ? $this->_rootref['L_MCP'] : ((isset($user->lang['MCP'])) ? $user->lang['MCP'] : '{ MCP }')); ?></a>&nbsp;]</p><?php } else if ($this->_rootref['S_USER_LOGGED_IN']) {  ?><p><?php echo (isset($this->_rootref['CURRENT_TIME'])) ? $this->_rootref['CURRENT_TIME'] : ''; ?></p><?php } if ($this->_rootref['S_DISPLAY_SEARCH'] || ( $this->_rootref['S_USER_LOGGED_IN'] && ! $this->_rootref['S_IS_BOT'] )) {  ?>
+<?php if ($this->_rootref['U_MCP']) {  ?><p><?php echo (isset($this->_rootref['CURRENT_TIME'])) ? $this->_rootref['CURRENT_TIME'] : ''; ?> <br />[&nbsp;<a href="<?php echo (isset($this->_rootref['U_MCP'])) ? $this->_rootref['U_MCP'] : ''; ?>"><?php echo ((isset($this->_rootref['L_MCP'])) ? $this->_rootref['L_MCP'] : ((isset($user->lang['MCP'])) ? $user->lang['MCP'] : '{ MCP }')); ?></a>&nbsp;]</p><?php } else if ($this->_rootref['S_USER_LOGGED_IN']) {  ?><p><?php echo (isset($this->_rootref['CURRENT_TIME'])) ? $this->_rootref['CURRENT_TIME'] : ''; ?></p><?php } if ($this->_rootref['RECENT_TOPICS_DISPLAY']) {  $this->_tpl_include('recent_topics_body.html'); } if ($this->_rootref['RECENT_TOPICS_DISPLAY']) {  $this->_tpl_include('recent_topics_body.html'); } if ($this->_rootref['RECENT_TOPICS_DISPLAY']) {  $this->_tpl_include('recent_topics_body.html'); } if ($this->_rootref['RECENT_TOPICS_DISPLAY']) {  $this->_tpl_include('recent_topics_body.html'); } if ($this->_rootref['RECENT_TOPICS_DISPLAY']) {  $this->_tpl_include('recent_topics_body.html'); } if ($this->_rootref['RECENT_TOPICS_DISPLAY']) {  $this->_tpl_include('recent_topics_body.html'); } if ($this->_rootref['RECENT_TOPICS_DISPLAY']) {  $this->_tpl_include('recent_topics_body.html'); } if ($this->_rootref['S_DISPLAY_SEARCH'] || ( $this->_rootref['S_USER_LOGGED_IN'] && ! $this->_rootref['S_IS_BOT'] )) {  ?>
 
 <ul class="linklist">
 	<?php if ($this->_rootref['S_DISPLAY_SEARCH']) {  ?>
@@ -41,4 +41,16 @@
 
 	<h3><?php echo ((isset($this->_rootref['L_STATISTICS'])) ? $this->_rootref['L_STATISTICS'] : ((isset($user->lang['STATISTICS'])) ? $user->lang['STATISTICS'] : '{ STATISTICS }')); ?></h3>
 	<p><?php echo (isset($this->_rootref['TOTAL_POSTS'])) ? $this->_rootref['TOTAL_POSTS'] : ''; ?> &bull; <?php echo (isset($this->_rootref['TOTAL_TOPICS'])) ? $this->_rootref['TOTAL_TOPICS'] : ''; ?> &bull; <?php echo (isset($this->_rootref['TOTAL_USERS'])) ? $this->_rootref['TOTAL_USERS'] : ''; ?> &bull; <?php echo (isset($this->_rootref['NEWEST_USER'])) ? $this->_rootref['NEWEST_USER'] : ''; ?></p>
+<?php } if ($this->_rootref['TOP_POSTERS_LIST']) {  ?>
+
+	<h3><?php echo ((isset($this->_rootref['L_TOP_POSTERS'])) ? $this->_rootref['L_TOP_POSTERS'] : ((isset($user->lang['TOP_POSTERS'])) ? $user->lang['TOP_POSTERS'] : '{ TOP_POSTERS }')); ?></h3>
+	<p><?php echo (isset($this->_rootref['TOP_POSTERS_LIST'])) ? $this->_rootref['TOP_POSTERS_LIST'] : ''; ?><br />
+<?php if ($this->_rootref['TOP_POSTERS_HOURS_LIST']) {  ?>
+
+	<i><?php echo (isset($this->_rootref['TOP_POSTERS_HOURS'])) ? $this->_rootref['TOP_POSTERS_HOURS'] : ''; ?></i> 	
+	<?php echo (isset($this->_rootref['TOP_POSTERS_HOURS_LIST'])) ? $this->_rootref['TOP_POSTERS_HOURS_LIST'] : ''; ?>
+
+<?php } ?>
+
+</p>
 <?php } $this->_tpl_include('overall_footer.html'); ?>

@@ -13,4 +13,9 @@ Signup 	: validate.php		>>> locahost can't sent e-mail
 		: activation.php 	>>> localhost can't sent e-mail
 
 Login	: >> Have not check error
+<<<<<<< HEAD
 kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+=======
+
+TEST PLAI 222222222222222
+>>>>>>> d256f3bf76514a52a87fe8111fc4594327326e7d

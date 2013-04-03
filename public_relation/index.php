@@ -69,35 +69,43 @@
          <div class="six columns">
            <h4> Public Relations </h4>
          </div>
+
+         <?php
+          $sql_direct = "SELECT * FROM public_relation";
+          $result_direct = mysql_query($sql_direct);
+          $num_direct = mysql_num_rows($result_direct);
+
+          if (isset($_GET['key'])){ // Check have Get num page
+            $nPage = base64_decode($_GET['key']);
+          } else {
+            $nPage = $num_direct;
+          } 
+
+          $nPrev = ($nPage-1)%$num_direct;
+          if ($nPrev < 1) {$nPrev = $num_direct;} // if nPrev = 0 Error >>> nPrev = Max num Page
+          $nNext = $nPage%$num_direct + 1;
+         ?>
          <div class="six columns" id="PR_function">
           <div class="three columns"><ul><li><a href="search.php" ><i class="foundicon-search"></i></a></li></ul></div>
-          <div class="three columns"><ul><li><i class="foundicon-left-arrow"></i></li></ul></div>
+          <div class="three columns"><ul><li><a <?php echo 'href="index.php?key='.base64_encode($nPrev).'"' ?>><i class="foundicon-left-arrow"></i></a></li></ul></div>
           <div class="three columns"><ul><li><i class="foundicon-search"></i></li></ul></div>
-          <div class="three columns"><ul><li><i class="foundicon-right-arrow"></i></li></ul></div>            
+          <div class="three columns"><ul><li><a <?php echo 'href="index.php?key='.base64_encode($nNext).'"' ?>><i class="foundicon-right-arrow"></i></a></li></ul></div>            
         </div> <!-- End icon function -->
       </div> <!-- End Header PR -->
       <div class="row"> <!-- Main Content PR-->
         <div class="twelve columns">
-          ########
+
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Loader" type="text/javascript"></script>  
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>  
+<a name="fb_share" type="button_count" href="http://www.facebook.com/sharer.php?u=http://127.0.0.1/public_relation/index.php?key=NA==&t=test title">Share</a> 
           <?php  
           if (isset($_GET['key'])){
             $key = base64_decode($_GET['key']);
-            $sql_pr = "SELECT * FROM public_relation WHERE id LIKE $key";
-            $result_pr = mysql_query($sql_pr) or die(mysql_error());
-            $row_pr = mysql_fetch_array($result_pr);
-                echo '<div class="row">
-                        <div class="twelve columns">'.
-                          $row_pr['topic']
-                        .'</div>
-                      </div>';
-
-                echo '<div class="row" >
-                        <div class="twelve columns">
-                          '. $row_pr['content'] .'
-                        </div> 
-                      </div>';            
+            $sql_pr = "SELECT * FROM public_relation WHERE id LIKE $key ORDER BY id DESC";
+        
             } else { // if check have key content
-              $sql_pr = 'SELECT * FROM public_relation';
+              $sql_pr = 'SELECT * FROM public_relation ORDER BY id DESC';
+            }
               $result_pr = mysql_query($sql_pr) or die(mysql_error());
               if (mysql_num_rows($result_pr) > 0){ // check result query PR content
                 $row_pr = mysql_fetch_array($result_pr);
@@ -113,13 +121,13 @@
                         </div> 
                       </div>';
             }// end if check result query PR content
-          }
+          
           ?>
         </div>
       </div>
       <div class="row" id="PR_footer"> <!-- Footer content PR -->
         <?php
-          $sql_pr = 'SELECT * FROM public_relation';
+          $sql_pr = 'SELECT * FROM public_relation ORDER BY id DESC';
           $result_pr = mysql_query($sql_pr) or die(mysql_error());
           
 

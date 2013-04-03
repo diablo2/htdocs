@@ -4,16 +4,16 @@ Colours and backgrounds for common.css
 -------------------------------------------------------------- */
 
 html, body {
-	color: #FFCC99;
-	background-color: #FFFF99;
+	color: #FFFFFF;
+	background-color: #FFFFFF;
 }
 
 h1 {
-	color: ##FFCC99;
+	color: #FFFFFF;
 }
 
 h2 {
-	color: #28313F;
+	color: #FFFFFF;
 }
 
 h3 {
@@ -706,6 +706,20 @@ a.fontsize {
 .jabber-icon, .jabber-icon a		{ background-image: url("{IMG_ICON_CONTACT_JABBER_SRC}"); }
 .pm-icon, .pm-icon a				{ background-image: url("{IMG_ICON_CONTACT_PM_SRC}"); }
 .quote-icon, .quote-icon a		{ background-image: url("{IMG_ICON_POST_QUOTE_SRC}"); }
+/* Share On 2.1.0 */
+.facebook-icon, .facebook-icon a	{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_facebook.png"); }
+.twitter-icon, .twitter-icon a		{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_twitter.png"); }
+.tuenti-icon, .tuenti-icon a		{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_tuenti.png"); }
+.sonico-icon, .sonico-icon a		{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_sonico.png"); }
+.friendfeed-icon, .friendfeed-icon a	{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_friendfeed.png"); }
+.orkut-icon, .orkut-icon a		{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_orkut.gif"); }
+.digg-icon, .digg-icon a		{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_digg.gif"); }
+.myspace-icon, .myspace-icon a		{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_myspace.png"); }
+.delicious-icon, .delicious-icon a	{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_delicious.gif"); }
+.technorati-icon, .technorati-icon a	{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_technorati.png"); }
+.tumblr-icon, .tumblr-icon a		{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_tumblr.png"); }
+.google-icon, .google-icon a		{ background-image: url("{T_IMAGESET_LANG_PATH}/share_on_buttons/shareon_google.gif"); }
+/* Share On 2.1.0 */
 
 /* Moderator icons */
 .report-icon, .report-icon a		{ background-image: url("{IMG_ICON_POST_REPORT_SRC}"); }

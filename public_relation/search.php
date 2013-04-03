@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php 
+// confic variable function paggin
+$page_row = 15 ;
+$count_topic = 0 ;
+
+?>
 <?php include ('../setting/connect.php'); ?>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
@@ -23,7 +29,7 @@
   <link rel="stylesheet" href="../stylesheets/general_foundicons.css">
   <link rel="stylesheet" href="../stylesheets/general_foundicons_ie7.css">
   <script src="../javascripts/modernizr.foundation.js"></script>
-  <script src="../javascripts\jquery.foundation.forms.js"></script>
+  <script src="../javascripts/jquery.foundation.forms.js"></script>
   
 </head>
 <body class="PR_search">
@@ -87,8 +93,8 @@
                     <input type="text" name="search" placeholder="Search News">
                   </div>
                   <div class="four columns">
-                    <select>
-                      <option>Department</option>
+                    <select name="department">
+                      <option value="">Department</option>
                       <?php
                         $sql_department = 'SELECT * FROM department';
                         $resule_depaerment = mysql_query($sql_department) or die(mysql_error());
@@ -100,7 +106,7 @@
                     </select>
                   </div>
                   <div class="two columns">
-                    <input type="text" name="year" placeholder="Year Ex. 1999">
+                    <input type="text" name="year" placeholder="Year Ex. 1999" >
                   </div>
                   <div class="two columns">
                     <input class="radius secondary button" id="PR_search_bt" type="submit" value="Search">
@@ -110,58 +116,65 @@
             </div>
           </div>
           <div class="row"> <!-- Contain Search-->
-            <div class="twelve columns">
+            <div class="twelve columns demo" id="pagination">
               <?php
-                if (isset($_GET['search'])){
-                  $search = $_GET['search'];
-                  $sql_pr = 'SELECT * FROM public_relation WHERE topic LIKE "%'.$search.'%"';
-                  
-                } else { // have not key search content PR
+                if (empty($_GET)){ // check $_GET
                   $sql_pr = 'SELECT * FROM public_relation';
+                } else {
+                  $sql_pr = 'SELECT * FROM public_relation WHERE topic LIKE "%'.$_GET['search'].'%"';
+                  if ($_GET['year'] != ""){
+                    $sql_pr .= ' AND YEAR(createDate) LIKE "'.$_GET['year'].'"';
+                  }
+
+                  if ($_GET['department'] != ""){
+                    $sql_pr .= ' AND department LIKE "'. $_GET['department'].'"';
+                  }
                 }
+                
                   $result_pr = mysql_query($sql_pr) or die(mysql_error());
-                  $i = 0;
-                  while ($row_pr = mysql_fetch_array($result_pr)) {
-                    $i = $i + 1;
-                    echo '<div class="row">
-                            <div class="one columns">
-                              '. $i .'
-                            </div>
-                            <div class="seven columns"><a href="index.php?key='.base64_encode($row_pr['id']).'">
-                              '.$row_pr['topic'].'
-                              </a>
-                            </div>
-                            <div class="four columns">
-                              '. date('Y-m-d', strtotime(str_replace('-', '/', $row_pr['createDate']))).'
-                            </div>
-                          </div>';
-                
-              }
-                
+                  $num_row_pr = ceil(mysql_num_rows($result_pr)/$page_row);
+
+                  for ($i =1 ; $i <= $num_row_pr ; $i++){ // for number of page
+                    if ($i == 1 ){ // if set frist page and page show
+                      $page = " pagedemo _current"; 
+                      $sty = "";
+                    } else { 
+                      $page = " pagedemo"; 
+                      $sty = "display:none;";
+                    }
+                    
+                    echo '<div class="row '.$page.'" id="p'.$i.'" style="'.$sty.'">';
+                        for ($j = 1 ; $j <= $page_row ; $j++ ){
+                          if ($row_pr = mysql_fetch_array($result_pr)) { // check Query have data
+                            $count_topic = $count_topic +1;
+                            echo  '<div class="row">
+                              <div class="one columns ">
+                                '. $count_topic .'
+                              </div>
+                              <div class="seven columns"><a href="index.php?key='.base64_encode($row_pr['id']).'">
+                                '.$row_pr['topic'].'
+                                </a>
+                              </div>
+                              <div class="four columns">
+                                '. date('Y-m-d', strtotime(str_replace('-', '/', $row_pr['createDate']))).'
+                              </div>
+                              </div>';
+                          } else {
+                            break;
+                          }
+                        }
+                    echo '</div>';
+                  }
+             
               ?>
             </div>
           </div><!-- End contain Search -->
-        </div>
-      </div>
-      <div class="row"> <!-- Footer content PR -->
-        <div class="three columns">
-          <form class="custom">
-
-        </div>
-                <div class="three columns">
-          Test !
-        </div>
-                <div class="three columns">
-          Test !
-        </div>
-                <div class="three columns">
-          Test !
+          <div id="paging">   </div>
         </div>
       </div>
     </div>
     
   </div>
-    
   
   <!-- Footer -->
   
@@ -189,5 +202,30 @@
   
   <!-- Initialize JS Plugins -->
   <script src="../javascripts/app.js"></script>
+
+    <script type="text/javascript" src="../javascripts/jquery-1.3.2.js"></script>
+    <script src="../javascripts/jquery.paginate.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(function() {
+      $("#paging").paginate({
+        count     : <?php echo $num_row_pr; ?>,
+        start     : 1,
+        display     : 7,
+        border          : true,
+        border_color      : '#fff',
+        text_color        : '#fff',
+        background_color      : 'black',  
+        border_hover_color    : '#ccc',
+        text_hover_color      : '#000',
+        background_hover_color  : '#fff', 
+        images          : false,
+        mouse         : 'press',
+        onChange          : function(page){
+                      $('._current','#pagination').removeClass('_current').hide();
+                      $('#p'+page).addClass('_current').show();
+                      }
+      });
+    });
+    </script>
 </body>
 </html>

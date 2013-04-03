@@ -1,0 +1,109 @@
+<!-- INCLUDE overall_header.html -->
+
+<p class="{S_CONTENT_FLOW_END}<!-- IF S_USER_LOGGED_IN --> rightside<!-- ENDIF -->"><!-- IF S_USER_LOGGED_IN -->{LAST_VISIT_DATE}<!-- ELSE -->{CURRENT_TIME}<!-- ENDIF --></p>
+<!-- IF U_MCP --><p>{CURRENT_TIME} <br />[&nbsp;<a href="{U_MCP}">{L_MCP}</a>&nbsp;]</p><!-- ELSEIF S_USER_LOGGED_IN --><p>{CURRENT_TIME}</p><!-- ENDIF -->
+
+
+<!-- IF RECENT_TOPICS_DISPLAY --><!-- INCLUDE recent_topics_body.html --><!-- ENDIF -->
+
+<!-- IF RECENT_TOPICS_DISPLAY --><!-- INCLUDE recent_topics_body.html --><!-- ENDIF -->
+
+<!-- IF RECENT_TOPICS_DISPLAY --><!-- INCLUDE recent_topics_body.html --><!-- ENDIF -->
+
+<!-- IF RECENT_TOPICS_DISPLAY --><!-- INCLUDE recent_topics_body.html --><!-- ENDIF -->
+
+<!-- IF RECENT_TOPICS_DISPLAY --><!-- INCLUDE recent_topics_body.html --><!-- ENDIF -->
+
+<!-- IF RECENT_TOPICS_DISPLAY --><!-- INCLUDE recent_topics_body.html --><!-- ENDIF -->
+
+<!-- IF RECENT_TOPICS_DISPLAY --><!-- INCLUDE recent_topics_body.html --><!-- ENDIF -->
+<!-- IF S_DISPLAY_SEARCH or (S_USER_LOGGED_IN and not S_IS_BOT) -->
+<ul class="linklist">
+	<!-- IF S_DISPLAY_SEARCH -->
+		<li><a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a><!-- IF S_LOAD_UNREADS --> &bull; <a href="{U_SEARCH_UNREAD}">{L_SEARCH_UNREAD}</a><!-- ENDIF --><!-- IF S_USER_LOGGED_IN --> &bull; <a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a><!-- ENDIF --> &bull; <a href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a></li>
+	<!-- ENDIF -->
+	<!-- IF not S_IS_BOT and U_MARK_FORUMS --><li class="rightside"><a href="{U_MARK_FORUMS}" accesskey="m">{L_MARK_FORUMS_READ}</a></li><!-- ENDIF -->
+</ul>
+<!-- ENDIF -->
+
+<!-- INCLUDE forumlist_body.html -->
+
+<!-- IF not S_USER_LOGGED_IN and not S_IS_BOT -->
+	<form method="post" action="{S_LOGIN_ACTION}" class="headerspace">
+	<h3><a href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a><!-- IF S_REGISTER_ENABLED -->&nbsp; &bull; &nbsp;<a href="{U_REGISTER}">{L_REGISTER}</a><!-- ENDIF --></h3>
+		<fieldset class="quick-login">
+			<label for="username">{L_USERNAME}:</label>&nbsp;<input type="text" name="username" id="username" size="10" class="inputbox" title="{L_USERNAME}" />
+			<label for="password">{L_PASSWORD}:</label>&nbsp;<input type="password" name="password" id="password" size="10" class="inputbox" title="{L_PASSWORD}" />
+			<!-- IF S_AUTOLOGIN_ENABLED -->
+				| <label for="autologin">{L_LOG_ME_IN} <input type="checkbox" name="autologin" id="autologin" /></label>
+			<!-- ENDIF -->
+			<input type="submit" name="login" value="{L_LOGIN}" class="button2" />
+    <!-- IF S_AL_LOGIN_ENABLED -->
+		<p>
+			<!-- IF S_AL_WL_ENABLED -->
+			<iframe 
+			    id="WebAuthControl" 
+			    name="WebAuthControl" 
+			    src="http://login.live.com/controls/WebAuthButton.htm?appid={AL_WL_APP_ID}&style=font-size%3A+10pt%3B+font-family%3A+verdana%3B+background%3A+none%3B"
+			    width="80px"
+			    height="20px"
+			    marginwidth="0"
+			    marginheight="0"
+			    align="middle"
+			    frameborder="0"
+			    scrolling="no">
+			</iframe>
+			<!-- ENDIF -->
+			
+			<!-- IF S_AL_FB_ENABLED -->
+				<a onclick="window.location='{AL_PATH}'+ 'al_fb_connect.php';" href="#">
+					<img src="http://static.ak.fbcdn.net/images/fbconnect/login-buttons/connect_light_medium_long.gif" alt="Login with your Facebook account!" />
+				</a> 
+				
+
+			<!-- ENDIF -->
+			
+			<!-- IF S_AL_MS_ENABLED -->
+				<a onclick="window.location='{AL_PATH}'+ 'al_ms_connect.php?f=start';" href="#">
+					<img src="{AL_PATH}images/Blue_150_Loginwithmyspaceid.png" alt="Login with your MySpace account!" />
+				</a>
+			<!-- ENDIF -->
+			
+			<!-- IF S_AL_OI_ENABLED -->
+				<a onclick="window.location='{AL_PATH}'+ 'al_oi_connect.php';" href="#">
+					<img src="{AL_PATH}images/openid-icon-100x100.png" alt="Login with your OpenID account!" height="21px" align="middle" />OpenID
+				</a>
+			<!-- ENDIF -->
+		</p>
+	<!-- ENDIF -->
+			{S_LOGIN_REDIRECT}
+		</fieldset>
+	</form>
+<!-- ENDIF -->
+
+<!-- IF S_DISPLAY_ONLINE_LIST -->
+	<!-- IF U_VIEWONLINE --><h3><a href="{U_VIEWONLINE}">{L_WHO_IS_ONLINE}</a></h3><!-- ELSE --><h3>{L_WHO_IS_ONLINE}</h3><!-- ENDIF -->
+	<p>{TOTAL_USERS_ONLINE} ({L_ONLINE_EXPLAIN})<br />{RECORD_USERS}<br /> <br />{LOGGED_IN_USER_LIST}
+	<!-- IF LEGEND --><br /><em>{L_LEGEND}: {LEGEND}</em><!-- ENDIF --></p>
+<!-- ENDIF -->
+
+<!-- IF S_DISPLAY_BIRTHDAY_LIST and BIRTHDAY_LIST -->
+	<h3>{L_BIRTHDAYS}</h3>
+	<p><!-- IF BIRTHDAY_LIST -->{L_CONGRATULATIONS}: <strong>{BIRTHDAY_LIST}</strong><!-- ELSE -->{L_NO_BIRTHDAYS}<!-- ENDIF --></p>
+<!-- ENDIF -->
+
+<!-- IF NEWEST_USER -->
+	<h3>{L_STATISTICS}</h3>
+	<p>{TOTAL_POSTS} &bull; {TOTAL_TOPICS} &bull; {TOTAL_USERS} &bull; {NEWEST_USER}</p>
+<!-- ENDIF -->
+<!-- IF TOP_POSTERS_LIST -->
+	<h3>{L_TOP_POSTERS}</h3>
+	<p>{TOP_POSTERS_LIST}<br />
+<!-- IF TOP_POSTERS_HOURS_LIST -->
+	<i>{TOP_POSTERS_HOURS}</i> 	
+	{TOP_POSTERS_HOURS_LIST}
+<!-- ENDIF -->
+</p>
+<!-- ENDIF -->
+
+<!-- INCLUDE overall_footer.html -->

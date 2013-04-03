@@ -547,4 +547,18 @@ $lang = array_merge($lang, array(
 	'JAB_USERNAME_EXPLAIN'		=> 'Specify a registered username or a valid JID. The username will not be checked for validity. If you only specify a username, then your JID will be the username and the server you specified above. Else, specify a valid JID, for example user@jabber.org.',
 ));
 
+
+// Top Poster settings
+$lang = array_merge($lang, array(
+	'AMOUNT_TOP_POSTERS'			=> 'Number of Top Posters to show on Index',
+	'AMOUNT_TOP_POSTERS_EXPLAIN'	=> 'Shows the Top X posters on the Index. Leave blank or type 0 to disable feature',
+	'TOP_POSTERS_HOURS'				=> 'Show Top Posters in the last x hours',
+	'TOP_POSTERS_HOURS_EXPLAIN'		=> 'In addition to the overall Top Posters, it shows the Top posters of the last x hours. Leave blank or type 0 to disable feature',
+	'TOP_POSTERS_EXCL_ADM'			=> 'Exclude Administrators in the Top Poster display',
+	'TOP_POSTERS_EXCL_MOD'			=> 'Exclude Moderators in the Top Poster display',
+	'TOP_POSTERS_EXCL_IDS'			=> 'Enter specific User (Spammer) IDs to be excluded in the Top Poster display',
+	'TOP_POSTERS_EXCL_IDS_EXPLAIN'	=> 'Separate with a comma if more then one ID e.g. 2, 53. The IDs entered will not show in the Top Poster display, nor in the Top Posters in the last x hours display.',
+	'TOP_POSTERS_EXCL_HOURS'		=> 'Exclude Administrators and Moderators in the Top Poster last x hours display',
+	'TOP_POSTERS_EXCL_HOURS_EXPLAIN'=> 'If Administrators and/or Moderators are excluded in the Top Poster List, this option will also exclude them in the last x hours display.',
+));
 ?>
