@@ -47,10 +47,7 @@
 <body>
 
   <div class="container">
-    <div class"row-fluid"> <!-- Header Search Alumni -->
-
-    </div><!-- End Header Search Alumni -->
-    <div class="row-fluid"> <!-- Nav + Content -->
+   <div class="row-fluid"> <!-- Nav + Content -->
       <div class="span3 cblue">
 
       </div>
@@ -64,50 +61,44 @@
           </div>
           <div class="row-fluid">
             <center>
-              <form class="form-search">
-                <input class="span3" type="text" placeholder="name">
-                <input class="span2" type="text" >
-                <select class="span2">
-                  <option></option>
-                  <option></option>
-                  <option></option>
+              <form class="form-search" method="get" action="result.php">
+                <input class="span3" type="text" name="name" placeholder="name">
+                <input class="span2" type="text" placeholder="year" >
+                <select class=  "span2">
+                  <?php
+                    $sql_department = 'SELECT * FROM department';
+                    $result_department = mysql_query($sql_department);
+                    while ($row_department = mysql_fetch_array($result_department)) {
+                      echo '<option value="'.$row_department['id'].'">'.$row_department['nameEn'].'</option>';
+                    }
+                  ?>
                 </select> 
                 <button class="btn" type="submit">Search</button>
               </form>
             </center>
           </div>
-        </div>
-        <div class="row-fluid">
-          <h2>New Alumni</h2>
-          <?php 
-            $sql_department = 'SELECT id,nameEn FROM department';
-            $result_department = mysql_query($sql_department) or die(mysql_error());
-            while ($row_department = mysql_fetch_array($result_department)){  // While print department
-              $id = $row_department['id'];
-              echo '<div class="row-fluid">';
-              echo '<h4>'.$row_department['nameEn'].'</h4>';
-                echo '<div class="row-fluid">';
-                echo '<ul class="bxslider">';
-                for ($i = 1 ; $i <= 10 ; $i++){ // while >> for print alumni (image and name)
-                  echo '<li class="slide">';
-                  echo '<a href="index.php">';
-                  echo '<img src="../images/upload/testimg.png" href="inex.php">'.$i; // image + name
-                  echo '</a></li>';
-                }
-                echo '</ul>';
-                echo '</div>';
-              echo '</div>';
+          <div class="row-fluid" style="margin-top : 20px"> <!-- Result Search -->
+            
+          <?php
+          $n = 20;
+          for ($j = 1 ; $j < $n/4 ; $j++){
+            echo '<ul class="thumbnails">';
+            for($i = 0 ; $i < 4 ; $i++){
+              echo '<li class="span3"><a class="thumbnail" href="index.php">';
+              echo '<img src="../images/upload/testimg.png">';
+              echo '</a></li>';
             }
+            echo '</ul>';
+          }
           ?>
-        </div> 
+        
+        </div>
+        </div> <!-- End Class container -->
       </div>
-    </div><!-- End Nav + Content -->
-
-
-
+    </div>
   </div>
 
-    <!-- Le javascript
+    <!-- Le javascript 
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 <!--    <script src="js/jquery.js"></script> -->
@@ -126,20 +117,6 @@
     <script src="../js/bootstrap-typeahead.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/bootstrap.js"></script>
-    <!-- bxSlider Javascript file -->
-    <script src="../js/jquery.bxslider.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('.bxslider').bxSlider({
-    slideWidth: 300,
-    minSlides: 6,
-    maxSlides: 5,
-    moveSlides: 1,
-    slideMargin: 3,
-    pager: false,
 
-        });
-      });
-    </script>
 </body>
 </html>
