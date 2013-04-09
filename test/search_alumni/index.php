@@ -68,9 +68,13 @@
                 <input class="span3" type="text" placeholder="name">
                 <input class="span2" type="text" >
                 <select class="span2">
-                  <option></option>
-                  <option></option>
-                  <option></option>
+                  <?php
+                    $sql_department = 'SELECT * FROM department';
+                    $result_department = mysql_query($sql_department);
+                    while ($row_department = mysql_fetch_array($result_department)) {
+                      echo '<option value="'.$row_department['id'].'">'.$row_department['nameEn'].'</option>';
+                    }
+                  ?>
                 </select> 
                 <button class="btn" type="submit">Search</button>
               </form>
@@ -80,8 +84,7 @@
         <div class="row-fluid">
           <h2>New Alumni</h2>
           <?php 
-            $sql_department = 'SELECT id,nameEn FROM department';
-            $result_department = mysql_query($sql_department) or die(mysql_error());
+            mysql_data_seek($result_department, 0);
             while ($row_department = mysql_fetch_array($result_department)){  // While print department
               $id = $row_department['id'];
               echo '<div class="row-fluid">';
