@@ -39,7 +39,10 @@
 
   <body class="container">
   <?php include('../component/nav-top.php'); ?> 
-    <div class="container-fluid">
+    <div class="container-fluid contain">
+      <div class="row-fluid header">
+
+      </div>
       <div class="row-fluid">
         <div class="span3">
         <?php include '../component/nav-side.php'; ?>
@@ -84,21 +87,16 @@
             </div>
           </form>
         </div><!--/row-->
-
-      <hr>
-
-      <footer>
-        <p>© Company 2013</p>
-      </footer>
-
-    </div><!--/.fluid-container-->
-  </div>
+      </div>
+<!-------------------- Footer ---------------------------->
+    <?php include('../component/footer.php'); ?>
+  </div><!--/.fluid-container-->
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 <!--    <script src="js/jquery.js"></script> -->
-    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="../js/jquery-1.9.1.js"></script>
     <script src="../js/bootstrap-transition.js"></script>
     <script src="../js/bootstrap-alert.js"></script>
     <script src="../js/bootstrap-modal.js"></script>

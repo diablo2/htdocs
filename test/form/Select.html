@@ -1,0 +1,147 @@
+<!--
+* Field Name design.
+*
+* Revision: @REVISION
+* Version: @VERSION
+* Copyright 2011 Author Name (author@email.com)
+*
+* Licensed under Apache v2.0 http://www.apache.org/licenses/LICENSE-2.0.html
+*
+* Date:  
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Field Name design</title>
+    <script src="../js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="lib/js/jquery-ui-1.8.7.custom.min.js"></script>
+<script type="text/javascript" src="lib/js/jquery.json-2.2.min.js"></script>
+<script type="text/javascript" src="lib/js/jquery.qtip.min.js"></script>
+<!--DEV--><script type="text/javascript" src="js/jquery.formbuilder.core.js"></script>
+<!--DEV--><script type="text/javascript" src="js/jquery.formbuilder.widget.js"></script>
+<!--DEV--><script type="text/javascript" src="js/jquery.colorpicker.js"></script>
+<!--DEV--><script type="text/javascript" src="js/jquery.fontpicker.js"></script>
+<!--PROD.JS-->
+<link type="text/css" href="lib/css/smoothness/jquery-ui-1.8.7.custom.css" media="screen" rel="stylesheet" /> 
+<link type="text/css" href="lib/css/uni-form.css" media="screen" rel="stylesheet" />  
+<link type="text/css" href="lib/css/default.uni-form.css" media="screen" rel="stylesheet" />  
+<link type="text/css" href="lib/css/jquery.qtip.css" media="screen" rel="stylesheet" />
+
+<!-- Bootstrap Css -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+<!--DEV--><link type="text/css" href="css/jquery.formbuilder.core.css" media="screen" rel="stylesheet" />  
+<!--DEV--><link type="text/css" href="css/jquery.colorpicker.css" media="screen" rel="stylesheet" />  
+<!--DEV--><link type="text/css" href="css/jquery.fontpicker.css" media="screen" rel="stylesheet" /> 
+<!--PROD.CSS-->
+<script type="text/javascript">
+$(function(){
+	$('#paletteTabs').tabs();
+});
+</script>
+
+<style type="text/css">
+/* Field specific styles here */
+
+</style>
+</head>
+<body>
+<div id="container">
+  <div id="header"><h1>Field Name design</h1></div>
+  <div id="builderPalette">
+     <div class="floatingPanel">
+			<div id="paletteTabs">
+				<ul>
+					<li><a href="#fieldSettings">Field Settings</a></li>
+				</ul>
+				<div id="fieldSettings">
+					<fieldset class="language">
+					<legend>Select</legend>
+					<div class="clear labelOnTop">
+						<label for="text">Label</label><br/>
+						<input type="text" id="text" />
+					</div>
+					<div class="twoCols">
+						<div class="labelOnTop col1 noPaddingBottom">
+							<label for="horizontalAlignment">Feild Size</label><br/>
+							<select id="horizontalAlignment">
+								<option value="span1">1</option>
+								<option value="span2">2</option>
+								<option value="span3">3</option>
+								<option value="span4">4</option>
+								<option value="span5">5</option>
+								<option value="span6">6</option>
+								<option value="span7">7</option>
+								<option value="span8">8</option>
+								<option value="span9">9</option>
+								<option value="span10">10</option>
+								<option value="span11">11</option>
+								<option value="span12">12</option>
+
+							</select>
+						</div>
+						<div class="labelOnTop col2 noPaddingBottom">
+
+						</div>	
+					</div>
+					<div class="clear">
+						<label>Choices</label>
+						<textarea rows="5">
+
+First Choice
+Second Choice
+Third Choice</textarea>
+					</div>
+					</fieldset>
+				
+				</div>
+			</div>     
+     </div>
+  </div>
+  <form id="builderForm" action="#" class="uniForm">
+		  <div id="builderPanel">
+		    <div class="formHeading"><h1>Form 1</h1></div>
+			<fieldset>
+				<div class="row-fluid">
+				<label>Select a Choice</label>
+				<select class="span2">
+					<option></option>
+					<option>First Choice</option>
+					<option>Second Choice</option>
+					<option>Third Choice</option>
+				</select>		
+				</div>
+				sdfdsf
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+  <li><a tabindex="-1" href="#">Action</a></li>
+  <li><a tabindex="-1" href="#">Another action</a></li>
+  <li><a tabindex="-1" href="#">Something else here</a></li>
+  <li class="divider"></li>
+  <li><a tabindex="-1" href="#">Separated link</a></li>
+</ul>
+		  	</fieldset>		  
+  </div>
+  <div class="buttons">
+		  <input type="submit" name="create" class="save" value="Create" id="create" />
+	</div>
+	</form>	  	     
+</div>
+<!--    <script src="js/jquery.js"></script> -->
+
+    <script src="../js/bootstrap-transition.js"></script>
+    <script src="../js/bootstrap-alert.js"></script>
+    <script src="../js/bootstrap-modal.js"></script>
+    <script src="../js/bootstrap-dropdown.js"></script>
+    <script src="../js/bootstrap-scrollspy.js"></script>
+    <script src="../js/bootstrap-tab.js"></script>
+    <script src="../js/bootstrap-tooltip.js"></script>
+    <script src="../js/bootstrap-popover.js"></script>
+    <script src="../js/bootstrap-button.js"></script>
+    <script src="../js/bootstrap-collapse.js"></script>
+    <script src="../js/bootstrap-carousel.js"></script>
+    <script src="../js/bootstrap-typeahead.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</body>
+</html>

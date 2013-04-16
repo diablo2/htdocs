@@ -27,18 +27,22 @@
       }
     </style>
     <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-
+    <link href="../css/design.css" rel="stylesheet">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
     <![endif]-->
 
     <!-- Fav and touch icons -->
-  <script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script></head>
+  <script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script>
+</head>
 
   <body class="container">
-  <?php include('../component/nav-top.php'); ?> 
-    <div class="container-fluid">
+    <?php include('../component/nav-top.php'); ?>   
+    <div class="container-fluid contain">
+      <div class="row-fluid header">
+
+      </div>
       <div class="row-fluid">
         <div class="span3">
         <?php include '../component/nav-side.php'; ?>
@@ -60,7 +64,7 @@
                       <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                     </div>
                 </div>
-                <div class="item"><img src="images/bootstrap-mdo-sfmoma-02.jpg"></div>
+                <div class="item"><img src="../images/bootstrap-mdo-sfmoma-02.jpg"></div>
                 <div class="item">
                   <img src="../images/bootstrap-mdo-sfmoma-03.jpg">
                   <div class="carousel-caption">
@@ -113,20 +117,23 @@
           </div><!--/row-->
         </div><!--/span-->
       </div><!--/row-->
-
-      <hr>
-
-      <footer>
-        <p>© Company 2013</p>
-      </footer>
-
+<!-------------------- Footer ---------------------------->
+<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+  <li><a tabindex="-1" href="#">Action</a></li>
+  <li><a tabindex="-1" href="#">Another action</a></li>
+  <li><a tabindex="-1" href="#">Something else here</a></li>
+  <li class="divider"></li>
+  <li><a tabindex="-1" href="#">Separated link</a></li>
+</ul>
+    <?php include('../component/footer.php'); ?>
     </div><!--/.fluid-container-->
+
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 <!--    <script src="js/jquery.js"></script> -->
-    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="../js/jquery-1.9.1.js"></script>
     <script src="../js/bootstrap-transition.js"></script>
     <script src="../js/bootstrap-alert.js"></script>
     <script src="../js/bootstrap-modal.js"></script>

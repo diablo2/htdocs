@@ -19,12 +19,35 @@ url('../f0nt/supermarket-webfont.woff')format('woff'),
 url('../f0nt/supermarket-webfont.ttf')format('truetype');
 font-weight:normal;font-style:normal;}
 
-body {background-color: #2554C7;}
+/* body {background-color: #2554C7;} */
 
 /* -----------------------------------------
-    Navigation
+    Navigation side
 ----------------------------------------- */
-#nav-side ul li a{background-color: #000000}
+#nav-side ul li a{
+    display: line-block;
+    width: 200px;
+    height: 38px;
+    text-decoration: none;
+    background: url(../images/system/nav-side.png) no-repeat;
+    background-size: 200px 88px;
+    line-height: 36px;
+    color: #FFFFFF;
+    }
+/*#nav-side .displace {
+    position: absolute;
+    left: -5000px;
+}*/
+#nav-side ul li a.active {
+
+    background-position: -2px -44px;
+    color: #000000; 
+}
+#nav-side ul li :hover {
+    background-position: -2px -44px;
+    color: #000000;
+    }
+
 
 /* -----------------------------------------
 	Home 
@@ -32,13 +55,58 @@ body {background-color: #2554C7;}
 #PR div {font:bold 18px 'supermarketRegular';}
 
 /* -----------------------------------------
+    Header
+----------------------------------------- */
+.header {
+    background: url(../images/system/header.jpg);
+    height: 200px;
+    background-size: 100% 100%;
+
+}
+
+/* -----------------------------------------
+    Body
+----------------------------------------- */
+.container {
+    background-color: #DCDCDC; /* Color gray  */
+    padding: 40px 0 0 0;
+}
+.contain {
+    background-color: #1c689a;
+    padding: 0px 0px 0px 0px;
+    -moz-box-shadow: 0 0 5px 5px #888;
+    -webkit-box-shadow: 0 0 5px 5px#888;
+    box-shadow: 0 0 5px 5px #888;
+}
+
+/* -----------------------------------------
+    Footer
+----------------------------------------- */
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 237px;
+    background: transparent url(../images/system/backgrund-web.png) repeat-x     left bottom;
+}
+
+/* -----------------------------------------
 	Login
 ----------------------------------------- */
-.form_login { height: 500px ;width: 100%; background-color: #000000; float: right; margin-top: 50px}
+.form_login { 
+    height: 500px ;
+    width: 100%; 
+    background-color: #000000; 
+    float: right; 
+    margin-top: 50px;
+}
 .form_login label {font: normal 16px 'supermarketRegular'}
 .form_login h3 {font-family: 'supermarketRegular'}
 
-.detail_login {font: normal 18px 'supermarketRegular'; margin-top: 200px}
+.detail_login {
+    font: normal 18px 'supermarketRegular'; 
+    margin-top: 200px;
+}
 
 #result_login {text-align: center;}
 
@@ -66,11 +134,19 @@ body {background-color: #2554C7;}
 /* -----------------------------------------
 	Public Relation
 ----------------------------------------- */
-.body_PR {font: normal 18px 'supermarketRegular'}
-.body_PR li:hover i {background-image: url("../img/glyphicons-halflings-white.png") ;color: #0CAEE3; }
+.body_PR {
+    font: normal 18px 'supermarketRegular'; 
+    margin-right: 30px;
+}
+.body_PR li:hover i {background-image: url("../img/glyphicons-halflings-white.png") }
 .body_PR li i {font-size: 20px}
 .body_PR li {display: inline-block;}
-.body_PR ul { list-style: none; overflow: hidden; vertical-align: center;}
+.body_PR ul { 
+    list-style: none; 
+    overflow: hidden; 
+    vertical-align: center;
+}
+.body_PR hr {margin-top: 0px;}
 #PR_function a {color: #222;}
 #PR_footer {margin-top: 2em}
 #PR_footer img {height: 120px; width: 120px}
@@ -80,7 +156,7 @@ body {background-color: #2554C7;}
 /* -----------------------------------------
 	Public Relation Search
 ----------------------------------------- */
-.PR_search {font: normal 18px 'supermarketRegular'}
+.PR_search {font: normal 18px 'supermarketRegular'; margin-right: 30px}
 .PR_search li:hover i {color: #0CAEE3; font-size: 20px;}
 .PR_search li i {font-size: 20px}
 .PR_search ul { list-style: none; overflow: hidden; vertical-align: center;}
@@ -203,20 +279,46 @@ span.jPag-snext-img{
 .testBG {background-color: #C0C0C0}
 .cpink {background-color: #FF33FF; height: 200px}
 .cblue {background-color: #9900FF; height: 200px}
-
+.bx-wrapper {
+    margin-bottom: 0px;
+}
 
 /* -----------------------------------------
 	Background
 ----------------------------------------- */
 .bg-gray {background-color: #FFFFFF;}
-.object_ok
-{
-border: 1px solid green; 
-color: #333333; 
+.object_ok {
+    border: 1px solid green; 
+    color: #333333; 
 }
 
-.object_error
-{
-border: 1px solid #AC3962; 
-color: #333333; 
+.object_error {
+    border: 1px solid #AC3962; 
+    color: #333333; 
 }
+
+
+/* -----------------------------------------
+	Profile alumni
+----------------------------------------- */
+
+.test_profile {background-color:#099;}
+.profile_h0 {background-image:url(../images/system/backgrund-first.jpg); min-height:100px}
+.profile_h1 {background-image: url(../images/system/backgrund-first.jpg);}
+.profile_h2{background-color:#09F; margin-left: 0px}
+.profile_h3{background-color:#FFF; margin-left: 0px}
+
+
+/* -----------------------------------------
+    Gallery
+----------------------------------------- */
+
+/*  Thumbnails multiple rows */
+.row-fluid ul.thumbnails li.span12 + li { margin-left : 0px; }
+.row-fluid ul.thumbnails li.span6:nth-child(2n + 3) { margin-left : 0px; }
+.row-fluid ul.thumbnails li.span4:nth-child(3n + 4) { margin-left : 0px; }
+.row-fluid ul.thumbnails li.span3:nth-child(4n + 5) { margin-left : 0px; }
+.row-fluid ul.thumbnails li.span2:nth-child(6n + 7) { margin-left : 0px; }
+.row-fluid ul.thumbnails li.span1:nth-child(12n + 13) { margin-left : 0px; }
+.gallery .row-fluid ul.thumbnails li img {height: 116px; width: 116px; }
+.content {padding-right: 30px}

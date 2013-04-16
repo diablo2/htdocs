@@ -30,7 +30,7 @@
       }
     </style>
     <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-        <link href="../css/design.css" rel="stylesheet">
+    <link href="../css/design.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -39,24 +39,15 @@
 
     <!-- Fav and touch icons -->
   <script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script></head>
+      <script src="../js/jquery-1.9.1.js"></script>
+  <body class="container">
+    <!-- Header and Nav -->
+    <?php include('../component/nav-top.php'); ?>       
+    <div class="container-fluid contain">
+      <div class="row-fluid header">
 
-  <body>
-    <div class="container">
-  <!-- Header and Nav -->
- 
-  <div class="row-fluid">
-    <div class="span3">
-      <h1><img src="http://placehold.it/400x100&text=Logo" /></h1>
-    </div>
-    <div class="span9">
-      <ul class="link-list right">
-        <li><a href="#">Section 1</a></li>
-        <li><a href="#">Section 2</a></li>
-        <li><a href="#">Section 3</a></li>
-        <li ><a href="#">Section 4</a></li>
-      </ul>
-    </div>
-  </div>
+      </div>
+
   
   <!-- End Header and Nav -->
   
@@ -65,23 +56,13 @@
         <!-- Nav Sidebar -->
     <!-- This is source ordered to be pulled to the left on larger screens -->
     <div class="span3">
-        
-      <ul class="side-nav">
-        <li><a href="#">Section 1</a></li>
-        <li><a href="#">Section 2</a></li>
-        <li><a href="#">Section 3</a></li>
-        <li><a href="#">Section 4</a></li>
-        <li><a href="#">Section 5</a></li>
-        <li><a href="#">Section 6</a></li>
-      </ul>
-      
-      <p><img src="http://placehold.it/320x240&text=Ad" /></p>
-        
+        <?php include '../component/nav-side.php'; ?>
     </div>
     <!-- Main Content Section -->
     <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
-    <div class="span9 body_PR"> <!-- Contain PR -->
-      <div class="row-fluid"> <!---- Header content and function search, << , home , >> ---->
+    <div class="span9"> <!-- Contain PR -->
+      <div class="well body_PR">
+        <div class="row-fluid"> <!---- Header content and function search, << , home , >> ---->
          <div class="span6">
            <h4> Public Relations </h4>
          </div>
@@ -108,6 +89,7 @@
           <div class="span3"><ul><li><a <?php echo 'href="index.php?key='.base64_encode($nNext).'"' ?>><i class="icon-circle-arrow-right"></i></a></li></ul></div>            
         </div> <!-- End icon function -->
       </div> <!-- End Header PR -->
+      <hr>
       <div class="row-fluid"> <!-- Main Content PR-->
         <div class="span12">
           <?php  
@@ -140,6 +122,7 @@
           ?>
         </div>
       </div>
+    </div>
       <div class="row-fluid" id="PR_footer"> <!-- Footer content PR -->
         <?php
           $sql_pr = 'SELECT * FROM public_relation ORDER BY id DESC';
@@ -150,7 +133,7 @@
             $row_pr = mysql_fetch_array($result_pr);
             echo '<div class="span3">
                     <center>
-                      <div class="row-fluid">
+                      <div class="row-fluid ">
                       <a href="index.php?key='.base64_encode($row_pr['id']).'">
                         <img src="'.$row_pr['imgDirect'].'"></a>
                       </div>
@@ -168,32 +151,13 @@
   </div>
     
   
-  <!-- Footer -->
-  
-  <footer class="row-fluid">
-    <div class="span12">
-      <hr />
-      <div class="row-fluid">
-        <div class="span6">
-          <p>&copy; Copyright no one at all. Go to town.</p>
-        </div>
-        <div class="span6">
-          <ul class="link-list right">
-            <li><a href="#">Section 1</a></li>
-            <li><a href="#">Section 2</a></li>
-            <li><a href="#">Section 3</a></li>
-            <li><a href="#">Section 4</a></li>
-          </ul>
-        </div>
-      </div>
-    </div> 
-  </footer>
+<!-------------------- Footer ---------------------------->
+    <?php include('../component/footer.php'); ?>
  </div> <!-- End container --> 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 <!--    <script src="js/jquery.js"></script> -->
-    <script src="../js/jquery-1.9.1.js"></script>
     <script src="../js/bootstrap-transition.js"></script>
     <script src="../js/bootstrap-alert.js"></script>
     <script src="../js/bootstrap-modal.js"></script>

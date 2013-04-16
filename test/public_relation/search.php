@@ -44,22 +44,11 @@ $count_topic = 0 ;
 
     <!-- Fav and touch icons -->
   <script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script></head>
-<body class="PR_search">
+<body class=" container">
   <!-- Header and Nav -->
-  <div class="container">
-  <div class="row-fluid">
-    <div class="span3">
-      <h1><img src="http://placehold.it/400x100&text=Logo" /></h1>
+  <div class="container-fluid contain">
+    <div class="row-fluid header">
     </div>
-    <div class="span9">
-      <ul class="link-list right">
-        <li><a href="#">Section 1</a></li>
-        <li><a href="#">Section 2</a></li>
-        <li><a href="#">Section 3</a></li>
-        <li ><a href="#">Section 4</a></li>
-      </ul>
-    </div>
-  </div>
   
   <!-- End Header and Nav -->
   
@@ -68,22 +57,12 @@ $count_topic = 0 ;
         <!-- Nav Sidebar -->
     <!-- This is source ordered to be pulled to the left on larger screens -->
     <div class="span3">
-        
-      <ul class="side-nav">
-        <li><a href="#">Section 1</a></li>
-        <li><a href="#">Section 2</a></li>
-        <li><a href="#">Section 3</a></li>
-        <li><a href="#">Section 4</a></li>
-        <li><a href="#">Section 5</a></li>
-        <li><a href="#">Section 6</a></li>
-      </ul>
-      
-      <p><img src="http://placehold.it/320x240&text=Ad" /></p>
-        
+      <?php include '../component/nav-side.php'; ?>
     </div>
     <!-- Main Content Section -->
     <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
-    <div class="span9 "> <!-- Contain PR -->
+    <div class="span9"> <!-- Contain PR -->
+      <div class="well PR_search">
       <div class="row-fluid"> <!---- Header content and function search, << , home , >> ---->
          <div class="span6">
            <h4> Public Relations </h4>
@@ -194,7 +173,7 @@ $count_topic = 0 ;
         </div>
       </div>
     </div>
-    
+    </div>
   </div>
   
   <!-- Footer -->

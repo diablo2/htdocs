@@ -31,10 +31,10 @@
       }
     </style>
     <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="../css/design.css" rel="stylesheet">
+
     <!-- bxSlider CSS file -->
     <link href="../css/jquery.bxslider.css" rel="stylesheet" />
-
+    <link href="../css/design.css" rel="stylesheet">    
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
@@ -44,18 +44,18 @@
   <script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script>
 
 </head>
-<body>
-
-  <div class="container">
-    <div class"row-fluid"> <!-- Header Search Alumni -->
+<body class="container">
+  <?php include('../component/nav-top.php'); ?>
+  <div class="container-fluid contain">
+    <div class="row-fluid header"> <!-- Header Search Alumni -->
 
     </div><!-- End Header Search Alumni -->
     <div class="row-fluid"> <!-- Nav + Content -->
-      <div class="span3 cblue">
-
+      <div class="span3">
+        <?php include '../component/nav-side.php'; ?>
       </div>
 
-      <div class="span9 cpink">
+      <div class="span9">
         <div class="row-fluid">
           <div class="row-fluid">
             <div class="span12">
@@ -64,15 +64,23 @@
           </div>
           <div class="row-fluid">
             <center>
-              <form class="form-search">
-                <input class="span3" type="text" placeholder="name">
-                <input class="span2" type="text" >
-                <select class="span2">
+              <form class="form-search well span11" action="index.php">
+                <input class="span3" name="name" type="text" placeholder="Name" <?php if(!empty($_GET['name'])) {echo 'value="'.$_GET['name'].'"'; } ?> >
+                <input class="span2" name="year" type="text" placeholder="Year" <?php if(!empty($_GET['year'])) {echo 'value="'.$_GET['year'].'"'; } ?> >
+                <select name="department" class="span3">
+                  <option value="">Department</option>
                   <?php
                     $sql_department = 'SELECT * FROM department';
                     $result_department = mysql_query($sql_department);
                     while ($row_department = mysql_fetch_array($result_department)) {
-                      echo '<option value="'.$row_department['id'].'">'.$row_department['nameEn'].'</option>';
+                      if (!empty($_GET['department'])){ // Check, What is curent choose
+                        $selectDeparemet = $_GET['department'];
+                      } else {
+                        $selectDeparemet = "";
+                      }
+                      echo '<option value="'.$row_department['id'].'" ';
+                      if($_GET['department'] == $row_department['id']){echo 'selected="selected"';}
+                      echo '>'.$row_department['nameEn'].' </option>';
                     }
                   ?>
                 </select> 
@@ -82,8 +90,10 @@
           </div>
         </div>
         <div class="row-fluid">
-          <h2>New Alumni</h2>
+          
           <?php 
+          if (empty($_GET['name']) && empty($_GET['year']) && empty($_GET['department'])){
+            echo '<h2>New Alumni</h2>';
             mysql_data_seek($result_department, 0);
             while ($row_department = mysql_fetch_array($result_department)){  // While print department
               $id = $row_department['id'];
@@ -101,12 +111,26 @@
                 echo '</div>';
               echo '</div>';
             }
+          } else { // $_GET have value   
+            echo '<h2>Result Search</h2>';
+          $n = 20;
+            for ($j = 1 ; $j < $n/4 ; $j++){
+              echo '<ul class="thumbnails">';
+              for($i = 0 ; $i < 4 ; $i++){
+                echo '<li class="span3"><a class="thumbnail" href="index.php">';
+                echo '<img src="../images/upload/testimg.png">';
+                echo '</a></li>';
+              }
+              echo '</ul>';
+            }
+          }
           ?>
         </div> 
       </div>
     </div><!-- End Nav + Content -->
 
-
+<!-------------------- Footer ---------------------------->
+    <?php include('../component/footer.php'); ?>
 
   </div>
 
