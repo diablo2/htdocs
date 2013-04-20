@@ -1,0 +1,14 @@
+This MOD introduces two new user options:
+1) Allow their age to be publicly viewable
+2) Display a congratulations message on their birthday
+
+If you would like to have your MOD retrieve either of these options in the case that the MOD installer has this MOD installed, then you'll first need to include this MOD's main PHP file:
+
+@include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);
+
+Now the options can be retrieved with either the user_show_age or user_congrats() functions, as so:
+if (isset($prime_birthdate))
+{
+	$user_show_age = $prime_birthdate->user_show_age($user_id);
+	$user_congrats = $prime_birthdate->user_congrats($user_id);
+}

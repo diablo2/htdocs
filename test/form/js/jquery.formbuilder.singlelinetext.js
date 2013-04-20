@@ -15,11 +15,12 @@ var FbSingleLineText = $.extend({}, $.fb.fbWidget.prototype, {
 		name: 'Single Line Text',
 		belongsTo: $.fb.formbuilder.prototype.options._standardFieldsPanel,
 		_type: 'SingleLineText',
-		_html : '<div><label><em></em><span></span></label> \
+		_html : '<div class="row-fluid"><label><em></em><span></span></label> \
 		      <input type="text" class="textInput" /> \
 	        <p class="formHint"></p></div>',
 		_counterField: 'label',
-		_languages: [ 'en', 'zh_CN' ],
+		// _languages: [ 'en', 'zh_CN' ],
+		_languages: [ 'en' ],
 		settings: {
 			en: {
 				label: 'Single Line Text',
@@ -31,16 +32,16 @@ var FbSingleLineText = $.extend({}, $.fb.fbWidget.prototype, {
 					fontStyles: [0, 0, 0] // bold, italic, underline					
 				}				
 			},
-			zh_CN : {
-				label: '单行文字输入',
-				value: '',
-				description: '',				
-				styles: {
-					fontFamily: 'default', // form builder default
-					fontSize: 'default',
-					fontStyles: [0, 0, 0] // bold, italic, underline					
-				}				
-			},
+			// zh_CN : {
+			// 	label: '单行文字输入',
+			// 	value: '',
+			// 	description: '',				
+			// 	styles: {
+			// 		fontFamily: 'default', // form builder default
+			// 		fontSize: 'default',
+			// 		fontStyles: [0, 0, 0] // bold, italic, underline					
+			// 	}				
+			// },
 			_persistable: true,
 			required: true,
 			restriction: 'no',
@@ -81,7 +82,7 @@ var FbSingleLineText = $.extend({}, $.fb.fbWidget.prototype, {
 	_getFieldSettingsLanguageSection : function(event, fb) {
 		fb.target._log('fbSingleLineText._getFieldSettingsLanguageSection executing...');
 		var $label = fb.target._label({ label: 'Label', name: 'field.label' })
-                         .append('<input type="text" id="field.label" />');
+                         .append('<input type="text" id="field.label" class="span12" />');
     $('input', $label).val(fb.settings.label)
      .keyup(function(event) {
  	      var value = $(this).val();
@@ -91,7 +92,7 @@ var FbSingleLineText = $.extend({}, $.fb.fbWidget.prototype, {
 	      fb.target._updateName(fb.item, value);
          });
 	  var $value = fb.target._label({ label: 'Value', name: 'field.value' })
-		                      .append('<input type="text" id="field.value" />');
+		                      .append('<input type="text" id="field.value" class="span12" />');
 		$('input', $value).val(fb.settings.value)
 		 .keyup(function(event) {
 		  var value = $(this).val();

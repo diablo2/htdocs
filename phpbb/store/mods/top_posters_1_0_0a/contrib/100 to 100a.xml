@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../modx.prosilver.en.xsl"?>
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.0.1.xsd">
+  <header>
+    <license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+    <title lang="en-gb">Top Posters on Index</title>
+    <description lang="en-gb">Upgrade from 100 to 100a.
+	Shows the top x posters on the Index page. The number of top posters can be changed in the board settings. In addition shows the top posters in the last x hours, also defined in the board settings.
+</description>
+    <author-notes lang="en-gb">Thanks to Spinebuster who made this mod for phpbb2
+If you want to cache the queries, open the includes/functions_topposter.php file and find  
+the following (twice): //delete the above line and uncomment below line if you want to cache the query for an hour
+
+</author-notes>
+    <author-group>
+      <author>
+        <realname>Heiko Carstens</realname>
+        <email>lefty@lefty74.com</email>
+        <username>lefty74</username>
+        <homepage>http://lefty74.com/</homepage>
+        <contributions />
+      </author>
+    </author-group>
+    <mod-version>
+      <major>1</major>
+      <minor>0</minor>
+      <revision>0</revision>
+          <release>a</release>
+    </mod-version>
+    <installation>
+      <level>easy</level>
+      <time>588</time>
+      <target-version>
+        <target-primary>3.0</target-primary>
+        <target-major allow="exact">3</target-major>
+        <target-minor allow="exact">0</target-minor>
+      </target-version>
+    </installation>
+    <history>
+      <entry>
+        <date>2007-07-01</date>
+        <rev-version>
+          <major>0</major>
+          <minor>0</minor>
+          <revision>1</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>Beta version released</change>
+        </changelog>
+      </entry>
+      <entry>
+        <date>2007-07-05</date>
+        <rev-version>
+          <major>0</major>
+          <minor>1</minor>
+          <revision>0</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>Added top posters of x hours possibility</change>
+        </changelog>
+      </entry>
+      <entry>
+        <date>2007-10-30</date>
+        <rev-version>
+          <major>0</major>
+          <minor>1</minor>
+          <revision>1</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>changed query to make more phpbb3 compliant</change>
+        </changelog>
+      </entry>
+      <entry>
+        <date>2008-01-15</date>
+        <rev-version>
+          <major>0</major>
+          <minor>1</minor>
+          <revision>2</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>changed code to prepare for RC</change>
+        </changelog>
+      </entry>
+      <entry>
+        <date>2008-01-20</date>
+        <rev-version>
+          <major>0</major>
+          <minor>2</minor>
+          <revision>0</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>added the possibility to exclude admins, mods and specific user_ids</change>
+        </changelog>
+      </entry>
+     <entry>
+        <date>2008-02-26</date>
+        <rev-version>
+          <major>1</major>
+          <minor>0</minor>
+          <revision>0</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>repackaged for RC and submission to Mods DB</change>
+        </changelog>
+      </entry>
+     <entry>
+        <date>2008-03-10</date>
+        <rev-version>
+          <major>1</major>
+          <minor>0</minor>
+          <revision>0</revision>
+          <release>a</release>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>fixed little things after MOD Denial</change>
+        </changelog>
+      </entry>
+    </history>
+    <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
+  </header>
+  <action-group>
+		<copy>
+<file from="root/includes/functions_topposter.php" to="includes/functions_topposter.php" />
+    </copy>
+
+    <open src="includes/acp/acp_board.php">
+      <edit>
+        <find><![CDATA[						'legend2'				=> 'TOP_POSTERS',
+						'amount_top_posters'	=> array('lang' => 'AMOUNT_TOP_POSTERS',	'validate' => 'int',	'type' => 'text:3:4', 'explain' => true),
+						'top_posters_hours'		=> array('lang' => 'TOP_POSTERS_HOURS',		'validate' => 'int',	'type' => 'text:3:4', 'explain' => true, 'append' => ' ' . $user->lang['HOURS']),
+						'top_posters_excl_adm'	=> array('lang' => 'TOP_POSTERS_EXCL_ADM',	'validate' => 'bool',	'type' => 'radio:yes_no', 'explain' => false),
+						'top_posters_excl_mod'	=> array('lang' => 'TOP_POSTERS_EXCL_MOD',	'validate' => 'bool',	'type' => 'radio:yes_no', 'explain' => false),
+						'top_posters_excl_ids'	=> array('lang' => 'TOP_POSTERS_EXCL_IDS',	'validate' => 'string',	'type' => 'text::30', 'explain' => true),
+						'top_posters_excl_hours'=> array('lang' => 'TOP_POSTERS_EXCL_HOURS','validate' => 'bool',	'type' => 'radio:yes_no', 'explain' => true),
+
+						'legend3'				=> 'WARNINGS',
+						'warnings_expire_days'	=> array('lang' => 'WARNINGS_EXPIRE',		'validate' => 'int',	'type' => 'text:3:4', 'explain' => true, 'append' => ' ' . $user->lang['DAYS']),
+]]></find>
+        <action type="replace-with"><![CDATA[						'legend2'				=> 'WARNINGS',
+						'warnings_expire_days'	=> array('lang' => 'WARNINGS_EXPIRE',		'validate' => 'int',	'type' => 'text:3:4', 'explain' => true, 'append' => ' ' . $user->lang['DAYS']),
+
+						'legend3'				=> 'TOP_POSTERS',
+						'amount_top_posters'	=> array('lang' => 'AMOUNT_TOP_POSTERS',	'validate' => 'int',	'type' => 'text:3:4', 'explain' => true),
+						'top_posters_hours'		=> array('lang' => 'TOP_POSTERS_HOURS',		'validate' => 'int',	'type' => 'text:3:4', 'explain' => true, 'append' => ' ' . $user->lang['HOURS']),
+						'top_posters_excl_adm'	=> array('lang' => 'TOP_POSTERS_EXCL_ADM',	'validate' => 'bool',	'type' => 'radio:yes_no', 'explain' => false),
+						'top_posters_excl_mod'	=> array('lang' => 'TOP_POSTERS_EXCL_MOD',	'validate' => 'bool',	'type' => 'radio:yes_no', 'explain' => false),
+						'top_posters_excl_ids'	=> array('lang' => 'TOP_POSTERS_EXCL_IDS',	'validate' => 'string',	'type' => 'text::30', 'explain' => true),
+						'top_posters_excl_hours'=> array('lang' => 'TOP_POSTERS_EXCL_HOURS','validate' => 'bool',	'type' => 'radio:yes_no', 'explain' => true),
+]]></action>
+      </edit>
+    </open>
+    <open src="index.php">
+      <edit>
+        <find>//Generate top poster list if enabled
+if ($config['amount_top_posters'])
+{
+	include_once($phpbb_root_path . 'includes/functions_topposter.' . $phpEx);
+	get_top_posters();
+}
+</find>
+        <action type="replace-with">//Generate top poster list if enabled
+if ($config['amount_top_posters'])
+{
+	if (!function_exists('get_top_posters'))
+	{	
+		include_once($phpbb_root_path . 'includes/functions_topposter.' . $phpEx);
+	}
+	get_top_posters();
+}
+</action>
+      </edit>
+    </open>
+    <open src="styles/prosilver/template/index_body.html">
+      <edit>
+        <find><![CDATA[<!-- IF TOP_POSTERS_LIST -->
+	<h3>{TOP_POSTERS}</h3>
+	<p>{TOP_POSTERS_LIST}<br />
+<!-- IF TOP_POSTERS_HOURS_LIST -->
+	<i>{TOP_POSTERS_HOURS}</i> 	
+	{TOP_POSTERS_HOURS_LIST}
+<!-- ENDIF -->
+</p>
+<!-- ENDIF -->]]></find>
+        <action type="replace-with"><![CDATA[<!-- IF TOP_POSTERS_LIST -->
+	<h3>{L_TOP_POSTERS}</h3>
+	<p>{TOP_POSTERS_LIST}<br />
+<!-- IF TOP_POSTERS_HOURS_LIST -->
+	<i>{TOP_POSTERS_HOURS}</i> 	
+	{TOP_POSTERS_HOURS_LIST}
+<!-- ENDIF -->
+</p>
+<!-- ENDIF -->
+
+]]></action>
+      </edit>
+    </open>
+    <open src="styles/subsilver2/template/index_body.html">
+      <edit>
+        <find><![CDATA[<!-- IF TOP_POSTERS_LIST -->
+<br clear="all" />
+
+<table class="tablebg" width="100%" cellspacing="1">
+<tr>
+	<td class="cat" colspan="2"><h4>{TOP_POSTERS}</h4></td>
+</tr>
+<tr>
+	<td class="row1" <!-- IF TOP_POSTERS_HOURS_LIST --> rowspan="2" <!-- ENDIF -->><img src="{T_THEME_PATH}/images/whosonline.gif" alt="{TOP_POSTERS}" /></td>
+	<td class="row1" width="100%" valign="middle"><p class="genmed">{TOP_POSTERS_LIST}</p></td>
+</tr>
+<!-- IF TOP_POSTERS_HOURS_LIST -->
+<tr>
+	<td class="row1" width="100%" valign="middle"><p class="genmed"><i>{TOP_POSTERS_HOURS}</i> 	
+	{TOP_POSTERS_HOURS_LIST}</p></td>
+</tr>
+<!-- ENDIF -->
+</table>
+<!-- ENDIF -->]]></find>
+        <action type="replace-with"><![CDATA[<!-- IF TOP_POSTERS_LIST -->
+<br clear="all" />
+
+<table class="tablebg" width="100%" cellspacing="1">
+<tr>
+	<td class="cat" colspan="2"><h4>{L_TOP_POSTERS}</h4></td>
+</tr>
+<tr>
+	<td class="row1" <!-- IF TOP_POSTERS_HOURS_LIST --> rowspan="2" <!-- ENDIF -->><img src="{T_THEME_PATH}/images/whosonline.gif" alt="{TOP_POSTERS}" /></td>
+	<td class="row1" width="100%" valign="middle"><p class="genmed">{TOP_POSTERS_LIST}</p></td>
+</tr>
+<!-- IF TOP_POSTERS_HOURS_LIST -->
+<tr>
+	<td class="row1" width="100%" valign="middle"><p class="genmed"><i>{TOP_POSTERS_HOURS}</i> 	
+	{TOP_POSTERS_HOURS_LIST}</p></td>
+</tr>
+<!-- ENDIF -->
+</table>
+<!-- ENDIF -->]]></action>
+      </edit>
+    </open>
+    <diy-instructions lang="en-gb">After finishing the installation, go to ACP and Purge the cache as well as go to styles and refresh the templates and/or themes
+				</diy-instructions>
+  </action-group>
+</mod>

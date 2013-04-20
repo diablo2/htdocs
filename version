@@ -13,7 +13,11 @@ Signup 	: validate.php		>>> locahost can't sent e-mail
 		: activation.php 	>>> localhost can't sent e-mail
 
 Login	: >> Have not check error
+<<<<<<< HEAD
+kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+=======
 
+<<<<<<< HEAD
 PR 		: Function share facebook isn't work >> not have image & title 
 
 
@@ -24,3 +28,7 @@ Table + Pagination >> http://www.frequency-decoder.com/demo/table-sort-revisited
 jCarousel Lite >> http://www.gmarwaha.com/jquery/jcarousellite/#demo   >> use in page search_alumni.php
 Carousel >> http://bxslider.com/
 Carlendar >> http://www.vissit.com/projects/eventCalendar/
+=======
+TEST PLAI 222222222222222
+>>>>>>> d256f3bf76514a52a87fe8111fc4594327326e7d
+>>>>>>> 55b9f6aca15cbacaebffe10e44a02b9eef206050

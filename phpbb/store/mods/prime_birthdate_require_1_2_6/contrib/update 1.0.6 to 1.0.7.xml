@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="./xsl/modx.prosilver.en.xsl"?>
+<!-- 
+	NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.
+-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
+	<header>
+		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+		<title lang="en">Prime Birthdate Require</title>
+		<description lang="en">This file provides instructions for upgrading the MOD. See the main install file for any additional information about the MOD.</description>
+		<author-notes lang="en">This file provides instructions for upgrading the MOD. See the main install file for any additional information about the MOD.</author-notes>
+		<author-group>
+			<author>
+				<realname>Ken F. Innes IV</realname>
+				<email>primehalo@gmail.com</email>
+				<username>primehalo</username>
+			</author>
+		</author-group>
+		<mod-version>1.0.7</mod-version>
+		<installation>
+			<level>easy</level>
+			<time>120</time>
+			<target-version>3.0.0</target-version>
+		</installation>
+	</header>
+	<action-group>
+		<copy>
+			<file from="../root/includes/prime_birthdate.php" to="includes/prime_birthdate.php" />
+		</copy>
+
+		<open src="includes/acp/acp_users.php">
+			<edit>
+				<find><![CDATA[				$data['show_age']      = (request_var('show_age',      $user_row['user_show_age'] & 0x01)     ) != 1 ? 0 : 1;
+				$data['show_congrats'] = request_var('show_congrats', ($user_row['user_show_age'] & 0x02) >> 1) != 1 ? 0 : 1;]]></find>
+				<action type="replace-with"><![CDATA[				include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);
+				$data['show_age']      = (boolean)request_var('show_age',      user_show_age($user_row['user_show_age']));
+				$data['show_congrats'] = (boolean)request_var('show_congrats', user_show_congrats($user_row['user_show_age']));]]></action>
+			</edit>
+
+			<edit>
+				<find><![CDATA[							'user_show_age'	=> ($data['show_congrats'] << 1) | $data['show_age'],]]></find>
+				<action type="replace-with"><![CDATA[							'user_show_age'	=> db_entry_show_age($data['show_age'], $data['show_congrats']),]]></action>
+			</edit>
+
+			<edit>
+				<find><![CDATA[// This will format the birthdate form fields so they match with the version shown during registration.
+				include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);]]></find>
+				<action type="replace-with"><![CDATA[// Format the birthdate form fields to match the version shown during registration,
+// and assign template variables for user birthdate-related preferences.]]></action>
+			</edit>
+		</open>
+
+		<open src="includes/ucp/ucp_profile.php">
+			<edit>
+				<find><![CDATA[					$data['show_age']      = (request_var('show_age',      $user->data['user_show_age'] & 0x01)     ) != 1 ? 0 : 1;
+					$data['show_congrats'] = request_var('show_congrats', ($user->data['user_show_age'] & 0x02) >> 1) != 1 ? 0 : 1;]]></find>
+				<action type="replace-with"><![CDATA[					$data['show_age']      = (boolean)request_var('show_age',      user_show_age($user->data['user_show_age']));
+					$data['show_congrats'] = (boolean)request_var('show_congrats', user_show_congrats($user->data['user_show_age']));]]></action>
+			</edit>
+
+			<edit>
+				<find><![CDATA[// Here we do our error checking.
+					include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);
+					if (birthdate_required() && ($result = birthdate_error("{$data['bday_day']}-{$data['bday_month']}-{$data['bday_year']}")) !== false)
+					{
+						$user->add_lang('mods/prime_birthdate');
+						if ($result == 'PRIME_BIRTHDATE_EMPTY')
+						{
+							$result = 'PRIME_BIRTHDATE_ERROR';
+						}
+						$error[] = $result;
+					}]]></find>
+				<action type="replace-with"><![CDATA[// Here we do our error checking.
+					if ($config['allow_birthdays'])
+					{
+						if (birthdate_required() && ($result = birthdate_error("{$data['bday_day']}-{$data['bday_month']}-{$data['bday_year']}")) !== false)
+						{
+							$error[] = ($result == 'PRIME_BIRTHDATE_EMPTY') ? 'PRIME_BIRTHDATE_ERROR' : $result;
+						}
+					}]]></action>
+			</edit>
+
+			<edit>
+				<find><![CDATA[							$sql_ary['user_show_age'] = ($data['show_congrats'] << 1) | $data['show_age'];]]></find>
+				<action type="replace-with"><![CDATA[							$sql_ary['user_show_age'] = db_entry_show_age($data['show_age'], $data['show_congrats']);]]></action>
+			</edit>
+		</open>
+
+		<diy-instructions lang="en">Use your favorite database management program to change the 'user_show_age' 
+column (in the users table) from a tinyint(1) to a tinyint(4).</diy-instructions>
+	</action-group>
+</mod>

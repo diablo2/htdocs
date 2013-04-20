@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="./xsl/modx.prosilver.en.xsl"?>
+<!--
+	NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.
+-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
+	<header>
+		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+		<title lang="en">Prime Birthdate</title>
+		<description lang="en">This file provides instructions for upgrading the MOD. See the main install file for any additional information about the MOD.</description>
+		<author-notes lang="en">See the main install file for this information.</author-notes>
+		<author-group>
+			<author>
+				<realname>Ken F. Innes IV</realname>
+				<email>primehalo@gmail.com</email>
+				<username>primehalo</username>
+			</author>
+		</author-group>
+		<mod-version>1.2.0</mod-version>
+		<installation>
+			<level>easy</level>
+			<time>600</time>
+			<target-version>3.0.2</target-version>
+		</installation>
+	</header>
+	<action-group>
+		<open src="adm/style/acp_users_profile.html">
+			<edit>
+				<find><![CDATA[	<dl>
+		<dt><label for="bday_day">{L_PRIME_BIRTHDATE_NAME}:</label><br /><span>{L_BIRTHDAY_EXPLAIN}</span></dt>
+		<dd>
+			<select name="bday_month" id="bday_month">{S_BIRTHDAY_MONTH_OPTIONS}</select>
+			<select name="bday_day" id="bday_day">{S_BIRTHDAY_DAY_OPTIONS}</select>
+			<select name="bday_year" id="bday_year">{S_BIRTHDAY_YEAR_OPTIONS}</select>
+			<!-- IF S_CURRENT_AGE -->({L_AGE}: {S_CURRENT_AGE})<!-- ENDIF -->
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="show_age1">{L_PRIME_BIRTHDATE_SHOW_AGE}:</label><br /><span>{L_PRIME_BIRTHDATE_SHOW_AGE_EXPLAIN}</span></dt>
+		<dd>
+			<label for="show_age1"><input type="radio" name="show_age" id="show_age1" value="1"<!-- IF S_SHOW_AGE --> checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+			<label for="show_age0"><input type="radio" name="show_age" id="show_age0" value="0"<!-- IF not S_SHOW_AGE --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="show_congrats1">{L_PRIME_BIRTHDATE_SHOW_CONGRATS}:</label><br /><span>{L_PRIME_BIRTHDATE_SHOW_CONGRATS_EXPLAIN}</span></dt>
+		<dd>
+			<label for="show_congrats1"><input type="radio" name="show_congrats" id="show_congrats1" value="1"<!-- IF S_SHOW_CONGRATS --> checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+			<label for="show_congrats0"><input type="radio" name="show_congrats" id="show_congrats0" value="0"<!-- IF not S_SHOW_CONGRATS --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+		</dd>
+	</dl>]]></find>
+				<action type="replace-with"><![CDATA[	<!-- IF PRIME_BIRTHDATE -->
+		<!-- INCLUDE prime_birthdate.html -->
+	<!-- ELSE -->
+	<dl>
+		<dt><label for="birthday">{L_BIRTHDAY}:</label><br /><span>{L_BIRTHDAY_EXPLAIN}</span></dt>
+		<dd>{L_DAY}: <select id="birthday" name="bday_day">{S_BIRTHDAY_DAY_OPTIONS}</select> {L_MONTH}: <select name="bday_month">{S_BIRTHDAY_MONTH_OPTIONS}</select> {L_YEAR}: <select name="bday_year">{S_BIRTHDAY_YEAR_OPTIONS}</select></dd>
+	</dl>
+	<!-- ENDIF -->]]></action>
+			</edit>
+		</open>
+
+		<open src="includes/acp/acp_board.php">
+			<edit>
+				<comment lang="en">The Replace-with is intentionally left blank, indicating that the found text should be deleted.</comment>
+				<find><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+// Overwrite the previous feature with our new one that has the extra 'require' option.
+				include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);
+				$display_vars['vars']['allow_birthdays'] = array('lang' => 'ALLOW_BIRTHDAYS', 'validate' => 'int', 'type' => 'custom', 'function' => 'make_allow_birthdays_select', 'params' => array('{KEY}', '{CONFIG_VALUE}'), 'explain' => true);
+//-- end: Prime Birthdate ---------------------------------------------------//]]></find>
+				<action type="replace-with"><![CDATA[]]></action>
+			</edit>
+
+			<edit>
+				<comment lang="en">The Replace-with is intentionally left blank, indicating that the found text should be deleted.</comment>
+				<find><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+				$user->add_lang('mods/prime_birthdate');
+				if (!isset($config['minimum_age']))
+				{
+					set_config('minimum_age', 4);
+				}
+//-- end: Prime Birthdate ---------------------------------------------------//]]></find>
+				<action type="replace-with"><![CDATA[]]></action>
+			</edit>
+
+			<edit>
+				<comment lang="en">The Replace-with is intentionally left blank, indicating that the found text should be deleted.</comment>
+				<find><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+						'minimum_age'			=> array('lang' => 'PRIME_BIRTHDATE_MIN','validate' => 'int',	'type' => 'text:3:3', 'explain' => true, 'append' => ' ' . $user->lang['PRIME_BIRTHDATE_YEARS_OLD']),
+//-- end: Prime Birthdate ---------------------------------------------------//]]></find>
+				<action type="replace-with"><![CDATA[]]></action>
+			</edit>
+
+			<edit>
+				<find><![CDATA[		if (isset($display_vars['lang']))]]></find>
+				<action type="before-add"><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+		include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);
+		$prime_birthdate->display_acp_options($display_vars, $mode);
+//-- end: Prime Birthdate ---------------------------------------------------//
+]]></action>
+			</edit>
+		</open>
+
+		<open src="includes/acp/acp_users.php">
+			<edit>
+				<find><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+				include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);
+				$data['show_age']      = request_var('show_age',      (boolean)user_show_age($user_row['user_show_age']));
+				$data['show_congrats'] = request_var('show_congrats', (boolean)user_show_congrats($user_row['user_show_age']));
+				$user->add_lang('mods/prime_birthdate');
+//-- end: Prime Birthdate ---------------------------------------------------//]]></find>
+				<action type="replace-with"><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+				include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);
+				$prime_birthdate->acp_users_get_vars($data, $user_row);
+//-- end: Prime Birthdate ---------------------------------------------------//]]></action>
+			</edit>
+
+			<edit>
+				<find><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+							'user_show_age'	=> db_entry_show_age($data['show_age'], $data['show_congrats']),
+//-- end: Prime Birthdate ---------------------------------------------------//]]></find>
+				<action type="replace-with"><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+						$prime_birthdate->acp_users_inject_sql($sql_array, $data);
+//-- end: Prime Birthdate ---------------------------------------------------//]]></action>
+			</edit>
+
+			<edit>
+				<find><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+// Format the birthdate form fields to match the version shown during registration,
+// and assign template variables for user birthdate-related preferences.
+				$birthdate = sprintf('%2d-%2d-%4d', $data['bday_day'], $data['bday_month'], $data['bday_year']);
+				$bday_options = get_birthdate_options($birthdate);
+				$s_birthday_day_options   = $bday_options[0];
+				$s_birthday_month_options = $bday_options[1];
+				$s_birthday_year_options  = $bday_options[2];
+				$template->assign_vars(array(
+					'S_SHOW_AGE'				=> $data['show_age'],
+					'S_SHOW_CONGRATS'			=> $data['show_congrats'],
+					'S_CURRENT_AGE'				=> get_age($birthdate),
+				));
+//-- end: Prime Birthdate ---------------------------------------------------//]]></find>
+				<action type="replace-with"><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+				$prime_birthdate->acp_users_format_fields($data, $s_birthday_day_options, $s_birthday_month_options, $s_birthday_year_options);
+//-- end: Prime Birthdate ---------------------------------------------------//]]></action>
+			</edit>
+		</open>
+
+		<open src="includes/ucp/ucp_profile.php">
+			<edit>
+				<comment lang="en">The Replace-with is intentionally left blank, indicating that the found text should be deleted.</comment>
+				<find><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+					include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);
+					if (birthdate_locked($user->data['user_birthday']))
+					{
+						$data['bday_day'] = $data['bday_month'] = $data['bday_year'] = 0;
+						if ($user->data['user_birthday'])
+						{
+							list($data['bday_day'], $data['bday_month'], $data['bday_year']) = explode('-', $user->data['user_birthday']);
+						}
+					}
+					$data['show_age']      = request_var('show_age',      (boolean)user_show_age($user->data['user_show_age']));
+					$data['show_congrats'] = request_var('show_congrats', (boolean)user_show_congrats($user->data['user_show_age']));
+					$user->add_lang('mods/prime_birthdate');
+//-- end: Prime Birthdate ---------------------------------------------------//]]></find>
+				<action type="replace-with"><![CDATA[]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[				add_form_key('ucp_profile_info');]]></find>
+				<action type="before-add"><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+				include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);
+				$prime_birthdate->ucp_profile_get_vars($data);
+//-- end: Prime Birthdate ---------------------------------------------------//]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+// Here we do our error checking.
+					if ($config['allow_birthdays'])
+					{
+						if (birthdate_required() && ($result = birthdate_error("{$data['bday_day']}-{$data['bday_month']}-{$data['bday_year']}")) !== false)
+						{
+							$error[] = ($result == 'PRIME_BIRTHDATE_EMPTY') ? 'PRIME_BIRTHDATE_ERROR' : $result;
+						}
+					}
+//-- end: Prime Birthdate ---------------------------------------------------//]]></find>
+				<action type="replace-with"><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+					$prime_birthdate->ucp_profile_error_checking($data, $error);
+//-- end: Prime Birthdate ---------------------------------------------------//]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+							if (birthdate_locked($user->data['user_birthday']))
+							{
+								unset($sql_ary['user_birthday']);
+							}
+							$sql_ary['user_show_age'] = db_entry_show_age($data['show_age'], $data['show_congrats']);
+//-- end: Prime Birthdate ---------------------------------------------------//]]></find>
+				<action type="replace-with"><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+							$prime_birthdate->ucp_profile_insert_sql($sql_ary, $data);
+//-- end: Prime Birthdate ---------------------------------------------------//]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+// This will format the birthdate form fields so they match with the version shown during registration.
+					include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);
+					if (request_var('required',false) == 'birthday' && birthdate_error($user->data['user_birthday']))
+					{
+						$error[] = $user->lang['PRIME_BIRTHDATE_EMPTY'];
+					}
+					$bday_options = get_birthdate_options(sprintf('%2d-%2d-%4d', $data['bday_day'], $data['bday_month'], $data['bday_year']));
+					$s_birthday_day_options   = $bday_options[0];
+					$s_birthday_month_options = $bday_options[1];
+					$s_birthday_year_options  = $bday_options[2];
+					$template->assign_vars(array(
+						'S_SHOW_AGE'				=> $data['show_age'],
+						'S_SHOW_CONGRATS'			=> $data['show_congrats'],
+						'S_DISPLAY_BIRTHDAY_LIST'	=> ($config['load_birthdays']) ? true : false,
+						'S_BIRTHDAYS_REQUIRED'		=> birthdate_required(),
+						'S_BIRTHDAYS_LOCKED'		=> birthdate_locked($user->data['user_birthday']),
+					));
+//-- end: Prime Birthdate ---------------------------------------------------//]]></find>
+				<action type="replace-with"><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+					$prime_birthdate->ucp_profile_format_fields($data, $s_birthday_day_options, $s_birthday_month_options, $s_birthday_year_options, $error);
+//-- end: Prime Birthdate ---------------------------------------------------//]]></action>
+			</edit>
+		</open>
+
+		<open src="includes/ucp/ucp_register.php">
+			<edit>
+				<find><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+		if ($config['allow_birthdays'])
+		{
+			include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);
+
+			// We grab submitted birth date information, or initialize it if none exists.
+			// Then we create the birth date form fields for display in the templates.
+			$bday['month'] = request_var('bday_month', 0);
+			$bday['day']   = request_var('bday_day', 0);
+			$bday['year']  = request_var('bday_year', 0);
+			$bday['date']  = sprintf('%2d-%2d-%4d', $bday['day'], $bday['month'], $bday['year']);
+
+			$bday_options = get_birthdate_options($bday['date']);
+			$template->assign_vars(array(
+				'S_BIRTHDAY_DAY_OPTIONS'	=> $bday_options[0],
+				'S_BIRTHDAY_MONTH_OPTIONS'	=> $bday_options[1],
+				'S_BIRTHDAY_YEAR_OPTIONS'	=> $bday_options[2],
+				'S_BIRTHDAYS_ENABLED'		=> true,
+				'S_BIRTHDAYS_REQUIRED'		=> birthdate_required(),
+				'COPPA_AGE_CUTOFF'			=> COPPA_AGE_CUTOFF,
+			));
+
+			// The user has agreed to the registration terms and we are trying to head to
+			// the registration form page. We check the birth date, and if it's invalid
+			// we make them do the terms page again so they can fix it. If it is valid
+			// and COPPA is required, then we check their age. We initialize $coppa to
+			// zero so that the original COPPA page will be skipped. We need to assign
+			// the ERROR field in the template for cases when the user either does not
+			// enter their birth date or enters an invalid date.
+			$user->add_lang('mods/prime_birthdate');
+			if ($coppa === false && $config['coppa_enable'])
+			{
+				$coppa = 0;
+			}
+			if ($agreed && $change_lang === '')
+			{
+				if (birthdate_required() && ($result = birthdate_error($bday['date'])) !== false)
+				{
+					$agreed = false;
+					$template->assign_var('ERROR', $user->lang[$result] . '<br />');
+				}
+				else if (get_age($bday['date']) < COPPA_AGE_CUTOFF && $config['coppa_enable'])
+				{
+					$coppa = 1;
+				}
+			}
+		}
+//-- end: Prime Birthdate ---------------------------------------------------//]]></find>
+				<action type="replace-with"><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+		include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);
+		$birthdate = $prime_birthdate->ucp_register_init($coppa, $agreed, $change_lang);
+//-- end: Prime Birthdate ---------------------------------------------------//]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+// The user submitted the registration form, so check the birth date again.
+// We also check the age again and turn on the COPPA if need be.
+			if ($config['allow_birthdays'])
+			{
+				if (birthdate_required() && ($result = birthdate_error($bday['date'])) !== false)
+				{
+					$error[] = $user->lang[$result];
+				}
+				else if (get_age($bday['date']) < COPPA_AGE_CUTOFF && $config['coppa_enable'])
+				{
+					$coppa = 1;
+				}
+			}
+//-- end: Prime Birthdate ---------------------------------------------------//]]></find>
+				<action type="replace-with"><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+			$prime_birthdate->ucp_register_error_checking($error, $coppa, $birthdate);
+//-- end: Prime Birthdate ---------------------------------------------------//]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+				if ($config['allow_birthdays'])
+				{
+					$user_row['user_birthday'] = $bday['date'];
+				}
+//-- end: Prime Birthdate ---------------------------------------------------//]]></find>
+				<action type="replace-with"><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+				$prime_birthdate->ucp_register_update_user_row($user_row, $birthdate);
+//-- end: Prime Birthdate ---------------------------------------------------//]]></action>
+			</edit>
+		</open>
+
+		<open src="includes/session.php">
+			<edit>
+				<find><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+// Here we check to see if the user needs to enter a valid birth date, and if
+// they do then we redirect them to the page where they can do so.
+		if (!defined('IN_ADMIN') && !defined('ADMIN_START') && !defined('IN_LOGIN') && $this->data['is_registered'])
+		{
+			// Make sure we're not already where we need to be.
+			if ($this->page['page_name'] != "ucp.$phpEx" || strpos($this->page['query_string'], 'mode=profile_info') === false)
+			{
+				// Don't redirect if the user is in the middle of posting, as we wouldn't want them to lose everything they've typed.
+				if ($this->page['page_name'] != "posting.$phpEx" || (strpos($this->page['query_string'], 'mode=post') === false && strpos($this->page['query_string'], 'mode=reply') === false && strpos($this->page['query_string'], 'mode=edit') === false))
+				{
+					include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);
+					if (birthdate_required() && birthdate_error($this->data['user_birthday']))
+					{
+						redirect(append_sid("{$phpbb_root_path}ucp.$phpEx", 'i=profile&amp;mode=profile_info&amp;required=birthday'));
+					}
+				}
+			}
+		}
+//-- end: Prime Birthdate ---------------------------------------------------//]]></find>
+				<action type="replace-with"><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+		include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);
+		$prime_birthdate->enforce_birthdate($this);
+//-- end: Prime Birthdate ---------------------------------------------------//]]></action>
+			</edit>
+		</open>
+
+		<open src="index.php">
+			<edit>
+				<find><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+	include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);
+	$sql = str_replace('FROM ' . USERS_TABLE, ', user_show_age FROM ' . USERS_TABLE, $sql);
+//-- end: Prime Birthdate ---------------------------------------------------//]]></find>
+				<action type="replace-with"><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+	include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);
+	$prime_birthdate->index_inject_sql($sql);
+//-- end: Prime Birthdate ---------------------------------------------------//]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+// This will prevent a user's username or age from being displayed on the
+// birthday list if they have chosen not to make it publicly viewable.
+		if (!user_show_congrats($row['user_show_age']))
+		{
+			continue;
+		}
+		$row['user_birthday'] = (user_show_age($row['user_show_age'])) ? $row['user_birthday'] : '';
+//-- end: Prime Birthdate ---------------------------------------------------//]]></find>
+				<action type="replace-with"><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+		if ($prime_birthdate->index_alter_birthday_list($row))
+		{
+			continue;
+		}
+//-- end: Prime Birthdate ---------------------------------------------------//]]></action>
+			</edit>
+		</open>
+
+		<open src="memberlist.php">
+			<edit>
+				<find><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+			if (!isset($data['user_show_age']))
+			{
+				global $db;
+				$result = $db->sql_query('SELECT user_show_age FROM ' . USERS_TABLE . ' WHERE user_id = ' . $user_id);
+				$row = $db->sql_fetchrow($result);
+				$db->sql_freeresult($result);
+				$data['user_show_age'] = $row['user_show_age'];
+			}
+			$age = (empty($data['user_show_age']) || ($data['user_show_age'] & 0x01) == 0) ? '' : $age;
+//-- end: Prime Birthdate ---------------------------------------------------//]]></find>
+				<action type="replace-with"><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+			include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);
+			$prime_birthdate->memberlist_show_age($data, $age);
+//-- end: Prime Birthdate ---------------------------------------------------//]]></action>
+			</edit>
+		</open>
+
+		<open src="viewtopic.php">
+			<edit>
+				<find><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+					$user_cache[$poster_id]['user_show_age'] = isset($row['user_show_age']) ? $row['user_show_age'] : 0;
+					$user_cache[$poster_id]['age'] = (empty($user_cache[$poster_id]['user_show_age']) || ($user_cache[$poster_id]['user_show_age'] & 0x01) == 0) ? '' : $user_cache[$poster_id]['age'];
+//-- end: Prime Birthdate ---------------------------------------------------//]]></find>
+				<action type="replace-with"><![CDATA[//-- mod: Prime Birthdate ---------------------------------------------------//
+					include($phpbb_root_path . 'includes/prime_birthdate.' . $phpEx);
+					$prime_birthdate->alter_user_cache($user_cache, $row);
+//-- end: Prime Birthdate ---------------------------------------------------//]]></action>
+			</edit>
+		</open>
+
+		<open src="styles/prosilver/template/ucp_agreement.html">
+			<edit>
+				<comment lang="en">The Replace-with is intentionally left blank, indicating that the found text should be deleted.</comment>
+				<find><![CDATA[			<!-- IF ERROR --><p class="error">{ERROR}</p><!-- ENDIF -->]]></find>
+				<action type="replace-with"></action>
+			</edit>
+
+			<edit>
+				<find><![CDATA[				<!-- IF S_BIRTHDAYS_ENABLED -->
+				<b class="genmed">{L_PRIME_BIRTHDATE_ENTER}:</b>
+				<div style="margin-top:4px;margin-bottom:1em;">
+					<select name="bday_month">{S_BIRTHDAY_MONTH_OPTIONS}</select>
+					<select name="bday_day">{S_BIRTHDAY_DAY_OPTIONS}</select>
+					<select name="bday_year">{S_BIRTHDAY_YEAR_OPTIONS}</select>
+				</div>
+				<!-- ENDIF -->]]></find>
+				<action type="replace-with"><![CDATA[			<!-- INCLUDE prime_birthdate.html -->]]></action>
+			</edit>
+		</open>
+
+		<open src="styles/prosilver/template/ucp_profile_profile_info.html">
+			<edit>
+				<find><![CDATA[	<!-- IF S_BIRTHDAYS_ENABLED -->
+		<dl>
+			<dt><label for="bday_day">{L_PRIME_BIRTHDATE_NAME}:<!-- IF S_BIRTHDAYS_REQUIRED --> *<!-- ENDIF --></label><br /><span>{L_BIRTHDAY_EXPLAIN}</span></dt>
+			<dd>
+				<select<!-- IF S_BIRTHDAYS_LOCKED --> disabled="disabled"<!-- ENDIF --> name="bday_month" id="bday_month">{S_BIRTHDAY_MONTH_OPTIONS}</select>
+				<select<!-- IF S_BIRTHDAYS_LOCKED --> disabled="disabled"<!-- ENDIF --> name="bday_day" id="bday_day">{S_BIRTHDAY_DAY_OPTIONS}</select>
+				<select<!-- IF S_BIRTHDAYS_LOCKED --> disabled="disabled"<!-- ENDIF --> name="bday_year" id="bday_year">{S_BIRTHDAY_YEAR_OPTIONS}</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="show_age1">{L_PRIME_BIRTHDATE_SHOW_AGE}:</label><br /><span>{L_PRIME_BIRTHDATE_SHOW_AGE_EXPLAIN}</span></dt>
+			<dd>
+				<label for="show_age1"><input type="radio" name="show_age" id="show_age1" value="1"<!-- IF S_SHOW_AGE --> checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label for="show_age0"><input type="radio" name="show_age" id="show_age0" value="0"<!-- IF not S_SHOW_AGE --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<!-- IF S_DISPLAY_BIRTHDAY_LIST -->
+		<dl>
+			<dt><label for="show_congrats1">{L_PRIME_BIRTHDATE_CONGRATS}:</label><br /><span>{L_PRIME_BIRTHDATE_CONGRATS_EXPLAIN}</span></dt>
+			<dd>
+				<label for="show_congrats1"><input type="radio" name="show_congrats" id="show_congrats1" value="1"<!-- IF S_SHOW_CONGRATS --> checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label for="show_congrats0"><input type="radio" name="show_congrats" id="show_congrats0" value="0"<!-- IF not S_SHOW_CONGRATS --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<!-- ENDIF -->
+	<!-- ENDIF -->]]></find>
+				<action type="replace-with"><![CDATA[	<!-- IF S_BIRTHDAYS_ENABLED -->
+		<!-- INCLUDE prime_birthdate.html -->
+	<!-- ELSEIF FALSE -->
+		<dl>
+			<dt><label for="bday_day">{L_BIRTHDAY}:</label><br /><span>{L_BIRTHDAY_EXPLAIN}</span></dt>
+			<dd>
+				<label for="bday_day">{L_DAY}: <select name="bday_day" id="bday_day" style="width: 4em;">{S_BIRTHDAY_DAY_OPTIONS}</select></label>
+				<label for="bday_month">{L_MONTH}: <select name="bday_month" id="bday_month" style="width: 4em;">{S_BIRTHDAY_MONTH_OPTIONS}</select></label>
+				<label for="bday_year">{L_YEAR}: <select name="bday_year" id="bday_year" style="width: 6em;">{S_BIRTHDAY_YEAR_OPTIONS}</select></label>
+			</dd>
+		</dl>
+	<!-- ENDIF -->]]></action>
+			</edit>
+		</open>
+
+		<open src="styles/prosilver/template/ucp_register.html">
+			<edit>
+				<comment lang="en">The Replace-with is intentionally left blank, indicating that the found text should be deleted.</comment>
+				<find><![CDATA[	/**
+	* Show/Hide COPPA
+	*/
+	function get_age(dd, mm, yy)
+	{
+		var bdate = new Array(parseInt(dd), parseInt(mm), parseInt(yy));
+		var now   = new Date();			// get current date
+		var age   = parseInt(now.getFullYear()) - bdate[2];
+		if ((bdate[1] > now.getMonth() + 1) || (bdate[1] == now.getMonth() + 1 && now.getDate() < bdate[0]))
+		{
+			age -= 1;
+		}
+		return age;
+	}
+
+	function check_coppa()
+	{
+		if (!document.forms || !document.forms['register'])
+		{
+			return;
+		}
+		var day   = document.forms['register'].bday_day.value   || 0;
+		var month = document.forms['register'].bday_month.value || 0;
+		var year  = document.forms['register'].bday_year.value  || 0;
+		if (month > 0 && day > 0 && year > 0)
+		{
+			var obj = document.getElementById("coppa_area");
+			var coppa = get_age(day, month, year) < {COPPA_AGE_CUTOFF} ? true : false;
+			if (document.forms['register'].coppa)
+			{
+				document.forms['register'].coppa.value = coppa ? 1 : 0;
+			}
+			if (obj && obj.style)
+			{
+				obj.style.display = coppa ? "" : "none";
+			}
+		}
+	}
+
+]]></find>
+				<action type="replace-with"><![CDATA[]]></action>
+			</edit>
+
+			<edit>
+				<find><![CDATA[	<!-- IF S_BIRTHDAYS_ENABLED -->
+	<dl>
+		<dt><label>{L_PRIME_BIRTHDATE_NAME}:<!-- IF S_BIRTHDAYS_REQUIRED --> *<!-- ENDIF --></label></dt>
+		<dd><select name="bday_month" onchange="if(check_coppa) check_coppa();">{S_BIRTHDAY_MONTH_OPTIONS}</select>
+			<select name="bday_day" onchange="if(check_coppa) check_coppa();">{S_BIRTHDAY_DAY_OPTIONS}</select>
+			<select name="bday_year" onchange="if(check_coppa) check_coppa();">{S_BIRTHDAY_YEAR_OPTIONS}</select>
+		</dd>
+	</dl>
+	<!-- ENDIF -->
+
+]]></find>
+				<action type="replace-with"><![CDATA[	<!-- INCLUDE prime_birthdate.html -->]]></action>
+			</edit>
+
+		</open>
+	</action-group>
+</mod>

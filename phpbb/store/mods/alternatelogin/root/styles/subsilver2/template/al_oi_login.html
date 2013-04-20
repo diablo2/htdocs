@@ -1,0 +1,44 @@
+﻿<!-- INCLUDE overall_header.html -->
+
+<form action="{U_ACTION}" method="post">
+
+<table class="tablebg" width="100%" cellspacing="1">
+<tr>
+	<th colspan="2">{L_OPENID_ID_HEADER}</th>
+</tr>
+<tr>
+	
+	<td class="row1">
+	
+		<table align="center" cellspacing="1" cellpadding="4" style="width: 100%;">
+			<tr align="center">
+				<td>{L_OPENID_ID_LABEL}:<input class="post" type="text" name="al_oi_user" size="25" tabindex="1" /></td>
+			</tr>
+		
+		
+			
+	
+		</table>
+	</td>
+</tr>
+<tr class="row2" align="center">
+	<td>{L_OPENID_INFO_TEXT}</td>
+</tr>
+<tr>
+	<td class="cat" colspan="2" align="center">{S_HIDDEN_FIELDS}<input type="submit" name="login" class="btnmain" value="{L_LOGIN}" tabindex="5" /></td>
+</tr>
+
+</table>
+{S_FORM_TOKEN}
+
+</form>
+
+<br clear="all" />
+
+<!-- INCLUDE breadcrumbs.html -->
+
+<br clear="all" />
+
+<div align="{S_CONTENT_FLOW_END}"><!-- INCLUDE jumpbox.html --></div>
+
+<!-- INCLUDE overall_footer.html -->

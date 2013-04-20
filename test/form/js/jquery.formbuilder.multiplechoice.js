@@ -29,28 +29,19 @@ var FbMultipleChoice = $.extend({}, $.fb.fbWidget.prototype, {
 				</div> \
 				</div>',
 		_counterField: 'label',
-		_languages: [ 'en', 'zh_CN' ],
+		_languages: [ 'en' ],
 		settings: {
 			en: {
 				label: 'Multiple Choice',
-				value: '',
-				option: 'First Choice \nSecond Choice \nThird Choice',
+				value: 'span12',
+				description: 'First Choice \nSecond Choice \nThird Choice',
 				styles: {
 					fontFamily: 'default', // form builder default
 					fontSize: 'default',
 					fontStyles: [0, 0, 0] // bold, italic, underline					
 				}				
 			},
-			zh_CN : {
-				label: '单行文字输入',
-				value: '',
-				description: '',				
-				styles: {
-					fontFamily: 'default', // form builder default
-					fontSize: 'default',
-					fontStyles: [0, 0, 0] // bold, italic, underline					
-				}				
-			},
+			
 			_persistable: true,
 			required: true,
 			restriction: 'no',
@@ -64,7 +55,7 @@ var FbMultipleChoice = $.extend({}, $.fb.fbWidget.prototype, {
 				  backgroundColor : 'default'
 				},
 				description: {
-					color : '777777',
+					color : '000000',
 					backgroundColor : 'default'
 			    }				
 			}
@@ -82,7 +73,7 @@ var FbMultipleChoice = $.extend({}, $.fb.fbWidget.prototype, {
 		$('label span', $jqueryObject).text(fb.settings.label);
 		$('input', $jqueryObject).val(fb.settings.value);
 		// $.formHint', $jqueryObject).text(fb.settings.description);
-		$('.radioOption', $jqueryObject).text(fb.settings.option);
+		$('.radioOption', $jqueryObject).text(fb.settings.description);
 		fb.target._log('fbMultipleChoice._getWidget executed.');
 		return $jqueryObject;
 	},
@@ -119,10 +110,10 @@ var FbMultipleChoice = $.extend({}, $.fb.fbWidget.prototype, {
 	
 		var $option = fb.target._label({label: 'Option', name: 'field.option'})
 			.append('<textarea id="option" rows="4"></textarea>');
-		$('textarea', $option).val(fb.settings.option)
+		$('textarea', $option).val(fb.settings.description)
 			.keyup(function(event){
 				var value = $(this).val().split('\n');
-				fb.item.find('#radioOption label').radioOption();
+				fb.item.find('#radioOption label').remove();
 				$option = "";
 
 			  for ($i = 0 ; $i < value.length ; $i++){
@@ -136,7 +127,7 @@ var FbMultipleChoice = $.extend({}, $.fb.fbWidget.prototype, {
 			  		$option += value[$i] + "\n";
 			  	}
 			  }
-			  	fb.settings.option = $option;
+			  	fb.settings.description = $option;
 			  	fb.target._updateSettings(fb.item);
 			});
     
@@ -146,15 +137,15 @@ var FbMultipleChoice = $.extend({}, $.fb.fbWidget.prototype, {
 	_getFieldSettingsGeneralSection : function(event, fb) {
 		fb.target._log('fbMultipleChoice._getFieldSettingsGeneralSection executing...');
 		
-		var $textInput = fb.item.find('.textInput');
+		// var $textInput = fb.item.find('.textInput');
 		var styles = fb.settings.styles;
-		if (styles.value.color == 'default') {
-			styles.value.color = $textInput.css('color');
-		}
-		if (styles.value.backgroundColor == 'default') {
-			styles.value.backgroundColor = $textInput.css('backgroundColor');
-		}		
-		var $colorPanel = fb.target._labelValueDescriptionColorPanel(styles);
+		// if (styles.value.color == 'default') {
+		// 	styles.value.color = $textInput.css('color');
+		// }
+		// if (styles.value.backgroundColor == 'default') {
+		// 	styles.value.backgroundColor = $textInput.css('backgroundColor');
+		// }		
+		var $colorPanel = fb.target._labelDescriptionColorPanel(styles);
 		
 		$("input[id$='field.label.color']", $colorPanel).change(function(event) {
 			var value = $(this).data('colorPicker').color;
@@ -170,30 +161,30 @@ var FbMultipleChoice = $.extend({}, $.fb.fbWidget.prototype, {
 			fb.target._updateSettings(fb.item);
 		});				
 		
-		$("input[id$='field.value.color']", $colorPanel).change(function(event) {
-			var value = $(this).data('colorPicker').color;
-			$textInput.css('color','#' + value);
-			styles.value.color = value;
-			fb.target._updateSettings(fb.item);
-		});		
+		// $("input[id$='field.value.color']", $colorPanel).change(function(event) {
+		// 	var value = $(this).data('colorPicker').color;
+		// 	$textInput.css('color','#' + value);
+		// 	styles.value.color = value;
+		// 	fb.target._updateSettings(fb.item);
+		// });		
 
-		$("input[id$='field.value.backgroundColor']", $colorPanel).change(function(event) {
-			var value = $(this).data('colorPicker').color;
-			$textInput.css('backgroundColor','#' + value);
-			styles.value.backgroundColor = value;
-			fb.target._updateSettings(fb.item);
-		});					
+		// $("input[id$='field.value.backgroundColor']", $colorPanel).change(function(event) {
+		// 	var value = $(this).data('colorPicker').color;
+		// 	$textInput.css('backgroundColor','#' + value);
+		// 	styles.value.backgroundColor = value;
+		// 	fb.target._updateSettings(fb.item);
+		// });					
 		
 		$("input[id$='field.description.color']", $colorPanel).change(function(event) {
 			var value = $(this).data('colorPicker').color;
-			fb.item.find('.formHint').css('color','#' + value);
+			fb.item.find('#radioOption').css('color','#' + value);
 			styles.description.color = value;
 			fb.target._updateSettings(fb.item);
 		});		
 
 		$("input[id$='field.description.backgroundColor']", $colorPanel).change(function(event) {
 			var value = $(this).data('colorPicker').color;
-			fb.item.find('.formHint').css('backgroundColor','#' + value);
+			fb.item.find('#radioOption').css('backgroundColor','#' + value);
 			styles.description.backgroundColor = value;
 			fb.target._updateSettings(fb.item);
 		});				

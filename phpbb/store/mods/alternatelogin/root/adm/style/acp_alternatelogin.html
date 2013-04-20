@@ -1,0 +1,139 @@
+﻿<!-- INCLUDE overall_header.html -->
+
+<a name="maincontent"></a>
+
+<!-- IF S_MODE_MAIN -->
+<form method="post" action="{U_ACTION}">
+
+<fieldset>
+
+<legend>{L_TITLE_ENABLE_LOGIN_PROFILE}</legend>
+<table>
+<col class="col1" /><col class="col2" /><col class="col2" />
+<thead>
+<tr>
+	<th></th>
+	<th>{L_ENABLE_LOGIN}</th>
+	<th>{L_ENABLE_PROFILE_SYNC}</th>
+</tr>
+</thead>
+<tr class="row1">
+	<td>{L_FACEBOOK}</td>
+	<td><input type="radio" name="facebook_login" value="1" {FACEBOOK_LOGIN_YES}/><label for="facebook_login">{L_YES}</label><input type="radio" name="facebook_login" value="0" {FACEBOOK_LOGIN_NO}/><label for="facebook_login">{L_NO}</label></td>
+	<td><input type="radio" name="facebook_profile" value="1" {FACEBOOK_PROFILE_YES}/><label for="facebook_profile">{L_YES}</label><input type="radio" name="facebook_profile" value="0" {FACEBOOK_PROFILE_NO}/><label for="facebook_profile">{L_NO}</label></td>
+</tr>
+
+
+<tr class="row2">
+	<td>{L_MYSPACE}</td>
+	<td><input type="radio" name="myspace_login" value="1" {MYSPACE_LOGIN_YES} /><label for="facebook_login">{L_YES}</label><input type="radio" name="myspace_login" value="0" {MYSPACE_LOGIN_NO} /><label for="facebook_login">{L_NO}</label></td>
+	<td><input type="radio" name="myspace_profile" value="1" {MYSPACE_PROFILE_YES} /><label for="myspace_profile">{L_YES}</label><input type="radio" name="myspace_profile" value="0" {MYSPACE_PROFILE_NO} /><label for="myspace_profile">{L_NO}</label></td>
+</tr>
+
+<tr class="row2">
+	<td>{L_OPENID}</td>
+	<td><input type="radio" name="openid_login" value="1" {OPENID_LOGIN_YES} /><label for="openid_login">{L_YES}</label><input type="radio" name="openid_login" value="0" {OPENID_LOGIN_NO} /><label for="openid_login">{L_NO}</label></td>
+	<td><input type="radio" name="openid_profile" value="1" {OPENID_PROFILE_YES} /><label for="openid_profile">{L_YES}</label><input type="radio" name="openid_profile" value="0" {OPENID_PROFILE_NO} /><label for="openid_profile">{L_NO}</label></td>
+</tr>
+
+
+<tr class="row1">
+	<td>{L_WINDOWSLIVE}</td>
+	<td><input type="radio" name="windowslive_login" value="1" {WINDOWSLIVE_LOGIN_YES}/><label for="windowslive_login">{L_YES}</label><input type="radio" name="windowslive_login" value="0" {WINDOWSLIVE_LOGIN_NO}/><label for="windowslive_login">{L_NO}</label></td>
+	<td><input type="radio" name="windowslive_profile" value="1" {WINDOWSLIVE_PROFILE_YES}/><label for="windowslive_profile">{L_YES}</label><input type="radio" name="windowslive_profile" value="0" {WINDOWSLIVE_PROFILE_NO}/><label for="windowslive_profile">{L_NO}</label></td>
+</tr>
+</table>
+<p class="submit-buttons">
+	<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+	<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+</p>
+{S_FORM_TOKEN}
+
+</fieldset>
+
+</form>
+
+<!-- ELSEIF S_MODE_FACEBOOK -->
+
+<form method="post" action="{U_ACTION}">
+
+<fieldset>
+
+<legend>{L_TITLE_ENABLE_LOGIN_PROFILE}</legend>
+
+<dl>
+<dt>{L_FACEBOOK_APP_ID}</dt>
+<dd><input type="text" id="facebook_app_id" name="facebook_app_id" value="{FACEBOOK_APP_ID}"></dd>
+</dl>
+<dl>
+<dt>{L_FACEBOOK_SECRET}</dt>
+<dd><input type="text" id="facebook_secret" name="facebook_secret" value="{FACEBOOK_SECRET}"></dd>
+
+</dl>
+<p class="submit-buttons">
+	<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+	<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+</p>
+{S_FORM_TOKEN}
+
+</fieldset>
+
+</form>
+
+<!-- ELSEIF S_MODE_WINDOWSLIVE -->
+
+<form method="post" action="{U_ACTION}">
+
+<fieldset>
+
+<legend>{L_TITLE_ENABLE_LOGIN_PROFILE}</legend>
+
+<dl>
+<dt>{L_WINDOWSLIVE_APP_ID}</dt>
+<dd><input type="text" id="windowslive_app_id" name="windowslive_app_id" value="{WINDOWSLIVE_APP_ID}"></dd>
+</dl>
+<dl>
+<dt>{L_WINDOWSLIVE_SECRET}</dt>
+<dd><input type="text" id="windowslive_secret" name="windowslive_secret" value="{WINDOWSLIVE_SECRET}"></dd>
+
+</dl>
+<p class="submit-buttons">
+	<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+	<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+</p>
+{S_FORM_TOKEN}
+
+</fieldset>
+
+</form>
+
+<!-- ELSEIF S_MODE_MYSPACE -->
+
+<form method="post" action="{U_ACTION}">
+
+<fieldset>
+
+<legend>{L_TITLE_ENABLE_LOGIN_PROFILE}</legend>
+
+<dl>
+<dt>{L_MYSPACE_APP_ID}</dt>
+<dd><input type="text" id="myspace_app_id" name="myspace_app_id" value="{MYSPACE_APP_ID}"></dd>
+</dl>
+<dl>
+<dt>{L_MYSPACE_SECRET}</dt>
+<dd><input type="text" id="myspace_secret" name="myspace_secret" value="{MYSPACE_SECRET}"></dd>
+
+</dl>
+<p class="submit-buttons">
+	<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+	<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+</p>
+{S_FORM_TOKEN}
+
+</fieldset>
+
+</form>
+
+<!-- ENDIF -->
+
+<!-- INCLUDE overall_footer.html -->

@@ -14,7 +14,7 @@
 
 var FormBuilder = {
   options: { // default options. values are stored in prototype
-		fields: 'PlainText, SingleLineText, LineText, Select, MultipleChoice, MultipleCheckboxes',
+		fields: 'PlainText, SingleLineText, Select, MultipleChoice, MultipleCheckboxes',
 		tabSelected: 0,
 		readOnly: false,
 		tabDisabled: [],
@@ -31,23 +31,24 @@ var FormBuilder = {
 					fontStyles: [1, 0, 0] // bold, italic, underline					
 				}				
 			},
-			zh_CN: {
-				name: '表格',
-				classes: ['rightAlign'],
-				heading: 'h2',
-				styles: {
-					fontFamily: 'default', 
-					fontSize: 'default',
-					fontStyles: [1, 0, 0] // bold, italic, underline					
-				}			
-			},			
+			// zh_CN: {
+			// 	name: '表格',
+			// 	classes: ['rightAlign'],
+			// 	heading: 'h2',
+			// 	styles: {
+			// 		fontFamily: 'default', 
+			// 		fontSize: 'default',
+			// 		fontStyles: [1, 0, 0] // bold, italic, underline					
+			// 	}			
+			// },			
 			styles : {
 				color : 'default', // browser default
 				backgroundColor : 'default'	
 			}
 		},
 		_id: '#container',
-		_languages : [ 'en', 'zh_CN' ],
+		// _languages : [ 'en', 'zh_CN' ],
+		_languages : [ 'en'],
 		_builderPanel: '#builderPanel',
 		_builderForm: '#builderForm',
 		_emptyBuilderPanel: '#emptyBuilderPanel',

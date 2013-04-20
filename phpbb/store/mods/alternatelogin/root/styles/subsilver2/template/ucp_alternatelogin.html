@@ -1,0 +1,200 @@
+﻿<!-- INCLUDE ucp_header.html -->
+
+<!-- IF S_MODE_WINDOWSLIVE -->
+	
+	
+	
+	<!-- IF S_WINDOWSLIVE_LOGIN_ENABLED --> 
+		<table>
+			<tr>
+				<th colspan="2">{L_UCP_AL_DISABLE_WINDOWSLIVE_TEXT}</th>
+			</tr>
+			<tr>
+				<td>
+					{S_UCP_WINDOWSLIVE_DESCRIPTION}
+				</td>
+				<td>
+					<form method="post" action="{U_ACTION}">
+						
+					<input id="submit" name="submit" type="submit" value="{L_DISABLE_WINDOWSLIVE}" />
+					{S_FORM_TOKEN}
+					
+					</form>
+				</td>
+			</tr>
+		</table>	
+	<!-- ELSE -->
+		<table>
+			<tr>
+				<th colspan="2">{L_UCP_AL_ENABLE_WINDOWSLIVE_TEXT}</th>
+			</tr>
+			<tr>
+				<td>
+					{S_UCP_WINDOWSLIVE_DESCRIPTION}
+				</td>
+				<td>
+					<iframe 
+					    id="WebAuthControl" 
+					    name="WebAuthControl" 
+					    src="http://login.live.com/controls/WebAuthButton.htm?appid={AL_WL_APP_ID}&style=font-size%3A+10pt%3B+font-family%3A+verdana%3B+background%3A+none%3B&context=change_login_method"
+					    width="80px"
+					    height="20px"
+					    marginwidth="0"
+					    marginheight="0"
+					    align="middle"
+					    frameborder="0"
+					    context="change_login_method.html"
+					    scrolling="no">
+					</iframe>
+				</td>
+			</tr>
+		</table>
+		
+	<!-- ENDIF -->
+
+<!-- ELSEIF S_MODE_FACEBOOK -->
+	
+	
+	
+	<!-- IF S_FACEBOOK_LOGIN_ENABLED --> 
+		<table>
+			<tr>
+				<th colspan="2">{L_UCP_AL_DISABLE_FACEBOOK_TEXT}</th>
+			</tr>
+			<tr>
+				<td>
+					{S_UCP_FACEBOOK_DESCRIPTION}
+				</td>
+				<td>
+					<form method="post" action="{U_ACTION}">
+						<input type="hidden" id="al_h_enable_facebook" name="al_h_enable_facebook" value="0" />
+						<input id="submit" name="submit" type="submit" value="{L_DISABLE_FACEBOOK}" />
+						{S_FORM_TOKEN}
+						
+					</form>
+				</td>
+			</tr>
+		</table>	
+	<!-- ELSE -->
+		<table>
+			<tr>
+				<th colspan="2">{L_UCP_AL_ENABLE_FACEBOOK_TEXT}</th>
+			</tr>
+			<tr>
+				<td>
+					{S_UCP_FACEBOOK_DESCRIPTION}
+				</td>
+				<td>
+					<form method="post" action="{U_ACTION}">
+						<a onclick="window.location='{AL_PATH}'+ 'al_fb_connect.php';" href="#">
+							<img src="http://static.ak.fbcdn.net/images/fbconnect/login-buttons/connect_light_medium_long.gif" alt="Login with your Facebook account!" />
+						</a>						
+						{S_FORM_TOKEN}
+						
+					</form>
+
+				</td>
+			</tr>
+		</table>
+		
+	<!-- ENDIF -->
+	
+<!-- ELSEIF S_MODE_MYSPACE -->
+	
+	
+	
+	<!-- IF S_MYSPACE_LOGIN_ENABLED --> 
+		<table>
+			<tr>
+				<th colspan="2">{L_UCP_AL_DISABLE_MYSPACE_TEXT}</th>
+			</tr>
+			<tr>
+				<td>
+					{S_UCP_MYSPACE_DESCRIPTION}
+				</td>
+				<td>
+					<form method="post" action="{U_ACTION}">
+						<input type="hidden" id="al_h_enable_myspace" name="al_h_enable_myspace" value="0" />
+						<input id="submit" name="submit" type="submit" value="{L_DISABLE_MYSPACE}" />
+						{S_FORM_TOKEN}
+						
+					</form>
+				</td>
+			</tr>
+		</table>	
+	<!-- ELSE -->
+		<table>
+			<tr>
+				<th colspan="2">{L_UCP_AL_ENABLE_MYSPACE_TEXT}</th>
+			</tr>
+			<tr>
+				<td>
+					{S_UCP_MYSPACE_DESCRIPTION}
+				</td>
+				<td>
+					<form method="post" action="{U_ACTION}">
+						<a onclick="window.location='{AL_PATH}'+ 'al_ms_connect.php';" href="#">
+							<img src="{AL_PATH}images/Blue_150_Loginwithmyspaceid.png" alt="Login with your MySpace account!" height="21px" />
+						</a>						
+						{S_FORM_TOKEN}
+						
+					</form>
+
+				</td>
+			</tr>
+		</table>
+		
+	<!-- ENDIF -->
+
+<!-- ELSEIF S_MODE_OPENID -->
+	
+	
+	
+	<!-- IF S_OPENID_LOGIN_ENABLED --> 
+		<table>
+			<tr>
+				<th colspan="2">{L_UCP_AL_DISABLE_OPENID_TEXT}</th>
+			</tr>
+			<tr>
+				<td>
+					{S_UCP_OPENID_DESCRIPTION}
+				</td>
+				<td>
+					<form method="post" action="{U_ACTION}">
+						<input type="hidden" id="al_h_enable_openid" name="al_h_enable_openid" value="0" />
+						<input id="submit" name="submit" type="submit" value="{L_DISABLE_OPENID}" />
+						{S_FORM_TOKEN}
+						
+					</form>
+				</td>
+			</tr>
+		</table>	
+	<!-- ELSE -->
+		<table>
+			<tr>
+				<th colspan="2">{L_UCP_AL_ENABLE_OPENID_TEXT}</th>
+			</tr>
+			<tr>
+				<td>
+					{S_UCP_OPENID_DESCRIPTION}
+				</td>
+				<td>
+					<form method="post" action="{U_ACTION}">
+						<a onclick="window.location='{AL_PATH}'+ 'al_oi_connect.php';" href="#">
+							<img src="{AL_PATH}images/openid-icon-100x100.png" alt="Login with your OpenID account!" height="21px" />
+						</a>						
+						{S_FORM_TOKEN}
+						
+					</form>
+
+				</td>
+			</tr>
+		</table>
+		
+	<!-- ENDIF -->
+
+
+<!-- ENDIF -->
+
+
+<!-- INCLUDE ucp_footer.html -->

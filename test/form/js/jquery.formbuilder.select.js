@@ -22,28 +22,29 @@ var FbSelect = $.extend({}, $.fb.fbWidget.prototype, {
 				<option value="Third Choice">Third Choice</option> \
 				</select>',
 		_counterField: 'label',
-		_languages: [ 'en', 'zh_CN' ],
+		// _languages: [ 'en', 'zh_CN' ],
+		_languages: [ 'en' ],
 		settings: {
 			en: {
 				label: 'Select Basic',
-				size: '',
-				option: 'First Choice \nSecond Choice \nThird Choice',
+				value: 'span4',
+				description: 'First Choice \nSecond Choice \nThird Choice',
 				styles: {
 					fontFamily: 'default', // form builder default
 					fontSize: 'default',
 					fontStyles: [0, 0, 0] // bold, italic, underline					
 				}				
 			},
-			zh_CN : {
-				label: '单行文字输入',
-				value: '',
-				description: '',				
-				styles: {
-					fontFamily: 'default', // form builder default
-					fontSize: 'default',
-					fontStyles: [0, 0, 0] // bold, italic, underline					
-				}				
-			},
+			// zh_CN : {
+			// 	label: '单行文字输入',
+			// 	value: '',
+			// 	description: '',				
+			// 	styles: {
+			// 		fontFamily: 'default', // form builder default
+			// 		fontSize: 'default',
+			// 		fontStyles: [0, 0, 0] // bold, italic, underline					
+			// 	}				
+			// },
 			_persistable: true,
 			required: true,
 			restriction: 'no',
@@ -57,7 +58,7 @@ var FbSelect = $.extend({}, $.fb.fbWidget.prototype, {
 				  backgroundColor : 'default'
 				},
 				description: {
-					color : '777777',
+					color : '000000',
 					backgroundColor : 'default'
 			    }				
 			}
@@ -112,19 +113,19 @@ var FbSelect = $.extend({}, $.fb.fbWidget.prototype, {
 		                    			<option value="span11">11</option> \
 		                    			<option value="span12">12</option> \
 		                    		</select>');
-		$('select', $size).val(fb.settings.size)
+		$('select', $size).val(fb.settings.value)
 		 .change(function(event) {
 		  var value = $(this).val();
 		  fb.item.find('#selectOption').removeClass();
 		  fb.item.find('#selectOption').addClass(value);
-		  fb.settings.size = value;
+		  fb.settings.value = value;
 		  fb.target._updateSettings(fb.item);
 		});    
    		
 	
 		var $option = fb.target._label({label: 'Option', name: 'field.option'})
 			.append('<textarea id="option" rows="4"></textarea>');
-		$('textarea', $option).val(fb.settings.option)
+		$('textarea', $option).val(fb.settings.description)
 			.keyup(function(event){
 				var value = $(this).val().split('\n');
 				fb.item.find('#selectOption option').remove();
@@ -138,7 +139,7 @@ var FbSelect = $.extend({}, $.fb.fbWidget.prototype, {
 			  		$option += value[$i] + "\n";
 			  	}
 			  }
-			  	fb.settings.option = $option;
+			  	fb.settings.description = $option;
 			  	fb.target._updateSettings(fb.item);
 			});
     
@@ -148,15 +149,15 @@ var FbSelect = $.extend({}, $.fb.fbWidget.prototype, {
 	_getFieldSettingsGeneralSection : function(event, fb) {
 		fb.target._log('fbSelect._getFieldSettingsGeneralSection executing...');
 		
-		var $textInput = fb.item.find('.textInput');
+		// var $textInput = fb.item.find('.textInput');
 		var styles = fb.settings.styles;
-		if (styles.value.color == 'default') {
-			styles.value.color = $textInput.css('color');
-		}
-		if (styles.value.backgroundColor == 'default') {
-			styles.value.backgroundColor = $textInput.css('backgroundColor');
-		}		
-		var $colorPanel = fb.target._labelValueDescriptionColorPanel(styles);
+		// if (styles.value.color == 'default') {
+		// 	styles.value.color = $textInput.css('color');
+		// }
+		// if (styles.value.backgroundColor == 'default') {
+		// 	styles.value.backgroundColor = $textInput.css('backgroundColor');
+		// }		
+		var $colorPanel = fb.target._labelColorPanel(styles);
 		
 		$("input[id$='field.label.color']", $colorPanel).change(function(event) {
 			var value = $(this).data('colorPicker').color;
@@ -172,33 +173,33 @@ var FbSelect = $.extend({}, $.fb.fbWidget.prototype, {
 			fb.target._updateSettings(fb.item);
 		});				
 		
-		$("input[id$='field.value.color']", $colorPanel).change(function(event) {
-			var value = $(this).data('colorPicker').color;
-			$textInput.css('color','#' + value);
-			styles.value.color = value;
-			fb.target._updateSettings(fb.item);
-		});		
+		// $("input[id$='field.value.color']", $colorPanel).change(function(event) {
+		// 	var value = $(this).data('colorPicker').color;
+		// 	$textInput.css('color','#' + value);
+		// 	styles.value.color = value;
+		// 	fb.target._updateSettings(fb.item);
+		// });		
 
-		$("input[id$='field.value.backgroundColor']", $colorPanel).change(function(event) {
-			var value = $(this).data('colorPicker').color;
-			$textInput.css('backgroundColor','#' + value);
-			styles.value.backgroundColor = value;
-			fb.target._updateSettings(fb.item);
-		});					
+		// $("input[id$='field.value.backgroundColor']", $colorPanel).change(function(event) {
+		// 	var value = $(this).data('colorPicker').color;
+		// 	$textInput.css('backgroundColor','#' + value);
+		// 	styles.value.backgroundColor = value;
+		// 	fb.target._updateSettings(fb.item);
+		// });					
 		
-		$("input[id$='field.description.color']", $colorPanel).change(function(event) {
-			var value = $(this).data('colorPicker').color;
-			fb.item.find('.formHint').css('color','#' + value);
-			styles.description.color = value;
-			fb.target._updateSettings(fb.item);
-		});		
+		// $("input[id$='field.description.color']", $colorPanel).change(function(event) {
+		// 	var value = $(this).data('colorPicker').color;
+		// 	fb.item.find('.formHint').css('color','#' + value);
+		// 	styles.description.color = value;
+		// 	fb.target._updateSettings(fb.item);
+		// });		
 
-		$("input[id$='field.description.backgroundColor']", $colorPanel).change(function(event) {
-			var value = $(this).data('colorPicker').color;
-			fb.item.find('.formHint').css('backgroundColor','#' + value);
-			styles.description.backgroundColor = value;
-			fb.target._updateSettings(fb.item);
-		});				
+		// $("input[id$='field.description.backgroundColor']", $colorPanel).change(function(event) {
+		// 	var value = $(this).data('colorPicker').color;
+		// 	fb.item.find('.formHint').css('backgroundColor','#' + value);
+		// 	styles.description.backgroundColor = value;
+		// 	fb.target._updateSettings(fb.item);
+		// });				
 		fb.target._log('fbSelect._getFieldSettingsGeneralSection executed.');
 		return [ $colorPanel];
 	}, 
@@ -227,7 +228,7 @@ var FbSelect = $.extend({}, $.fb.fbWidget.prototype, {
 		  .css('fontFamily', fontFamily)
 		  .css('fontSize', fontSize + 'px');
 
-		fb.item.find('.formHint').text(fb.settings.description);
+		// fb.item.find('.formHint').text(fb.settings.description);
 		
 		fb.target._log('fbSelect.languageChange executed.');
 	}

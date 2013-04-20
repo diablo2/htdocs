@@ -18,26 +18,27 @@ var FbPlainText = $.extend({}, $.fb.fbWidget.prototype, {
 		_type : 'PlainText',
 		_html : '<div class="PlainText"></div>',
 		_counterField : 'text',
-		_languages : [ 'en', 'zh_CN' ],
+		_languages : [ 'en'],
 		settings : {
 			en : {
-				text : 'Plain Text',
-				classes : [ 'leftAlign', 'topAlign' ],
+				label : 'Plain Text',
+				value : [ 'leftAlign', 'topAlign' ],
+				description: '',
 				styles: {
 					fontFamily: 'default', // form builder default
 					fontSize: 'default',
 					fontStyles: [0, 0, 0] // bold, italic, underline					
 				}
 			},
-			zh_CN : {
-				text : '无格式文字',
-				classes : [ 'rightAlign', 'middleAlign' ],
-				styles: {
-					fontFamily: 'default', // form builder default
-					fontSize: 'default',
-					fontStyles: [0, 0, 0] // bold, italic, underline					
-				}				
-			},
+			// zh_CN : {
+			// 	text : '无格式文字',
+			// 	classes : [ 'rightAlign', 'middleAlign' ],
+			// 	styles: {
+			// 		fontFamily: 'default', // form builder default
+			// 		fontSize: 'default',
+			// 		fontStyles: [0, 0, 0] // bold, italic, underline					
+			// 	}				
+			// },
 			styles : {
 				color : 'default',
 				backgroundColor : 'default'
@@ -49,37 +50,37 @@ var FbPlainText = $.extend({}, $.fb.fbWidget.prototype, {
 		this.options = $.extend({}, $.fb.fbWidget.prototype.options, this.options);
 	},
 	_getWidget : function(event, fb) {
-		fb.item.addClass(fb.settings.classes[1]); // vertical alignment
-		return $(fb.target.options._html).text(fb.settings.text)
-				.addClass(fb.settings.classes[0]);
+		fb.item.addClass(fb.settings.value[1]); // vertical alignment
+		return $(fb.target.options._html).text(fb.settings.label)
+				.addClass(fb.settings.value[0]);
 	},
 	_getFieldSettingsLanguageSection : function(event, fb) {
 		var $text = fb.target._label({ label: 'Text', name: 'field.text', 
 			                 description: 'Text entered below will display in the form.' })
 		           .append('<input type="text" id="field.text" />');
-				$('input', $text).val(fb.settings.text)
+				$('input', $text).val(fb.settings.label)
 				.keyup(function(event) {
 					var value = $(this).val();
 					fb.item.find('div.PlainText').text(value);
-					fb.settings.text = value;
+					fb.settings.label = value;
 					fb.target._updateSettings(fb.item);
 				});
-		var $verticalAlignment = fb.target._verticalAlignment({name: 'field.verticalAlignment', value: fb.settings.classes[1]})
+		var $verticalAlignment = fb.target._verticalAlignment({name: 'field.verticalAlignment', value: fb.settings.value[1]})
         .change(function(event) {
         	// $(this).val() not work for select id that has '.'
 					var value = $('option:selected', this).val(); 
 					fb.target._log('field.verticalAlignment value = ' + value);
-					fb.item.removeClass(fb.settings.classes[1]).addClass(value);
-					fb.settings.classes[1] = value;
+					fb.item.removeClass(fb.settings.value[1]).addClass(value);
+					fb.settings.value[1] = value;
 					fb.target._updateSettings(fb.item);
 				});
-		var $horizontalAlignment = fb.target._horizontalAlignment({ name: 'field.horizontalAlignment', value: fb.settings.classes[0] })
+		var $horizontalAlignment = fb.target._horizontalAlignment({ name: 'field.horizontalAlignment', value: fb.settings.value[0] })
 				   .change(function(event) {
 					   fb.target._log('$horizontalAlignment change trigger');
 							var $text = fb.item.find('div.PlainText');
 							var value = $('option:selected', this).val();
-							$text.removeClass(fb.settings.classes[0]).addClass(value);
-							fb.settings.classes[0] = value;
+							$text.removeClass(fb.settings.value[0]).addClass(value);
+							fb.settings.value[0] = value;
 							fb.target._updateSettings(fb.item);
 						});
 		
@@ -169,16 +170,16 @@ var FbPlainText = $.extend({}, $.fb.fbWidget.prototype, {
 	  var fbStyles = fb.target._getFbLocalizedSettings().styles;
 	  var fontFamily = styles.fontFamily != 'default' ? styles.fontFamily : fbStyles.fontFamily;
 	  var fontSize = styles.fontSize != 'default' ? styles.fontSize : fbStyles.fontSize;
-		fb.item.find('.PlainText').text(fb.settings.text)
+		fb.item.find('.PlainText').text(fb.settings.label)
 		       .removeClass('leftAlign centerAlign rightAlign')
-		       .addClass(fb.settings.classes[0]);
+		       .addClass(fb.settings.value[0]);
 		fb.item.css('fontWeight', styles.fontStyles[0] == 1 ? 'bold' : 'normal')
 	         .css('fontStyle', styles.fontStyles[1] == 1 ? 'italic' : 'normal')
 	         .css('textDecoration', styles.fontStyles[2] == 1 ? 'underline' : 'none')
 		       .css('fontFamily', fontFamily)
 		       .css('fontSize', fontSize + 'px')	         
 		       .removeClass('topAlign middleAlign bottomAlign')
-		       .addClass(fb.settings.classes[1]);
+		       .addClass(fb.settings.value[1]);
 	}
 });
 

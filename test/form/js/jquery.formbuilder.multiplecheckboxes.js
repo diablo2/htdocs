@@ -29,28 +29,29 @@ var  FbMultipleCheckboxes = $.extend({}, $.fb.fbWidget.prototype, {
 				</div> \
 				</div>',
 		_counterField: 'label',
-		_languages: [ 'en', 'zh_CN' ],
+		// _languages: [ 'en', 'zh_CN' ],
+		_languages: [ 'en'],
 		settings: {
 			en: {
 				label: 'Multiple Checkboxes',
 				value: '',
-				option: 'First Choice \nSecond Choice \nThird Choice',
+				description: 'First Choice \nSecond Choice \nThird Choice',
 				styles: {
 					fontFamily: 'default', // form builder default
 					fontSize: 'default',
 					fontStyles: [0, 0, 0] // bold, italic, underline					
-				}				
+				}			
 			},
-			zh_CN : {
-				label: '单行文字输入',
-				value: '',
-				description: '',				
-				styles: {
-					fontFamily: 'default', // form builder default
-					fontSize: 'default',
-					fontStyles: [0, 0, 0] // bold, italic, underline					
-				}				
-			},
+			// zh_CN : {
+			// 	label: '单行文字输入',
+			// 	value: '',
+			// 	description: '',				
+			// 	styles: {
+			// 		fontFamily: 'default', // form builder default
+			// 		fontSize: 'default',
+			// 		fontStyles: [0, 0, 0] // bold, italic, underline					
+			// 	}				
+			// },
 			_persistable: true,
 			required: true,
 			restriction: 'no',
@@ -64,7 +65,7 @@ var  FbMultipleCheckboxes = $.extend({}, $.fb.fbWidget.prototype, {
 				  backgroundColor : 'default'
 				},
 				description: {
-					color : '777777',
+					color : '000000',
 					backgroundColor : 'default'
 			    }				
 			}
@@ -82,7 +83,7 @@ var  FbMultipleCheckboxes = $.extend({}, $.fb.fbWidget.prototype, {
 		$('label span', $jqueryObject).text(fb.settings.label);
 		$('input', $jqueryObject).val(fb.settings.value);
 		// $.formHint', $jqueryObject).text(fb.settings.description);
-		$('.checkboxOption', $jqueryObject).text(fb.settings.option);
+		$('.checkboxOption', $jqueryObject).text(fb.settings.description);
 		fb.target._log('fbMultipleCheckboxes._getWidget executed.');
 		return $jqueryObject;
 	},
@@ -119,7 +120,7 @@ var  FbMultipleCheckboxes = $.extend({}, $.fb.fbWidget.prototype, {
 	
 		var $option = fb.target._label({label: 'Option', name: 'field.option'})
 			.append('<textarea id="option" rows="4"></textarea>');
-		$('textarea', $option).val(fb.settings.option)
+		$('textarea', $option).val(fb.settings.description)
 			.keyup(function(event){
 				var value = $(this).val().split('\n');
 				fb.item.find('#checkboxOption label').remove();
@@ -136,7 +137,7 @@ var  FbMultipleCheckboxes = $.extend({}, $.fb.fbWidget.prototype, {
 			  		$option += value[$i] + "\n";
 			  	}
 			  }
-			  	fb.settings.option = $option;
+			  	fb.settings.description = $option;
 			  	fb.target._updateSettings(fb.item);
 			});
     
@@ -146,15 +147,15 @@ var  FbMultipleCheckboxes = $.extend({}, $.fb.fbWidget.prototype, {
 	_getFieldSettingsGeneralSection : function(event, fb) {
 		fb.target._log('fbMultipleCheckboxes._getFieldSettingsGeneralSection executing...');
 		
-		var $textInput = fb.item.find('.textInput');
+		// var $textInput = fb.item.find('.textInput');
 		var styles = fb.settings.styles;
-		if (styles.value.color == 'default') {
-			styles.value.color = $textInput.css('color');
-		}
-		if (styles.value.backgroundColor == 'default') {
-			styles.value.backgroundColor = $textInput.css('backgroundColor');
-		}		
-		var $colorPanel = fb.target._labelValueDescriptionColorPanel(styles);
+		// if (styles.value.color == 'default') {
+		// 	styles.value.color = $textInput.css('color');
+		// }
+		// if (styles.value.backgroundColor == 'default') {
+		// 	styles.value.backgroundColor = $textInput.css('backgroundColor');
+		// }		
+		var $colorPanel = fb.target._labelDescriptionColorPanel(styles);
 		
 		$("input[id$='field.label.color']", $colorPanel).change(function(event) {
 			var value = $(this).data('colorPicker').color;
@@ -170,30 +171,30 @@ var  FbMultipleCheckboxes = $.extend({}, $.fb.fbWidget.prototype, {
 			fb.target._updateSettings(fb.item);
 		});				
 		
-		$("input[id$='field.value.color']", $colorPanel).change(function(event) {
-			var value = $(this).data('colorPicker').color;
-			$textInput.css('color','#' + value);
-			styles.value.color = value;
-			fb.target._updateSettings(fb.item);
-		});		
+		// $("input[id$='field.value.color']", $colorPanel).change(function(event) {
+		// 	var value = $(this).data('colorPicker').color;
+		// 	$textInput.css('color','#' + value);
+		// 	styles.value.color = value;
+		// 	fb.target._updateSettings(fb.item);
+		// });		
 
-		$("input[id$='field.value.backgroundColor']", $colorPanel).change(function(event) {
-			var value = $(this).data('colorPicker').color;
-			$textInput.css('backgroundColor','#' + value);
-			styles.value.backgroundColor = value;
-			fb.target._updateSettings(fb.item);
-		});					
+		// $("input[id$='field.value.backgroundColor']", $colorPanel).change(function(event) {
+		// 	var value = $(this).data('colorPicker').color;
+		// 	$textInput.css('backgroundColor','#' + value);
+		// 	styles.value.backgroundColor = value;
+		// 	fb.target._updateSettings(fb.item);
+		// });					
 		
 		$("input[id$='field.description.color']", $colorPanel).change(function(event) {
 			var value = $(this).data('colorPicker').color;
-			fb.item.find('.formHint').css('color','#' + value);
+			fb.item.find('#checkboxOption').css('color','#' + value);
 			styles.description.color = value;
 			fb.target._updateSettings(fb.item);
 		});		
 
 		$("input[id$='field.description.backgroundColor']", $colorPanel).change(function(event) {
 			var value = $(this).data('colorPicker').color;
-			fb.item.find('.formHint').css('backgroundColor','#' + value);
+			fb.item.find('#checkboxOption').css('backgroundColor','#' + value);
 			styles.description.backgroundColor = value;
 			fb.target._updateSettings(fb.item);
 		});				

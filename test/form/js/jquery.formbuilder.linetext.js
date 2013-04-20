@@ -19,7 +19,8 @@ var FbLineText = $.extend({}, $.fb.fbWidget.prototype, {
 		      <input type="text" class="textInput" /> \
 	        <p class="formHint"></p></div>',
 		_counterField: 'label',
-		_languages: [ 'en', 'zh_CN' ],
+		// _languages: [ 'en', 'zh_CN' ],
+		_languages: [ 'en' ],
 		settings: {
 			en: {
 				label: 'Line Text',
@@ -31,16 +32,16 @@ var FbLineText = $.extend({}, $.fb.fbWidget.prototype, {
 					fontStyles: [0, 0, 0] // bold, italic, underline					
 				}				
 			},
-			zh_CN : {
-				label: '单行文字输入',
-				value: '',
-				description: '',				
-				styles: {
-					fontFamily: 'default', // form builder default
-					fontSize: 'default',
-					fontStyles: [0, 0, 0] // bold, italic, underline					
-				}				
-			},
+			// zh_CN : {
+			// 	label: '单行文字输入',
+			// 	value: '',
+			// 	description: '',				
+			// 	styles: {
+			// 		fontFamily: 'default', // form builder default
+			// 		fontSize: 'default',
+			// 		fontStyles: [0, 0, 0] // bold, italic, underline					
+			// 	}				
+			// },
 			_persistable: true,
 			required: true,
 			restriction: 'no',

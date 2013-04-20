@@ -1,0 +1,42 @@
+﻿<!-- INCLUDE overall_header.html -->
+
+<form action="{U_ACTION}" method="post">
+
+<table class="tablebg" width="100%" cellspacing="1">
+<tr>
+	<th colspan="2">{L_OPENID_ID_VERIFICATION_HEADER}</th>
+</tr>
+<tr>
+
+	<td class="row1">
+
+		<table align="center" cellspacing="1" cellpadding="4" style="width: 100%;">
+			<tr align="center">
+                            <td>{L_ID_LABEL}:&nbsp; <input type="text" name="id" value="{S_ID}" /></td>
+			</tr>
+                        <tr align="center">
+                            <td>{L_NICKNAME_LABEL}:&nbsp; <input type="text" name="id" value="{S_NICKNAME}" /></td>
+			</tr>
+                        <tr align="center">
+                            <td>{L_EMAIL_LABEL}:&nbsp; <input type="text" name="id" value="{S_EMAIL}" /></td>
+			</tr>
+                        <tr align="center">
+                            <td>{L_DOB_LABEL}:&nbsp; <input type="text" name="id" value="{S_DOB}" /></td>
+			</tr>
+		</table>
+	</td>
+</tr>
+
+<tr>
+	<td class="cat" colspan="2" align="center">{S_HIDDEN_FIELDS}<input type="submit" name="submit" class="btnmain" value="{L_SUBMIT}" tabindex="5" /></td>
+</tr>
+
+</table>
+{S_FORM_TOKEN}
+
+</form>
+<br clear="all" />
+
+<div align="{S_CONTENT_FLOW_END}"><!-- INCLUDE jumpbox.html --></div>
+
+<!-- INCLUDE overall_footer.html -->

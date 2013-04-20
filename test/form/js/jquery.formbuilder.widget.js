@@ -330,7 +330,7 @@ var FbWidget = {
  		var o = $.extend({}, options);
  		o.label = o.label ? o.label : 'Horizontal Align'; 
  		var $horizontalAlignment = this._label(o)
-		.append('<select> \
+		.append('<select class="span12"> \
 			<option value="leftAlign">left</option> \
 			<option value="centerAlign">center</option> \
 			<option value="rightAlign">right</option> \
@@ -342,7 +342,7 @@ var FbWidget = {
  		var o = $.extend({}, options);
  		o.label = o.label ? o.label : 'Vertical Align'; 
  		var $verticalAlignment = this._label(o)
-		 .append('<select> \
+		 .append('<select class="span12"> \
 				<option value="topAlign">top</option> \
 				<option value="middleAlign">middle</option> \
 				<option value="bottomAlign">bottom</option> \
@@ -410,7 +410,7 @@ var FbWidget = {
  	_fontSize: function(options) {
  		this._log('fontSize(' + $.toJSON(options) + ')');
  		options.nobreak = true;
-	 	var $fontSize = this._label(options).append('&nbsp;<select> \
+	 	var $fontSize = this._label(options).append('&nbsp;<select class="span12"> \
 		    <option value="9">9</option> \
 		    <option value="10">10</option> \
 		    <option value="11">11</option> \
@@ -526,6 +526,59 @@ var FbWidget = {
 		.append(this._threeColumns($('<div>Description</div>'),
 				    this._colorPicker({ name: 'field.description.color', value: o.description.color }),
 			      this._colorPicker({ name: 'field.description.backgroundColor', value: o.description.backgroundColor })));
+	  $colorPanel.css('paddingTop', '0.5em');
+	  $('input', $colorPanel).addClass('floatClearLeft span4');
+	  $('.col1', $colorPanel).css('verticalAlign', 'top');
+	  return $colorPanel;
+  },
+    _labelDescriptionColorPanel: function(options) {
+	  var o = $.extend({}, options);
+	  var fbStyles = this._getFbOptions().settings.styles;
+	  if (o.label.color == 'default') {
+		  o.label.color = fbStyles.color;
+	    } 	  
+	  if (o.label.backgroundColor == 'default') {
+		  o.label.backgroundColor = fbStyles.backgroundColor;
+	    } 	 
+	  if (o.description.color == 'default') {
+		  o.description.color = fbStyles.color;
+	    } 	  
+	  if (o.description.backgroundColor == 'default') {
+		  o.description.backgroundColor = fbStyles.backgroundColor;
+	    } 	 	  
+	  var $colorPanel = this._fieldset({ text: 'Colors' })
+	  .append(this._threeColumns($('<div></div>'), $('<div>Text</div>'), $('<div>Background</div>')).css('paddingBottom', '2px'))
+		.append(this._threeColumns($('<div>Label</div>'),
+				    this._colorPicker({ name: 'field.label.color', value: o.label.color }),
+			      this._colorPicker({ name: 'field.label.backgroundColor', value: o.label.backgroundColor })))
+		.append(this._threeColumns($('<div>Description</div>'),
+				    this._colorPicker({ name: 'field.description.color', value: o.description.color }),
+			      this._colorPicker({ name: 'field.description.backgroundColor', value: o.description.backgroundColor })));
+	  $colorPanel.css('paddingTop', '0.5em');
+	  $('input', $colorPanel).addClass('floatClearLeft span4');
+	  $('.col1', $colorPanel).css('verticalAlign', 'top');
+	  return $colorPanel;
+  },
+  _labelColorPanel: function(options) {
+	  var o = $.extend({}, options);
+	  var fbStyles = this._getFbOptions().settings.styles;
+	  if (o.label.color == 'default') {
+		  o.label.color = fbStyles.color;
+	    } 	  
+	  if (o.label.backgroundColor == 'default') {
+		  o.label.backgroundColor = fbStyles.backgroundColor;
+	    } 	 
+	  if (o.description.color == 'default') {
+		  o.description.color = fbStyles.color;
+	    } 	  
+	  if (o.description.backgroundColor == 'default') {
+		  o.description.backgroundColor = fbStyles.backgroundColor;
+	    } 	 	  
+	  var $colorPanel = this._fieldset({ text: 'Colors' })
+	  .append(this._threeColumns($('<div></div>'), $('<div>Text</div>'), $('<div>Background</div>')).css('paddingBottom', '2px'))
+		.append(this._threeColumns($('<div>Label</div>'),
+				    this._colorPicker({ name: 'field.label.color', value: o.label.color }),
+			      this._colorPicker({ name: 'field.label.backgroundColor', value: o.label.backgroundColor })));
 	  $colorPanel.css('paddingTop', '0.5em');
 	  $('input', $colorPanel).addClass('floatClearLeft span4');
 	  $('.col1', $colorPanel).css('verticalAlign', 'top');
