@@ -46,7 +46,7 @@ $redirect = base64_encode("http://".$dbHost.$url);
               <li><a '.$webboard.' href="../webboard">Web board</a></li>
               <li><a '.$gallery.' href="../gallery">Gallery</a></li>
               <li><a '.$chat_room.' href="../chat_room">Chat room</a></li>
-              <li><a '.$questionnaire.' href="#">Questionnaire</a></li>
+              <li><a '.$questionnaire.' href="../questionnaire">Questionnaire</a></li>
               <li><a '.$contact.' href="../contact">Contact Us</a></li>
             </ul>
           </div><!--/.well -->';

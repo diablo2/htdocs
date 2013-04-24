@@ -1,4 +1,4 @@
-﻿Story Update Program
+Story Update Program
 
 
 #################### 2013-03-20 ####################
@@ -13,13 +13,10 @@ Signup 	: validate.php		>>> locahost can't sent e-mail
 		: activation.php 	>>> localhost can't sent e-mail
 
 Login	: >> Have not check error
-<<<<<<< HEAD
-kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-=======
-
-<<<<<<< HEAD
 PR 		: Function share facebook isn't work >> not have image & title 
-
+FormBuilder
+		: create Questionair > unfinished insert creator to Database 
+		: answer Questionair > unfinished insert user id to Database AnsQuestion
 
 
 ####################### Link ################
@@ -28,7 +25,45 @@ Table + Pagination >> http://www.frequency-decoder.com/demo/table-sort-revisited
 jCarousel Lite >> http://www.gmarwaha.com/jquery/jcarousellite/#demo   >> use in page search_alumni.php
 Carousel >> http://bxslider.com/
 Carlendar >> http://www.vissit.com/projects/eventCalendar/
+Scrollbar >> http://www.webresourcesdepot.com/custom-scrollbars-with-jquery-perfect-scrollbar/
+Admin Themes >> https://github.com/onokumus/Bootstrap-Admin-Template
 =======
-TEST PLAI 222222222222222
->>>>>>> d256f3bf76514a52a87fe8111fc4594327326e7d
->>>>>>> 55b9f6aca15cbacaebffe10e44a02b9eef206050
+
+---------------------------------------
+		Information
+---------------------------------------
+Notification 
+	>	FlowData	TableID 		Sys 			TableName
+		Sys 2 User		1 			PR				Sci, MTH, MIC, PHY, CHM
+						2 			Activity		new Activity
+						3 							modify Activity
+						4 			Questionair		new Qustionair
+						5 							
+		User 2 User		6 			Chat 			New Msg
+						7			
+						8
+						9
+		User 2 Sys		10			Account			Sing Up
+						11							Sing in
+						12							Sing out
+						13			Profile			Edit Profile
+						14			Follow
+						15			Webboard
+
+
+
+	>	Sys 	TableID 	TableName
+		Chat		1 			new Msg
+		Activity	2 			new Activity
+					3			modify Activity you follow
+		Questionair	4 			new Questionair
+					5
+					6
+					7
+					8
+					9
+		User -> Sys	10 			Login / Logout
+					11			new Account
+					12			edit Account
+					13
+					14

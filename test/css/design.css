@@ -26,13 +26,14 @@ font-weight:normal;font-style:normal;}
 ----------------------------------------- */
 #nav-side ul li a{
     display: line-block;
-    width: 200px;
-    height: 38px;
+    width: 250px;
+    height: 50px;
     text-decoration: none;
     background: url(../images/system/nav-side.png) no-repeat;
-    background-size: 200px 88px;
-    line-height: 36px;
+    background-size: 250px 120px;
+    line-height: 48px;
     color: #FFFFFF;
+    font-size: 16px;
     }
 /*#nav-side .displace {
     position: absolute;
@@ -40,15 +41,45 @@ font-weight:normal;font-style:normal;}
 }*/
 #nav-side ul li a.active {
 
-    background-position: -2px -44px;
+    background-position: -2px -60px;
     color: #000000; 
 }
 #nav-side ul li :hover {
-    background-position: -2px -44px;
+    background-position: -2px -60px;
     color: #000000;
     }
+/* -----------------------------------------
+    Navigation Top
+----------------------------------------- */
 
+/*----- Notification -----*/
+.noti .dropdown-menu {
+    max-height: 400px;
+    margin:0px auto; 
+    width: 430px; 
+    overflow: hidden;
 
+}
+.noti .dropdown-menu ul {
+    padding: 0px;
+}
+.noti .dropdown-menu li {
+        padding: 0 10px 0 10px;
+    border-top: 1px solid #E9E9E9;
+/*    border-bottom: 1px solid #E9E9E9; */       
+}
+.noti .dropdown-menu li a{
+
+}
+.noti .dropdown-menu li:hover{
+    background-color: #E9E9E9;
+}
+.noti .badge {
+    position: relative;
+    top: -5px;
+    left: -5px;
+    font-size: 10px;
+}
 /* -----------------------------------------
 	Home 
 ----------------------------------------- */
@@ -322,3 +353,8 @@ span.jPag-snext-img{
 .row-fluid ul.thumbnails li.span1:nth-child(12n + 13) { margin-left : 0px; }
 .gallery .row-fluid ul.thumbnails li img {height: 116px; width: 116px; }
 .content {padding-right: 30px}
+
+
+
+
+

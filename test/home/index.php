@@ -8,6 +8,7 @@
 
     <!-- Le styles -->
     <link href="../css/bootstrap.css" rel="stylesheet">
+
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -28,6 +29,8 @@
     </style>
     <link href="../css/bootstrap-responsive.css" rel="stylesheet">
     <link href="../css/design.css" rel="stylesheet">
+    <link href="../css/otifications.css" rel="stylesheet">
+    <script src="../js/jquery-1.9.1.js"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
@@ -117,6 +120,7 @@
           </div><!--/row-->
         </div><!--/span-->
       </div><!--/row-->
+
 <!-------------------- Footer ---------------------------->
 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
   <li><a tabindex="-1" href="#">Action</a></li>
@@ -133,7 +137,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 <!--    <script src="js/jquery.js"></script> -->
-    <script src="../js/jquery-1.9.1.js"></script>
+
     <script src="../js/bootstrap-transition.js"></script>
     <script src="../js/bootstrap-alert.js"></script>
     <script src="../js/bootstrap-modal.js"></script>
@@ -148,4 +152,8 @@
     <script src="../js/bootstrap-typeahead.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/bootstrap.js"></script>
+
+    <script src="../js/notifications.js"></script>
+
+
 </body></html>
