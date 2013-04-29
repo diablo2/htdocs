@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -29,8 +29,8 @@
         }
       }
     </style>
-    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="../css/design.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../assets/css/design.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -39,10 +39,10 @@
 
     <!-- Fav and touch icons -->
   <script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script></head>
-      <script src="../js/jquery-1.9.1.js"></script>
+      <script src="../assets/js/vendor/jquery-1.9.1.min.js"></script>
   <body class="container">
     <!-- Header and Nav -->
-    <?php include('../component/nav-top.php'); ?>       
+    <?php include('../assets/component/nav-top.php'); ?>       
     <div class="container-fluid contain">
       <div class="row-fluid header">
 
@@ -56,7 +56,7 @@
         <!-- Nav Sidebar -->
     <!-- This is source ordered to be pulled to the left on larger screens -->
     <div class="span3">
-        <?php include '../component/nav-side.php'; ?>
+        <?php include '../assets/component/nav-side.php'; ?>
     </div>
     <!-- Main Content Section -->
     <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
@@ -152,26 +152,26 @@
     
   
 <!-------------------- Footer ---------------------------->
-    <?php include('../component/footer.php'); ?>
+    <?php include('../assets/component/footer.php'); ?>
  </div> <!-- End container --> 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 <!--    <script src="js/jquery.js"></script> -->
-    <script src="../js/bootstrap-transition.js"></script>
-    <script src="../js/bootstrap-alert.js"></script>
-    <script src="../js/bootstrap-modal.js"></script>
-    <script src="../js/bootstrap-dropdown.js"></script>
-    <script src="../js/bootstrap-scrollspy.js"></script>
-    <script src="../js/bootstrap-tab.js"></script>
-    <script src="../js/bootstrap-tooltip.js"></script>
-    <script src="../js/bootstrap-popover.js"></script>
-    <script src="../js/bootstrap-button.js"></script>
-    <script src="../js/bootstrap-collapse.js"></script>
-    <script src="../js/bootstrap-carousel.js"></script>
-    <script src="../js/bootstrap-typeahead.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/bootstrap.js"></script>
+    <script src="../assets/js/lib/bootstrap-transition.js"></script>
+    <script src="../assets/js/lib/bootstrap-alert.js"></script>
+    <script src="../assets/js/lib/bootstrap-modal.js"></script>
+    <script src="../assets/js/lib/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/lib/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/lib/bootstrap-tab.js"></script>
+    <script src="../assets/js/lib/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/lib/bootstrap-popover.js"></script>
+    <script src="../assets/js/lib/bootstrap-button.js"></script>
+    <script src="../assets/js/lib/bootstrap-collapse.js"></script>
+    <script src="../assets/js/lib/bootstrap-carousel.js"></script>
+    <script src="../assets/js/lib/bootstrap-typeahead.js"></script>
+    <script src="../assets/js/vendor/bootstrap.min.js"></script>
+    <script src="../assets/js/vendor/bootstrap.js"></script>
     <!-- Script Facebook -->
     <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Loader" type="text/javascript"></script>  
     <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>  

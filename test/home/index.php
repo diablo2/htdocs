@@ -7,7 +7,7 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
 
     <style type="text/css">
       body {
@@ -19,7 +19,7 @@
       }
 
       @media (max-width: 980px) {
-        /* Enable use of floated navbar text */
+        /* Enable use of floated navbar text */ 
         .navbar-text.pull-right {
           float: none;
           padding-left: 5px;
@@ -27,10 +27,10 @@
         }
       }
     </style>
-    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="../css/design.css" rel="stylesheet">
-    <link href="../css/otifications.css" rel="stylesheet">
-    <script src="../js/jquery-1.9.1.js"></script>
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../assets/css/design.css" rel="stylesheet">
+    <link href="../assets/css/otifications.css" rel="stylesheet">
+    <script src="../assets/js/vendor/jquery-1.9.1.min.js"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
@@ -41,14 +41,14 @@
 </head>
 
   <body class="container">
-    <?php include('../component/nav-top.php'); ?>   
+    <?php include('../assets/component/nav-top.php'); ?>   
     <div class="container-fluid contain">
       <div class="row-fluid header">
 
       </div>
       <div class="row-fluid">
         <div class="span3">
-        <?php include '../component/nav-side.php'; ?>
+        <?php include '../assets/component/nav-side.php'; ?>
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
@@ -61,15 +61,15 @@
               <!-- Carousel items -->
               <div class="carousel-inner">
                 <div class="active item">
-                  <img src="../images/bootstrap-mdo-sfmoma-01.jpg">
+                  <img src="../assets/images/bootstrap-mdo-sfmoma-01.jpg">
                     <div class="carousel-caption">
                       <h4>First Thumbnail label</h4>
                       <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                     </div>
                 </div>
-                <div class="item"><img src="../images/bootstrap-mdo-sfmoma-02.jpg"></div>
+                <div class="item"><img src="../assets/images/bootstrap-mdo-sfmoma-02.jpg"></div>
                 <div class="item">
-                  <img src="../images/bootstrap-mdo-sfmoma-03.jpg">
+                  <img src="../assets/images/bootstrap-mdo-sfmoma-03.jpg">
                   <div class="carousel-caption">
                       <h4>Second Thumbnail label</h4>
                       <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -129,7 +129,7 @@
   <li class="divider"></li>
   <li><a tabindex="-1" href="#">Separated link</a></li>
 </ul>
-    <?php include('../component/footer.php'); ?>
+    <?php include('../assets/component/footer.php'); ?>
     </div><!--/.fluid-container-->
 
 
@@ -138,22 +138,22 @@
     <!-- Placed at the end of the document so the pages load faster -->
 <!--    <script src="js/jquery.js"></script> -->
 
-    <script src="../js/bootstrap-transition.js"></script>
-    <script src="../js/bootstrap-alert.js"></script>
-    <script src="../js/bootstrap-modal.js"></script>
-    <script src="../js/bootstrap-dropdown.js"></script>
-    <script src="../js/bootstrap-scrollspy.js"></script>
-    <script src="../js/bootstrap-tab.js"></script>
-    <script src="../js/bootstrap-tooltip.js"></script>
-    <script src="../js/bootstrap-popover.js"></script>
-    <script src="../js/bootstrap-button.js"></script>
-    <script src="../js/bootstrap-collapse.js"></script>
-    <script src="../js/bootstrap-carousel.js"></script>
-    <script src="../js/bootstrap-typeahead.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/bootstrap.js"></script>
+    <script src="../assets/js/lib/bootstrap-transition.js"></script>
+    <script src="../assets/js/lib/bootstrap-alert.js"></script>
+    <script src="../assets/js/lib/bootstrap-modal.js"></script>
+    <script src="../assets/js/lib/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/lib/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/lib/bootstrap-tab.js"></script>
+    <script src="../assets/js/lib/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/lib/bootstrap-popover.js"></script>
+    <script src="../assets/js/lib/bootstrap-button.js"></script>
+    <script src="../assets/js/lib/bootstrap-collapse.js"></script>
+    <script src="../assets/js/lib/bootstrap-carousel.js"></script>
+    <script src="../assets/js/lib/bootstrap-typeahead.js"></script>
+    <script src="../assets/js/vendor/bootstrap.min.js"></script>
+    <script src="../assets/js/vendor/bootstrap.js"></script>
 
-    <script src="../js/notifications.js"></script>
+    <script src="../assets/js/lib/notifications.js"></script>
 
 
 </body></html>

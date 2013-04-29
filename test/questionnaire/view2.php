@@ -40,8 +40,8 @@
 <!--DEV--><link type="text/css" href="css/jquery.fontpicker.css" media="screen" rel="stylesheet" /> 
 <!--PROD.CSS-->
 <!-- Bootstrap Css -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/designAdmin.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/designAdmin.css" rel="stylesheet">
 <script type="text/javascript">
 $(function() {
  $('#container').formbuilder();

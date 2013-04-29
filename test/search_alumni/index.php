@@ -11,7 +11,7 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -30,11 +30,11 @@
         }
       }
     </style>
-    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- bxSlider CSS file -->
-    <link href="../css/jquery.bxslider.css" rel="stylesheet" />
-    <link href="../css/design.css" rel="stylesheet">    
+    <link href="../assets/css/jquery.bxslider.css" rel="stylesheet" />
+    <link href="../assets/css/design.css" rel="stylesheet">    
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
@@ -45,14 +45,14 @@
 
 </head>
 <body class="container">
-  <?php include('../component/nav-top.php'); ?>
+  <?php include('../assets/component/nav-top.php'); ?>
   <div class="container-fluid contain">
     <div class="row-fluid header"> <!-- Header Search Alumni -->
 
     </div><!-- End Header Search Alumni -->
     <div class="row-fluid"> <!-- Nav + Content -->
       <div class="span3">
-        <?php include '../component/nav-side.php'; ?>
+        <?php include '../assets/component/nav-side.php'; ?>
       </div>
 
       <div class="span9">
@@ -104,7 +104,7 @@
                 for ($i = 1 ; $i <= 10 ; $i++){ // while >> for print alumni (image and name)
                   echo '<li class="slide">';
                   echo '<a href="index.php">';
-                  echo '<img src="../images/upload/testimg.png" href="inex.php">'.$i; // image + name
+                  echo '<img src="../assets/images/upload/testimg.png" href="inex.php">'.$i; // image + name
                   echo '</a></li>';
                 }
                 echo '</ul>';
@@ -118,7 +118,7 @@
               echo '<ul class="thumbnails">';
               for($i = 0 ; $i < 4 ; $i++){
                 echo '<li class="span3"><a class="thumbnail" href="index.php">';
-                echo '<img src="../images/upload/testimg.png">';
+                echo '<img src="../assets/images/upload/testimg.png">';
                 echo '</a></li>';
               }
               echo '</ul>';
@@ -130,7 +130,7 @@
     </div><!-- End Nav + Content -->
 
 <!-------------------- Footer ---------------------------->
-    <?php include('../component/footer.php'); ?>
+    <?php include('../assets/component/footer.php'); ?>
 
   </div>
 
@@ -138,23 +138,23 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 <!--    <script src="js/jquery.js"></script> -->
-    <script src="../js/jquery-1.9.1.js"></script>
-    <script src="../js/bootstrap-transition.js"></script>
-    <script src="../js/bootstrap-alert.js"></script>
-    <script src="../js/bootstrap-modal.js"></script>
-    <script src="../js/bootstrap-dropdown.js"></script>
-    <script src="../js/bootstrap-scrollspy.js"></script>
-    <script src="../js/bootstrap-tab.js"></script>
-    <script src="../js/bootstrap-tooltip.js"></script>
-    <script src="../js/bootstrap-popover.js"></script>
-    <script src="../js/bootstrap-button.js"></script>
-    <script src="../js/bootstrap-collapse.js"></script>
-    <script src="../js/bootstrap-carousel.js"></script>
-    <script src="../js/bootstrap-typeahead.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/bootstrap.js"></script>
+    <script src="../assets/js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="../assets/js/lib/bootstrap-transition.js"></script>
+    <script src="../assets/js/lib/bootstrap-alert.js"></script>
+    <script src="../assets/js/lib/bootstrap-modal.js"></script>
+    <script src="../assets/js/lib/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/lib/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/lib/bootstrap-tab.js"></script>
+    <script src="../assets/js/lib/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/lib/bootstrap-popover.js"></script>
+    <script src="../assets/js/lib/bootstrap-button.js"></script>
+    <script src="../assets/js/lib/bootstrap-collapse.js"></script>
+    <script src="../assets/js/lib/bootstrap-carousel.js"></script>
+    <script src="../assets/js/lib/bootstrap-typeahead.js"></script>
+    <script src="../assets/js/vendor/bootstrap.min.js"></script>
+    <script src="../assets/js/vendor/bootstrap.js"></script>
     <!-- bxSlider Javascript file -->
-    <script src="../js/jquery.bxslider.min.js"></script>
+    <script src="../assets/js/lib/jquery.bxslider.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){
         $('.bxslider').bxSlider({

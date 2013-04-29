@@ -7,7 +7,7 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -26,15 +26,15 @@
         }
       }
     </style>
-    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="../css/design.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../assets/css/design.css" rel="stylesheet">
 
 
   <!-- Core CSS File. The CSS code needed to make eventCalendar works -->
-  <link rel="stylesheet" href="../css/eventCalendar.css">
+  <link rel="stylesheet" href="../assets/css/eventCalendar.css">
 
   <!-- Theme CSS file: it makes eventCalendar nicer -->
-  <link rel="stylesheet" href="../css/eventCalendar_theme_responsive.css">
+  <link rel="stylesheet" href="../assets/css/eventCalendar_theme_responsive.css">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -46,14 +46,14 @@
 </head>
 
   <body class="container">
-    <?php include('../component/nav-top.php'); ?>   
+    <?php include('../assets/component/nav-top.php'); ?>   
     <div class="container-fluid contain">
       <div class="row-fluid header">
 
       </div>
       <div class="row-fluid">
         <div class="span3">
-        <?php include '../component/nav-side.php'; ?>
+        <?php include '../assets/component/nav-side.php'; ?>
         </div><!--/span-->
         <div class="span9">
 
@@ -74,7 +74,7 @@
         </div><!--/span-->
       </div><!--/row-->
 <!-------------------- Footer ---------------------------->
-    <?php include('../component/footer.php'); ?>
+    <?php include('../assets/component/footer.php'); ?>
     </div><!--/.fluid-container-->
 
 
@@ -82,28 +82,28 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 <!--    <script src="js/jquery.js"></script> -->
-    <script src="../js/jquery-1.9.1.js"></script>
-    <script src="../js/bootstrap-transition.js"></script>
-    <script src="../js/bootstrap-alert.js"></script>
-    <script src="../js/bootstrap-modal.js"></script>
-    <script src="../js/bootstrap-dropdown.js"></script>
-    <script src="../js/bootstrap-scrollspy.js"></script>
-    <script src="../js/bootstrap-tab.js"></script>
-    <script src="../js/bootstrap-tooltip.js"></script>
-    <script src="../js/bootstrap-popover.js"></script>
-    <script src="../js/bootstrap-button.js"></script>
-    <script src="../js/bootstrap-collapse.js"></script>
-    <script src="../js/bootstrap-carousel.js"></script>
-    <script src="../js/bootstrap-typeahead.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/bootstrap.js"></script>
+    <script src="../assets/js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="../assets/js/lib/bootstrap-transition.js"></script>
+    <script src="../assets/js/lib/bootstrap-alert.js"></script>
+    <script src="../assets/js/lib/bootstrap-modal.js"></script>
+    <script src="../assets/js/lib/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/lib/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/lib/bootstrap-tab.js"></script>
+    <script src="../assets/js/lib/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/lib/bootstrap-popover.js"></script>
+    <script src="../assets/js/lib/bootstrap-button.js"></script>
+    <script src="../assets/js/lib/bootstrap-collapse.js"></script>
+    <script src="../assets/js/lib/bootstrap-carousel.js"></script>
+    <script src="../assets/js/lib/bootstrap-typeahead.js"></script>
+    <script src="../assets/js/vendor/bootstrap.min.js"></script>
+    <script src="../assets/js/vendor/bootstrap.js"></script>
 
     <!-- Calendar -->
-    <script src="../js/jquery.eventCalendar.js" type="text/javascript"></script>
+    <script src="../assets/js/lib/jquery.eventCalendar.js" type="text/javascript"></script>
     <script>
           $(document).ready(function() {
             $("#eventCalendarHumanDate").eventCalendar({
-              eventsjson: '../json/event.humanDate.json.php',
+              eventsjson: '../assets/json/event.humanDate.json.php',
               jsonDateFormat: 'human'  // 'YYYY-MM-DD HH:MM:SS'
             });
           });

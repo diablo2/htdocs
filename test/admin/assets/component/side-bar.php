@@ -3,7 +3,7 @@
                 <!-- .user-media -->
                 <div class="media user-media hidden-phone">
                     <a href="" class="user-link">
-                        <img src="assets/img/user.gif" alt="" class="media-object img-polaroid user-img">
+                        <img src="../assets/img/user.gif" alt="" class="media-object img-polaroid user-img">
                         <span class="label user-label">16</span>
                     </a>
 
@@ -33,6 +33,9 @@
                     </li>
                     <li><a href="../main"><i class="icon-asterisk icon-large"></i> Home</a></li>
                     <li><a href="../user"><i class="icon-user icon-large"></i> User</a></li>
+                    <li><a href="../public_relation"><i class="icon-bell icon-large"></i> Public Relation</a></li>
+                    <li><a href="../activity"><i class="icon-calendar icon-large"></i> Activity</a></li>
+                    <li><a href="../gallery"><i class="icon-picture icon-large"></i> Gallery</a></li>
                     <li class="accordion-group ">
                         <a data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#component-nav">
                             <i class="icon-tasks icon-large"></i> Components <span class="label label-inverse pull-right">2</span>

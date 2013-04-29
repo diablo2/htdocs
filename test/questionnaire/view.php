@@ -40,8 +40,8 @@
 <!--DEV--><link type="text/css" href="css/jquery.fontpicker.css" media="screen" rel="stylesheet" /> 
 <!--PROD.CSS-->
 <!-- Bootstrap Css -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/designAdmin.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/designAdmin.css" rel="stylesheet">
 
 
 </head>
@@ -111,21 +111,21 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 <!--    <script src="js/jquery.js"></script> -->
-    <script src="../js/jquery-1.9.1.js"></script>
-    <script src="../js/bootstrap-transition.js"></script>
-    <script src="../js/bootstrap-alert.js"></script>
-    <script src="../js/bootstrap-modal.js"></script>
-    <script src="../js/bootstrap-dropdown.js"></script>
-    <script src="../js/bootstrap-scrollspy.js"></script>
-    <script src="../js/bootstrap-tab.js"></script>
-    <script src="../js/bootstrap-tooltip.js"></script>
-    <script src="../js/bootstrap-popover.js"></script>
-    <script src="../js/bootstrap-button.js"></script>
-    <script src="../js/bootstrap-collapse.js"></script>
-    <script src="../js/bootstrap-carousel.js"></script>
-    <script src="../js/bootstrap-typeahead.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/bootstrap.js"></script>
+    <script src="../assets/js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="../assets/js/lib/bootstrap-transition.js"></script>
+    <script src="../assets/js/lib/bootstrap-alert.js"></script>
+    <script src="../assets/js/lib/bootstrap-modal.js"></script>
+    <script src="../assets/js/lib/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/lib/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/lib/bootstrap-tab.js"></script>
+    <script src="../assets/js/lib/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/lib/bootstrap-popover.js"></script>
+    <script src="../assets/js/lib/bootstrap-button.js"></script>
+    <script src="../assets/js/lib/bootstrap-collapse.js"></script>
+    <script src="../assets/js/lib/bootstrap-carousel.js"></script>
+    <script src="../assets/js/lib/bootstrap-typeahead.js"></script>
+    <script src="../assets/js/vendor/bootstrap.min.js"></script>
+    <script src="../assets/js/vendor/bootstrap.js"></script>
     <script type="text/javascript">
       $(function(){
         $('#questionnaire').append('ttttttttt');

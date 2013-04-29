@@ -7,7 +7,7 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -26,8 +26,8 @@
         }
       }
     </style>
-    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="../css/design.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../assets/css/design.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -94,9 +94,9 @@
     <script src="../../../../Users/Admin-Asus/js/bootstrap-collapse.js"></script>
     <script src="../../../../Users/Admin-Asus/js/bootstrap-carousel.js"></script>
     <script src="../../../../Users/Admin-Asus/js/bootstrap-typeahead.js"></script>-->
-    <script src="../js/jquery-1.9.1.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/bootstrap.js"></script>
+    <script src="../assets/js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="../assets/js/vendor/bootstrap.min.js"></script>
+    <script src="../assets/js/vendor/bootstrap.js"></script>
  
 
 </body></html>
